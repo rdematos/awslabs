@@ -1,0 +1,26 @@
+#setup
+#install "Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files” installed from http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html to 
+“/Library/Java/JavaVirtualMachines/jdk1.7.0_06.jdk/Contents/Home/jre/lib/security"
+#policy
+aws iot --endpoint-url  https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta create-policy --policy-name PubSubToAnyTopic --policy-document file://policydoc.json 
+#
+#keyreset_steps.txt
+#
+openssl genrsa -out privkey.pem 2048
+#
+openssl req -new -key privkey.pem -out cert.csr
+#
+aws iot create-certificate-from-csr --certificate-signing-request file://cert.csr --set-as-active
+#
+aws iot describe-certificate --certificate-id 2a5043564b44fb766282f4c0d0f43d937ceba6aa99c471e80c76706cb5c534d3 --output text --query certificateDescription.certificatePem > cert.pem
+#
+
+aws iot attach-principal-policy --principal arn:aws:iot:us-east-1:673485280914:cert/2a5043564b44fb766282f4c0d0f43d937ceba6aa99c471e80c76706cb5c534d3 --policy-name "PubSubToAnyTopic"
+#
+openssl pkcs12 -export -name icebreakercert -in cert.pem -inkey privkey.pem -out keystore.p12
+#
+keytool -importkeystore -destkeystore icebreaker.bks -srckeystore keystore.p12 -srcstoretype pkcs12 -alias icebreakercert -deststoretype BKS -provider org.bouncycastle.jce.provider.BouncyCastleProvider -providerpath bcprov-jdk15on-152.jar
+#
+mosquitto_sub --cafile rootCA.pem --cert cert.pem --key privkey.pem -h data.iot.us-east-1.amazonaws.com -p 8883 -q 1 -d -t foo/bar -i clientid1
+#
+mosquitto_pub --cafile rootCA.pem --cert cert.pem --key privkey.pem -h data.iot.us-east-1.amazonaws.com -p 8883 -q 1 -d -t foo/bar -i clientid2 -m "Hello, World"

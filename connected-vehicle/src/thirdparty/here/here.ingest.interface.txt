@@ -1,0 +1,53 @@
+Approaches for retrieval:
+
+
+-----------super simple approach that uses file naming to track processing-------------
+1. Setup  client
+
+## Install AWS CLI (see http://docs.aws.amazon.com/cli/latest/userguide/installing.html for more details)
+### pip install awscli
+
+## Configure AWS CLI to use
+### aws configure
+### AWS Access Key ID: AKIAJ37QF7MFCN5XCTIA
+### AWS Secret Access Key: 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
+### Default Region Name: us-east-1
+### Default output format: json
+
+2. List S3 contents
+aws s3 ls s3://here.awsiot/*.xml
+3. Rename the file being processed
+aws s3 mv s3://here.awsiot/event123.xml s3://here.awsiot/processing/event123.xml
+4. Get the file
+aws s3 cp s3://here.awsiot/processing/event123.xml .
+5. Move the file once after processed; if success:
+aws s3 mv aws s3 cp s3://here.awsiot/processing/event123.xml s3://here.awsiot/success/event123.xml
+or if failure, mark as failed and copy error
+aws s3 mv s3://here.awsiot/processing/event123.xml s3://here.awsiot/failed/event123.xml
+aws s3 cp event123.xml.error s3://here.awsiot/failed/event123.xml.error
+
+
+
+-----------queue-based approach that uses AWS SimpleQueueService----------------------------------------------------
+
+1. Setup  client
+
+## Install AWS CLI (see http://docs.aws.amazon.com/cli/latest/userguide/installing.html for more details)
+### pip install awscli
+
+## Configure AWS CLI to use
+### aws configure
+### AWS Access Key ID: AKIAJ37QF7MFCN5XCTIA
+### AWS Secret Access Key: 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
+### Default Region Name: us-east-1
+### Default output format: json
+2. Retrieve New Message (note that this is a long poll call that will only return message it exists; it will wait up to 20 seconds for a new message; if a message is returned, it hides it from other queue readers for 120 seconds. if no messages are returned, call should be made again;
+### aws sqs receive-message  --queue-url https://queue.amazonaws.com/673485280914/here --visibility-timeout 120 --wait-time-seconds 20
+3. Consume Payload 
+### aws s3 cp {messages[].body}
+4. If successfull, delete message:
+### aws sqs delete-message  --queue-url https://queue.amazonaws.com/673485280914/here --receipt-handle {messages[].receipt-handle}
+5. If failure, write error to s3
+aws s3 cp aws s3 cp event123.xml.error s3://here.awsiot/failed/event123.xml
+note that message will reappear in queue again up to 3 times, then it will be moved off the queue to the dead-letter-queue https://queue.amazonaws.com/673485280914/heredlq
+6. Repeat step 2.

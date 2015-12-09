@@ -1,0 +1,2572 @@
+{
+    "datexEventTypes": {
+        "RoadsideServiceDisruption": {
+            "eventTypeValues": {
+                "NO_DIESEL_FOR_LIGHT_VEHICLES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SOME_COMMERCIAL_SERVICES_CLOSED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BAR_CLOSED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DIESEL_SHORTAGE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_TOILET_FACILITIES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SERVICE_AREA_BUSY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "WATER_SHORTAGE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_PUBLIC_TELEPHONES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SERVICE_AREA_FUEL_STATION_CLOSED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "REST_AREA_CLOSED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "PETROL_SHORTAGE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_DIESEL_FOR_HEAVY_VEHICLES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SERVICE_AREA_RESTAURANT_CLOSED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "LPG_SHORTAGE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_VEHICLE_REPAIR_FACILITIES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SERVICE_AREA_OVERCROWDED_DRIVE_TO_ANOTHER_SERVICE_AREA": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "REST_AREA_OVERCROWDED_DRIVE_TO_ANOTHER_REST_AREA": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SERVICE_AREA_CLOSED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FUEL_SHORTAGE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "METHANE_SHORTAGE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "REST_AREA_BUSY": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "Activities": {
+            "eventTypeValues": {
+                "SHOW_JUMPING": {
+                    "additionalValues": { },
+                    "value": 1464
+                },
+                "PARADE": {
+                    "additionalValues": { },
+                    "value": 1510
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FESTIVAL": {
+                    "additionalValues": { },
+                    "value": 1504
+                },
+                "BICYCLE_RACE": {
+                    "additionalValues": { },
+                    "value": 1458
+                },
+                "AGRICULTURAL_SHOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FUNFAIR": {
+                    "additionalValues": { },
+                    "value": 1468
+                },
+                "BOAT_RACE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "WATER_SPORTS_MEETING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "MARKET": {
+                    "additionalValues": { },
+                    "value": 1507
+                },
+                "BASEBALL_GAME": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "COMMERCIAL_EVENT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BOAT_SHOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BOXING_TOURNAMENT": {
+                    "additionalValues": { },
+                    "value": 1455
+                },
+                "MATCH": {
+                    "additionalValues": { },
+                    "value": 1451
+                },
+                "MOTOR_SPORT_RACE_MEETING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "MOTOR_SHOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ATHLETICS_MEETING": {
+                    "additionalValues": { },
+                    "value": 1453
+                },
+                "BASKETBALL_GAME": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FILM_T_V_MAKING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FOOTBALL_MATCH": {
+                    "additionalValues": { },
+                    "value": 1459
+                },
+                "AIR_SHOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CONCERT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "TOURNAMENT": {
+                    "additionalValues": { },
+                    "value": 1452
+                },
+                "STATE_OCCASION": {
+                    "additionalValues": { },
+                    "value": 1509
+                },
+                "INTERNATIONAL_SPORTS_MEETING": {
+                    "additionalValues": { },
+                    "value": 1450
+                },
+                "CEREMONIAL_EVENT": {
+                    "additionalValues": { },
+                    "value": 1508
+                },
+                "FAIR": {
+                    "additionalValues": { },
+                    "value": 1506
+                },
+                "RACE_MEETING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "WINTER_SPORTS_MEETING": {
+                    "additionalValues": { },
+                    "value": 1467
+                },
+                "EXHIBITION": {
+                    "additionalValues": { },
+                    "value": 1505
+                },
+                "MAJOR_EVENT": {
+                    "additionalValues": { },
+                    "value": 1501
+                },
+                "GARDENING_OR_FLOWER_SHOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "GOLF_TOURNAMENT": {
+                    "additionalValues": { },
+                    "value": 1460
+                },
+                "HOCKEY_GAME": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CULTURAL_EVENT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SEVERAL_MAJOR_EVENTS": {
+                    "additionalValues": { },
+                    "value": 1590
+                },
+                "TRADE_FAIR": {
+                    "additionalValues": { },
+                    "value": 1469
+                },
+                "MARATHON": {
+                    "additionalValues": { },
+                    "value": 1461
+                },
+                "TENNIS_TOURNAMENT": {
+                    "additionalValues": { },
+                    "value": 1465
+                },
+                "BULL_FIGHT": {
+                    "additionalValues": { },
+                    "value": 1456
+                },
+                "CRICKET_MATCH": {
+                    "additionalValues": { },
+                    "value": 1457
+                },
+                "HORSE_RACE_MEETING": {
+                    "additionalValues": { },
+                    "value": 1462
+                },
+                "RUGBY_MATCH": {
+                    "additionalValues": { },
+                    "value": 1463
+                },
+                "PROCESSION": {
+                    "additionalValues": { },
+                    "value": 1470
+                },
+                "SHOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SPORTS_MEETING": {
+                    "additionalValues": { },
+                    "value": 1502
+                },
+                "BALL_GAME": {
+                    "additionalValues": { },
+                    "value": 1454
+                },
+                "CUSTOMS_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "UNDEFINED_AUTHORITY_ACTIVITY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "VEHICLE_INSPECTION_CHECK_POINT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SURVEY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "POLICE_CHECK_POINT": {
+                    "additionalValues": { },
+                    "value": 1477
+                },
+                "POLICE_INVESTIGATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CIVIL_EMERGENCY": {
+                    "additionalValues": { },
+                    "value": 1480
+                },
+                "JURIDICAL_RECONSTRUCTION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ROAD_OPERATOR_CHECK_POINT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "VEHICLE_WEIGHING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BOMB_SQUAD_IN_ACTION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ACCIDENT_INVESTIGATION_WORK": {
+                    "additionalValues": { },
+                    "value": 344
+                },
+                "WEIGH_IN_MOTION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "TRANSPORT_OF_VIP": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ASSET_DESTRUCTION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "GO_SLOW_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "RADIOACTIVE_LEAK_ALERT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "EVACUATION": {
+                    "additionalValues": { },
+                    "value": 1494
+                },
+                "SIGHTSEERS_OBSTRUCTING_ACCESS": {
+                    "additionalValues": { },
+                    "value": 1471
+                },
+                "ILL_VEHICLE_OCCUPANTS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BOMB_ALERT": {
+                    "additionalValues": { },
+                    "value": 1516
+                },
+                "AIR_RAID": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "TOXIC_CLOUD_ALERT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SABOTAGE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DEMONSTRATION": {
+                    "additionalValues": { },
+                    "value": 1513
+                },
+                "SECURITY_ALERT": {
+                    "additionalValues": { },
+                    "value": 1515
+                },
+                "MARCH": {
+                    "additionalValues": { },
+                    "value": 1512
+                },
+                "SECURITY_INCIDENT": {
+                    "additionalValues": { },
+                    "value": 1476
+                },
+                "FILTER_BLOCKADE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "TERRORIST_INCIDENT": {
+                    "additionalValues": { },
+                    "value": 1478
+                },
+                "BLOCKADE_OR_BARRIER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "PUBLIC_DISTURBANCE": {
+                    "additionalValues": { },
+                    "value": 1514
+                },
+                "STRIKE": {
+                    "additionalValues": { },
+                    "value": 1475
+                },
+                "ASSAULT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "GUNFIRE_ON_ROADWAY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "UNSPECIFIED_ALERT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "THEFT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ALTERCATION_OF_VEHICLE_OCCUPANTS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ATTACK": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ATTACK_ON_VEHICLE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "RIOT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CROWD": {
+                    "additionalValues": { },
+                    "value": 1511
+                }
+            },
+            "eventCode": null
+        },
+        "ConstructionWorks": {
+            "eventTypeValues": {
+                "DEMOLITION_WORK": {
+                    "additionalValues": { },
+                    "value": 805
+                },
+                "CONSTRUCTION_WORK": {
+                    "additionalValues": { },
+                    "value": 803
+                },
+                "ROAD_WIDENING_WORK": {
+                    "additionalValues": { },
+                    "value": 803
+                },
+                "BLASTING_WORK": {
+                    "additionalValues": { },
+                    "value": 709
+                },
+                "ROAD_IMPROVEMENT_OR_UPGRADING": {
+                    "additionalValues": { },
+                    "value": 701
+                }
+            },
+            "eventCode": null
+        },
+        "InfrastructureDamageObstruction": {
+            "eventTypeValues": {
+                "DAMAGED_BRIDGE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DAMAGED_ROAD_SURFACE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DAMAGED_FLYOVER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DAMAGED_GANTRY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DAMAGED_GALLERY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "GAS_LEAK": {
+                    "additionalValues": { },
+                    "value": 920
+                },
+                "DAMAGED_VIADUCT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DAMAGED_CRASH_BARRIER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FALLEN_POWER_CABLES": {
+                    "additionalValues": { },
+                    "value": 973
+                },
+                "BURST_WATER_MAIN": {
+                    "additionalValues": { },
+                    "value": 919
+                },
+                "DAMAGED_TUNNEL": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "WEAK_BRIDGE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BURST_PIPE": {
+                    "additionalValues": { },
+                    "value": 62
+                },
+                "COLLAPSED_SEWER": {
+                    "additionalValues": { },
+                    "value": 1030
+                }
+            },
+            "eventCode": null
+        },
+        "RoadsideAssistance": {
+            "eventTypeValues": {
+                "EMERGENCY_SERVICES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "VEHICLE_RECOVERY": {
+                    "additionalValues": { },
+                    "value": 397
+                },
+                "BUS_PASSENGER_ASSISTANCE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "VEHICLE_REPAIR": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FOOD_DELIVERY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "AIR_AMBULANCE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FIRST_AID": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "HELICOPTER_RESCUE": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "WinterDrivingManagement": {
+            "eventTypeValues": {
+                "USE_SNOW_CHAINS_OR_TYRES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "USE_SNOW_CHAINS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "USE_SNOW_TYRES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DO_NO_USE_STUD_TYRES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "WINTER_EQUIPMENT_ON_BOARD_REQUIRED": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "SignSetting": {
+            "eventTypeValues": { },
+            "eventCode": null
+        },
+        "AnimalPresenceObstruction": {
+            "eventTypeValues": {
+                "HERD_OF_ANIMALS_ON_THE_ROAD": {
+                    "additionalValues": { },
+                    "value": 61
+                },
+                "LARGE_ANIMALS_ON_THE_ROAD": {
+                    "additionalValues": { },
+                    "value": 1067
+                },
+                "ANIMALS_ON_THE_ROAD": {
+                    "additionalValues": { },
+                    "value": 922
+                }
+            },
+            "eventCode": null
+        },
+        "GeneralObstruction": {
+            "eventTypeValues": {
+                "CYCLISTS_ON_ROADWAY": {
+                    "additionalValues": { },
+                    "value": 1474
+                },
+                "INCIDENT": {
+                    "additionalValues": { },
+                    "value": 214
+                },
+                "OBJECT_ON_THE_ROAD": {
+                    "additionalValues": { },
+                    "value": 910
+                },
+                "HOUSE_FIRE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OBJECTS_FALLING_FROM_MOVING_VEHICLE": {
+                    "additionalValues": { },
+                    "value": 1710
+                },
+                "AIR_CRASH": {
+                    "additionalValues": { },
+                    "value": 978
+                },
+                "DEBRIS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CHILDREN_ON_ROADWAY": {
+                    "additionalValues": { },
+                    "value": 1473
+                },
+                "EXPLOSION_HAZARD": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CRANE_OPERATING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SEVERE_FROST_DAMAGED_ROADWAY": {
+                    "additionalValues": { },
+                    "value": 916
+                },
+                "UNPROTECTED_ACCIDENT": {
+                    "additionalValues": {
+                        "AccidentTypeEnumArea": 857
+                    },
+                    "value": null
+                },
+                "HIGH_SPEED_CHASE": {
+                    "additionalValues": { },
+                    "value": 1708
+                },
+                "CLEARANCE_WORK": {
+                    "additionalValues": { },
+                    "value": 924
+                },
+                "PEOPLE_ON_ROADWAY": {
+                    "additionalValues": { },
+                    "value": 1472
+                },
+                "INDUSTRIAL_ACCIDENT": {
+                    "additionalValues": {
+                        "AccidentTypeEnum": null
+                    },
+                    "value": null
+                },
+                "SPILLAGE_ON_THE_ROAD": {
+                    "additionalValues": { },
+                    "value": 903
+                },
+                "RAIL_CRASH": {
+                    "additionalValues": { },
+                    "value": 979
+                },
+                "EXPLOSION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "HAZARDS_ON_THE_ROAD": {
+                    "additionalValues": { },
+                    "value": 901
+                },
+                "RECKLESS_DRIVER": {
+                    "additionalValues": { },
+                    "value": 1704
+                },
+                "RESCUE_AND_RECOVERY_WORK": {
+                    "additionalValues": { },
+                    "value": 397
+                },
+                "SPILLAGE_OCCURRING_FROM_MOVING_VEHICLE": {
+                    "additionalValues": { },
+                    "value": 1709
+                },
+                "OBSTRUCTION_ON_THE_ROAD": {
+                    "additionalValues": { },
+                    "value": 901
+                },
+                "SNOW_AND_ICE_DEBRIS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SHED_LOAD": {
+                    "additionalValues": { },
+                    "value": 210
+                },
+                "UNPROTECTED_ACCIDENT_AREA": {
+                    "additionalValues": { },
+                    "value": 857
+                }
+            },
+            "eventCode": null
+        },
+        "RoadConditionOverview": {
+            "eventTypeValues": { },
+            "eventCode": null
+        },
+        "ReroutingManagement": {
+            "eventTypeValues": {
+                "USE_EXIT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DO_NOT_FOLLOW_DIVERSION_SIGNS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DO_NOT_USE_INTERSECTION_OR_JUNCTION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DO_NOT_USE_ENTRY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FOLLOW_DIVERSION_SIGNS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DO_NOT_USE_EXIT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FOLLOW_LOCAL_DIVERSION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "USE_INTERSECTION_OR_JUNCTION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FOLLOW_SPECIAL_MARKERS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "USE_ENTRY": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "PublicEvent": {
+            "eventTypeValues": {
+                "AGRICULTURAL_SHOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "AIR_SHOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ATHLETICS_MEETING": {
+                    "additionalValues": { },
+                    "value": 1453
+                },
+                "COMMERCIAL_EVENT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CULTURAL_EVENT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BALL_GAME": {
+                    "additionalValues": { },
+                    "value": 1454
+                },
+                "BASEBALL_GAME": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BASKETBALL_GAME": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BICYCLE_RACE": {
+                    "additionalValues": { },
+                    "value": 1458
+                },
+                "BOAT_RACE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BOAT_SHOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BOXING_TOURNAMENT": {
+                    "additionalValues": { },
+                    "value": 1455
+                },
+                "BULL_FIGHT": {
+                    "additionalValues": { },
+                    "value": 1456
+                },
+                "CEREMONIAL_EVENT": {
+                    "additionalValues": { },
+                    "value": 1508
+                },
+                "CONCERT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CRICKET_MATCH": {
+                    "additionalValues": { },
+                    "value": 1457
+                },
+                "EXHIBITION": {
+                    "additionalValues": { },
+                    "value": 1505
+                },
+                "FAIR": {
+                    "additionalValues": { },
+                    "value": 1506
+                },
+                "FESTIVAL": {
+                    "additionalValues": { },
+                    "value": 1504
+                },
+                "FILM_TV_MAKING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FOOTBALL_MATCH": {
+                    "additionalValues": { },
+                    "value": 1459
+                },
+                "FUN_FAIR": {
+                    "additionalValues": { },
+                    "value": 1468
+                },
+                "GARDENING_OR_FLOWER_SHOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "HOCKEY_GAME": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "HORSE_RACE_MEETING": {
+                    "additionalValues": { },
+                    "value": 1462
+                },
+                "INTERNATIONAL_SPORTS_MEETING": {
+                    "additionalValues": { },
+                    "value": 1450
+                },
+                "MAJOR_EVENT": {
+                    "additionalValues": { },
+                    "value": 1501
+                },
+                "MARATHON": {
+                    "additionalValues": { },
+                    "value": 1461
+                },
+                "MARKET": {
+                    "additionalValues": { },
+                    "value": 1507
+                },
+                "MATCH": {
+                    "additionalValues": { },
+                    "value": 1451
+                },
+                "MOTOR_SHOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "MOTOR_SPORTS_MEETING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "PARADE": {
+                    "additionalValues": { },
+                    "value": 1510
+                },
+                "PROCESSION": {
+                    "additionalValues": { },
+                    "value": 1470
+                },
+                "RACE_MEETING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "RUGBY_MATCH": {
+                    "additionalValues": { },
+                    "value": 1463
+                },
+                "SEVERAL_MAJOR_EVENTS": {
+                    "additionalValues": { },
+                    "value": 1590
+                },
+                "SHOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SHOW_JUMPING": {
+                    "additionalValues": { },
+                    "value": 1464
+                },
+                "SPORTS_MEETING": {
+                    "additionalValues": { },
+                    "value": 1502
+                },
+                "STATE_OCCASION": {
+                    "additionalValues": { },
+                    "value": 1509
+                },
+                "TENNIS_TOURNAMENT": {
+                    "additionalValues": { },
+                    "value": 1465
+                },
+                "TOURNAMENT": {
+                    "additionalValues": { },
+                    "value": 1452
+                },
+                "TRADE_FAIR": {
+                    "additionalValues": { },
+                    "value": 1469
+                },
+                "WATER_SPORTS_MEETING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "WINTER_SPORTS_MEETING": {
+                    "additionalValues": { },
+                    "value": 1467
+                }
+            },
+            "eventCode": null
+        },
+
+        "GeneralInstructionOrMessageToRoadUsers": {
+            "eventTypeValues": {
+                "DO_NOT_THROW_OUT_ANY_BURNING_OBJECTS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OBSERVE_SIGNALS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "APPROACH_WITH_CARE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DO_NOT_ALLOW_UNNECESSARY_GAPS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "USE_HEADLIGHTS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CROSS_JUNCTION_WITH_CARE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "USE_TRAM_SERVICE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "TEST_YOUR_BRAKES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_NAKED_FLAMES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FOLLOW_THE_VEHICLE_IN_FRONT_SMOOTHLY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SWITCH_OFF_ENGINE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "KEEP_YOUR_DISTANCE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FLASH_YOUR_LIGHTS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SWITCH_OFF_MOBILE_PHONES_AND_TWO_WAY_RADIOS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "WAIT_FOR_ESCORT_VEHICLE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "IN_EMERGENCY_WAIT_FOR_PATROL_SERVICE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "INCREASE_NORMAL_FOLLOWING_DISTANCE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_UTURNS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "USE_FOG_LIGHTS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "USE_RAIL_SERVICE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DRIVE_CAREFULLY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "STOP_AT_NEXT_SAFE_PLACE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_OVERTAKING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_SMOKING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ALLOW_EMERGENCY_VEHICLES_TO_PASS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "USE_HAZARD_WARNING_LIGHTS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OBSERVE_AMBER_ALERT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DRIVE_WITH_EXTREME_CAUTION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "PULL_OVER_TO_THE_EDGE_OF_THE_ROADWAY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "USE_BUS_SERVICE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "STOP_AT_NEXT_SERVICE_AREA": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "AVOID_THE_AREA": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CLOSE_ALL_WINDOWS_TURN_OFF_HEATER_AND_VENTS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OBSERVE_SIGNS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DO_NOT_LEAVE_YOUR_VEHICLE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_STOPPING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "LEAVE_YOUR_VEHICLE_PROCEED_TO_NEXT_SAFE_PLACE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "USE_UNDERGROUND_SERVICE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ONLY_TRAVEL_IF_ABSOLUTELY_NECESSARY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OVERTAKE_WITH_CARE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DO_NOT_USE_NAVIGATION_SYSTEMS": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "TransitInformation": {
+            "eventTypeValues": {
+                "SERVICE_NOT_OPERATING_SUBSTITUTE_SERVICE_AVAILABLE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "LOAD_CAPACITY_CHANGED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "IRREGULAR_SERVICE_DELAYS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SERVICE_DELAYS_OF_UNCERTAIN_DURATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FREE_SHUTTLE_SERVICE_OPERATING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SERVICE_DELAYS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CANCELLATIONS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DELAYED_UNTIL_FURTHER_NOTICE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DELAYS_DUE_TO_FLOTSAM": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SHUTTLE_SERVICE_OPERATING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "TEMPORARY_CHANGES_TO_TIMETABLES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DELAY_DUE_TO_BAD_WEATHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FERRY_REPLACED_BY_ICE_ROAD": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DELAY_DUE_TO_REPAIRS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DEPARTURE_ON_SCHEDULE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SERVICE_SUSPENDED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "RESTRICTIONS_FOR_LONGER_VEHICLES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SERVICE_WITHDRAWN": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SERVICE_FULLY_BOOKED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "INFORMATION_SERVICE_NOT_AVAILABLE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SERVICE_NOT_OPERATING": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "MaintenanceWorks": {
+            "eventTypeValues": {
+                "SNOWPLOUGHS_IN_USE": {
+                    "additionalValues": { },
+                    "value": 681
+                },
+                "SWEEPING_OF_ROAD": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ROCK_FALL_PREVENTATIVE_MAINTENANCE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OTHER": {
+                    "additionalValues": {
+                        "MAIN_CARRIAGEWAY": 701
+                    },
+                    "value": 701
+                },
+                "LITTER_CLEARANCE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ROADWORKS": {
+                    "additionalValues": {
+                        "MAIN_CARRIAGEWAY": 701
+                    },
+                    "value": 701
+                },
+                "ROADSIDE_WORK": {
+                    "additionalValues": { },
+                    "value": 701
+                },
+                "TREE_AND_VEGETATION_CUTTING_WORK": {
+                    "additionalValues": { },
+                    "value": 701
+                },
+                "INSTALLATION_WORK": {
+                    "additionalValues": { },
+                    "value": 701
+                },
+                "ROAD_MARKING_WORK": {
+                    "additionalValues": { },
+                    "value": 706
+                },
+                "CONTROLLED_AVALANCHE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SALTING_IN_PROGRESS": {
+                    "additionalValues": { },
+                    "value": 675
+                },
+                "RESURFACING_WORK": {
+                    "additionalValues": { },
+                    "value": 704
+                },
+                "OVERHEAD_WORKS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ROADWORKS_CLEARANCE": {
+                    "additionalValues": { },
+                    "value": 853
+                },
+                "REPAIR_WORK": {
+                    "additionalValues": { },
+                    "value": 701
+                },
+                "CLEARANCE_WORK": {
+                    "additionalValues": { },
+                    "value": 924
+                },
+                "MAINTENANCE_WORK": {
+                    "additionalValues": {
+                        "CONNECTING_CARRIAGEWAY": 701,
+                        "PARALLEL_CARRIAGEWAY": 701,
+                        "OTHER": 701,
+                        "MAIN_CARRIAGEWAY": 701
+                    },
+                    "value": 701
+                },
+                "GRASS_CUTTING_WORK": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "Accident": {
+            "eventTypeValues": {
+                "OVERTURNED_TRAILER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ACCIDENT_INVOLVING_BICYCLES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ACCIDENT_INVOLVING_HAZARDOUS_MATERIALS": {
+                    "additionalValues": { },
+                    "value": 205
+                },
+                "MULTIPLE_VEHICLE_COLLISION": {
+                    "additionalValues": { },
+                    "value": 203
+                },
+                "COLLISION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "COLLISION_WITH_ANIMAL": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "VEHICLE_SPUN_AROUND": {
+                    "additionalValues": { },
+                    "value": 342
+                },
+                "OVERTURNED_HEAVY_LORRY": {
+                    "additionalValues": { },
+                    "value": 338
+                },
+                "HEAD_ON_COLLISION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SIDE_COLLISION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "EARLIER_ACCIDENT": {
+                    "additionalValues": { },
+                    "value": 343
+                },
+                "JACKKNIFED_TRAILER": {
+                    "additionalValues": { },
+                    "value": 339
+                },
+                "COLLISION_WITH_PERSON": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "REAR_COLLISION": {
+                    "additionalValues": { },
+                    "value": 201
+                },
+                "JACKKNIFED_CARAVAN": {
+                    "additionalValues": { },
+                    "value": 340
+                },
+                "ACCIDENT_INVOLVING_TRAIN": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "VEHICLE_OFF_ROAD": {
+                    "additionalValues": { },
+                    "value": 201
+                },
+                "COLLISION_WITH_OBSTRUCTION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OIL_SPILLAGE_ACCIDENT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SERIOUS_ACCIDENT": {
+                    "additionalValues": { },
+                    "value": 202
+                },
+                "SECONDARY_ACCIDENT": {
+                    "additionalValues": { },
+                    "value": 345
+                },
+                "ACCIDENT_INVOLVING_MOTORCYCLES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ACCIDENT_INVOLVING_BUSES": {
+                    "additionalValues": { },
+                    "value": 335
+                },
+                "ACCIDENT_INVOLVING_MASS_TRANSIT_VEHICLE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FUEL_SPILLAGE_ACCIDENT": {
+                    "additionalValues": { },
+                    "value": 206
+                },
+                "ACCIDENT_INVOLVING_HEAVY_LORRIES": {
+                    "additionalValues": { },
+                    "value": 204
+                },
+                "ACCIDENT": {
+                    "additionalValues": { },
+                    "value": 201
+                },
+                "ACCIDENT_INVOLVING_RADIOACTIVE_MATERIAL": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OVERTURNED_VEHICLE": {
+                    "additionalValues": { },
+                    "value": 337
+                },
+                "ACCIDENT_INVOLVING_MOPEDS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "HEAD_ON_OR_SIDE_COLLISION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "JACKKNIFED_ARTICULATED_LORRY": {
+                    "additionalValues": { },
+                    "value": 341
+                },
+                "CHEMICAL_SPILLAGE_ACCIDENT": {
+                    "additionalValues": { },
+                    "value": 207
+                },
+                "MULTIVEHICLE_ACCIDENT": {
+                    "additionalValues": { },
+                    "value": 203
+                }
+            },
+            "eventCode": null
+        },
+        "RoadOrCarriagewayOrLaneManagement": {
+            "eventTypeValues": {
+                "NEW_ROADWORKS_LAYOUT": {
+                    "additionalValues": {
+                        "MAIN_CARRIAGEWAY": 810
+                    },
+                    "value": 810
+                },
+                "TURN_AROUND_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NARROW_LANES": {
+                    "additionalValues": { },
+                    "value": 518
+                },
+                "KEEP_TO_THE_RIGHT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CONTRAFLOW": {
+                    "additionalValues": { },
+                    "value": 517
+                },
+                "USE_SPECIFIED_LANES_OR_CARRIAGEWAYS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CLOSED_PERMANENTLY_FOR_THE_WINTER": {
+                    "additionalValues": { },
+                    "value": 401
+                },
+                "OVERNIGHT_CLOSURES": {
+                    "additionalValues": { },
+                    "value": 401
+                },
+                "LANES_DEVIATED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "HARD_SHOULDER_RUNNING_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "RUSH_HOUR_LANE_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ROAD_CLOSED": {
+                    "additionalValues": {
+                        "CONNECTING_CARRIAGEWAY": 478,
+                        "PARALLEL_CARRIAGEWAY": 479,
+                        "ENTRY_SLIP_ROADS": 471,
+                        "EXIT_SLIP_ROAD": 474,
+                        "EXIT_SLIP_ROADS": 474,
+                        "SLIP_ROADS": 408,
+                        "MAIN_CARRIAGEWAY": 401,
+                        "SLIP_ROAD": 408,
+                        "ENTRY_SLIP_ROAD": 471
+                    },
+                    "value": 401
+                },
+                "INTERMITTENT_SHORT_TERM_CLOSURES": {
+                    "additionalValues": { },
+                    "value": 28
+                },
+                "CLEAR_A_LANE_FOR_EMERGENCY_VEHICLES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CLEAR_A_LANE_FOR_SNOWPLOUGHS_AND_GRITTING_VEHICLES": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "KEEP_TO_THE_LEFT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CARRIAGEWAY_CLOSURES": {
+                    "additionalValues": {
+                        "PARALLEL_CARRIAGEWAY": 479,
+                        "CONNECTING_CARRIAGEWAY": 478,
+                        "EXIT_SLIP_ROAD": 474,
+                        "MAIN_CARRIAGEWAY": 401,
+                        "ENTRY_SLIP_ROAD": 471
+                    },
+                    "value": 401
+                },
+                "HEIGHT_RESTRICTION_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CAR_POOL_LANE_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": 647
+                },
+                "TIDAL_FLOW_LANE_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "LANE_CLOSURES": {
+                    "additionalValues": {
+                        "MAIN_CARRIAGEWAY": 500
+                    },
+                    "value": 500
+                },
+                "VEHICLE_STORAGE_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SINGLE_ALTERNATE_LINE_TRAFFIC": {
+                    "additionalValues": { },
+                    "value": 513
+                },
+                "USE_OF_SPECIFIED_LANES_OR_CARRIAGEWAYS_ALLOWED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ROAD_CLEARED": {
+                    "additionalValues": { },
+                    "value": 1712
+                },
+                "ROLLING_ROAD_BLOCK": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "WEIGHT_RESTRICTION_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": 1872
+                },
+                "DO_NOT_USE_SPECIFIED_LANES_OR_CARRIAGEWAYS": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "GeneralNetworkManagement": {
+            "eventTypeValues": {
+                "TOLL_GATES_OPEN": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BRIDGE_SWING_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "TEMPORARY_TRAFFIC_LIGHTS": {
+                    "additionalValues": { },
+                    "value": 708
+                },
+                "TRAFFIC_HELD": {
+                    "additionalValues": { },
+                    "value": 101
+                },
+                "RAMP_METERING_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CONVOY_SERVICE": {
+                    "additionalValues": { },
+                    "value": 1755
+                },
+                "OBSTACLE_SIGNALLING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "TRAFFIC_BEING_MANUALLY_DIRECTED": {
+                    "additionalValues": { },
+                    "value": 1971
+                }
+            },
+            "eventCode": null
+        },
+        "NonWeatherRelatedRoadConditions": {
+            "eventTypeValues": {
+                "SLIPPERY_ROAD": {
+                    "additionalValues": { },
+                    "value": 1003
+                },
+                "ROAD_SURFACE_IN_POOR_CONDITION": {
+                    "additionalValues": { },
+                    "value": 916
+                },
+                "OIL_ON_ROAD": {
+                    "additionalValues": { },
+                    "value": 1044
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "PETROL_ON_ROAD": {
+                    "additionalValues": { },
+                    "value": 1045
+                },
+                "LEAVES_ON_ROAD": {
+                    "additionalValues": { },
+                    "value": 1005
+                },
+                "DIESEL_ON_ROAD": {
+                    "additionalValues": { },
+                    "value": 1045
+                },
+                "LOOSE_CHIPPINGS": {
+                    "additionalValues": { },
+                    "value": 1043
+                },
+                "LOOSE_SAND_ON_ROAD": {
+                    "additionalValues": { },
+                    "value": 1042
+                },
+                "MUD_ON_ROAD": {
+                    "additionalValues": { },
+                    "value": 1055
+                }
+            },
+            "eventCode": null
+        },
+        "CarParks": {
+            "eventTypeValues": {
+                "ENOUGH_SPACES_AVAILABLE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ALL_CAR_PARKS_FULL": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_MORE_PARKING_SPACES_AVAILABLE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "MULTI_STORY_CAR_PARKS_FULL": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_PARKING_ALLOWED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NORMAL_PARKING_RESTRICTIONS_LIFTED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ONLY_A_FEW_SPACES_AVAILABLE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CAR_PARK_FACILITY_FAULTY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CAR_PARK_FULL": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_PARK_AND_RIDE_INFORMATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CAR_PARK_CLOSED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SPECIAL_PARKING_RESTRICTIONS_IN_FORCE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CAR_PARK_STATUS_UNKNOWN": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_PARKING_INFORMATION_AVAILABLE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "PARK_AND_RIDE_SERVICE_OPERATING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "PARK_AND_RIDE_SERVICE_NOT_OPERATING": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "AbnormalTraffic": {
+            "eventTypeValues": {
+                "TRAFFIC_BUILDING_UP": {
+                    "additionalValues": { },
+                    "value": 125
+                },
+                "SMOOTH_FLOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": 1
+                },
+                "QUEUEING_TRAFFIC": {
+                    "additionalValues": {
+                        "3": 131,
+                        "2": 110,
+                        "1": 109,
+                        "10": 113,
+                        "6": 112,
+                        "4": 111
+                    },
+                    "value": 108
+                },
+                "TRAFFIC_BLOCKED": {
+                    "additionalValues": { },
+                    "value": 402
+                },
+                "ERRATIC_FLOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SLOW_TRAFFIC": {
+                    "additionalValues": {
+                        "3": 134,
+                        "2": 117,
+                        "10": 120,
+                        "1": 116,
+                        "6": 119,
+                        "5": 119,
+                        "4": 118,
+                        "12": 120
+                    },
+                    "value": 115
+                },
+                "QUEUING_TRAFFIC": {
+                    "additionalValues": {
+                        "3": 131,
+                        "2": 110,
+                        "1": 109,
+                        "10": 113,
+                        "6": 112,
+                        "4": 111
+                    },
+                    "value": 108
+                },
+                "STATIONARY_TRAFFIC": {
+                    "additionalValues": {
+                        "3": 129,
+                        "2": 103,
+                        "10": 106,
+                        "1": 102,
+                        "6": 105,
+                        "4": 104,
+                        "8": 106,
+                        "13": 106
+                    },
+                    "value": 101
+                },
+                "UNSPECIFIED_ABNORMAL_TRAFFIC": {
+                    "additionalValues": { },
+                    "value": 1
+                },
+                "HEAVY_TRAFFIC": {
+                    "additionalValues": { },
+                    "value": 122
+                },
+                "STOP_AND_GO": {
+                    "additionalValues": { },
+                    "value": 121
+                }
+            },
+            "eventCode": null
+        },
+        "RoadOperatorServiceDisruption": {
+            "eventTypeValues": {
+                "NO_TRAFFIC_OFFICER_PATROL_SERVICE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "INFORMATION_SERVICE_TELEPHONE_NUMBER_OUT_OF_SERVICE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "EMERGENCY_TELEPHONE_NUMBER_OUT_OF_SERVICE": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "PoorEnvironmentConditions": {
+            "eventTypeValues": {
+                "DAMAGING_HAIL": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BLOWING_DUST": {
+                    "additionalValues": { },
+                    "value": 1310
+                },
+                "VERY_STRONG_GUSTS_OF_WIND": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SLEET": {
+                    "additionalValues": { },
+                    "value": 1107
+                },
+                "OZONE_POLLUTION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "TORNADOES": {
+                    "additionalValues": { },
+                    "value": 1201
+                },
+                "FROST": {
+                    "additionalValues": { },
+                    "value": 1116
+                },
+                "BAD_WEATHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SEVERE_SMOG": {
+                    "additionalValues": { },
+                    "value": 1190
+                },
+                "HURRICANE_FORCE_WINDS": {
+                    "additionalValues": { },
+                    "value": 1202
+                },
+                "SWARMS_OF_INSECTS": {
+                    "additionalValues": { },
+                    "value": 1340
+                },
+                "HEAVY_SNOWFALL": {
+                    "additionalValues": { },
+                    "value": 1101
+                },
+                "STORM_FORCE_WINDS": {
+                    "additionalValues": { },
+                    "value": 1204
+                },
+                "HEAVY_FROST": {
+                    "additionalValues": { },
+                    "value": 1115
+                },
+                "BLIZZARD": {
+                    "additionalValues": { },
+                    "value": 1130
+                },
+                "GALES": {
+                    "additionalValues": { },
+                    "value": 1203
+                },
+                "LOW_SUN_GLARE": {
+                    "additionalValues": { },
+                    "value": 1325
+                },
+                "SMOG_ALERT": {
+                    "additionalValues": { },
+                    "value": 1332
+                },
+                "EXTREME_HEAT": {
+                    "additionalValues": { },
+                    "value": 1080
+                },
+                "ECLIPSE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SPRAY_HAZARD": {
+                    "additionalValues": { },
+                    "value": 1324
+                },
+                "SNOWFALL": {
+                    "additionalValues": { },
+                    "value": 1104
+                },
+                "DENSE_FOG": {
+                    "additionalValues": { },
+                    "value": 1301
+                },
+                "SNOW_CHANGING_TO_RAIN": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CROSSWINDS": {
+                    "additionalValues": { },
+                    "value": 1210
+                },
+                "VISIBILITY_REDUCED": {
+                    "additionalValues": { },
+                    "value": 1318
+                },
+                "STRONG_GUSTS_OF_WIND": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "PRECIPITATION_IN_THE_AREA": {
+                    "additionalValues": { },
+                    "value": 1112
+                },
+                "RAIN_CHANGING_TO_SNOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FOG": {
+                    "additionalValues": { },
+                    "value": 1304
+                },
+                "THUNDERSTORMS": {
+                    "additionalValues": { },
+                    "value": 1108
+                },
+                "WHITE_OUT": {
+                    "additionalValues": { },
+                    "value": 1322
+                },
+                "FREEZING_FOG": {
+                    "additionalValues": { },
+                    "value": 1308
+                },
+                "RAIN": {
+                    "additionalValues": { },
+                    "value": 1112
+                },
+                "SHOWERS": {
+                    "additionalValues": { },
+                    "value": 1114
+                },
+                "HAIL": {
+                    "additionalValues": { },
+                    "value": 1106
+                },
+                "EXTREME_COLD": {
+                    "additionalValues": { },
+                    "value": 1081
+                },
+                "BLOWING_SNOW": {
+                    "additionalValues": { },
+                    "value": 1323
+                },
+                "WINTER_STORM": {
+                    "additionalValues": { },
+                    "value": 1128
+                },
+                "POLLUTION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SMOKE_HAZARD": {
+                    "additionalValues": { },
+                    "value": 1309
+                },
+                "GUSTY_WINDS": {
+                    "additionalValues": { },
+                    "value": 1209
+                },
+                "STRONG_WINDS": {
+                    "additionalValues": { },
+                    "value": 1205
+                },
+                "MODERATE_FOG": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "PATCHY_FOG": {
+                    "additionalValues": { },
+                    "value": 1307
+                },
+                "HEAVY_RAIN": {
+                    "additionalValues": { },
+                    "value": 1109
+                },
+                "SEVERE_EXHAUST_POLLUTION": {
+                    "additionalValues": { },
+                    "value": 1191
+                },
+                "SAND_STORMS": {
+                    "additionalValues": { },
+                    "value": 1326
+                },
+                "TEMPERATURE_FALLING": {
+                    "additionalValues": { },
+                    "value": 1079
+                }
+            },
+            "eventCode": null
+        },
+        "EnvironmentalObstruction": {
+            "eventTypeValues": {
+                "FOREST_FIRE": {
+                    "additionalValues": { },
+                    "value": 921
+                },
+                "GRASS_FIRE": {
+                    "additionalValues": { },
+                    "value": 977
+                },
+                "ROCKFALLS": {
+                    "additionalValues": { },
+                    "value": 913
+                },
+                "FLASH_FLOODS": {
+                    "additionalValues": { },
+                    "value": 909
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": 1101
+                },
+                "MUD_SLIDE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "LANDSLIPS": {
+                    "additionalValues": { },
+                    "value": 914
+                },
+                "FLOODING": {
+                    "additionalValues": { },
+                    "value": 907
+                },
+                "SERIOUS_FIRE": {
+                    "additionalValues": { },
+                    "value": 921
+                },
+                "FALLING_LIGHT_ICE_OR_SNOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "EARTHQUAKE_DAMAGE": {
+                    "additionalValues": { },
+                    "value": 915
+                },
+                "FALLEN_TREES": {
+                    "additionalValues": { },
+                    "value": 905
+                },
+                "FALLING_ICE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SEWER_OVERFLOW": {
+                    "additionalValues": { },
+                    "value": 974
+                },
+                "AVALANCHES": {
+                    "additionalValues": { },
+                    "value": 911
+                },
+                "STORM_DAMAGE": {
+                    "additionalValues": { },
+                    "value": 904
+                },
+                "SUBSIDENCE": {
+                    "additionalValues": { },
+                    "value": 917
+                },
+                "SMOKE_OR_FUMES": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "EquipmentOrSystemFault": {
+            "eventTypeValues": {
+                "WORKING_INTERMITTENTLY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "WORKING_INCORRECTLY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NOT_WORKING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OUT_OF_SERVICE": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "WeatherRelatedRoadConditions": {
+            "eventTypeValues": {
+                "SLUSH_ON_ROAD": {
+                    "additionalValues": { },
+                    "value": 1011
+                },
+                "WET_AND_ICY_ROAD": {
+                    "additionalValues": { },
+                    "value": 1010
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "BLACK_ICE": {
+                    "additionalValues": { },
+                    "value": 1008
+                },
+                "SLUSH_STRINGS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ICY_PATCHES": {
+                    "additionalValues": { },
+                    "value": 1047
+                },
+                "PACKED_SNOW": {
+                    "additionalValues": { },
+                    "value": 1013
+                },
+                "SNOW_DRIFTS": {
+                    "additionalValues": { },
+                    "value": 1016
+                },
+                "SNOW_ON_THE_ROAD": {
+                    "additionalValues": { },
+                    "value": 1012
+                },
+                "DRY": {
+                    "additionalValues": { },
+                    "value": 1124
+                },
+                "SLIPPERY_ROAD": {
+                    "additionalValues": { },
+                    "value": 1003
+                },
+                "LOOSE_SNOW": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SURFACE_WATER": {
+                    "additionalValues": { },
+                    "value": 1041
+                },
+                "ICE_BUILD_UP": {
+                    "additionalValues": { },
+                    "value": 975
+                },
+                "FREEZING_RAIN": {
+                    "additionalValues": { },
+                    "value": 1009
+                },
+                "FREEZING_OF_WET_ROADS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DEEP_SNOW": {
+                    "additionalValues": { },
+                    "value": 1015
+                },
+                "ICE": {
+                    "additionalValues": { },
+                    "value": 1006
+                },
+                "NORMAL_WINTER_CONDITIONS_FOR_PEDESTRIANS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SNOW_ON_PAVEMENT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "WET_ICY_PAVEMENT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FREEZING_PAVEMENTS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ICE_WITH_WHEEL_BAR_TRACKS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "FRESH_SNOW": {
+                    "additionalValues": { },
+                    "value": 1014
+                },
+                "WET": {
+                    "additionalValues": { },
+                    "value": 1157
+                },
+                "ROAD_SURFACE_MELTING": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "SpeedManagement": {
+            "eventTypeValues": {
+                "REDUCE_YOUR_SPEED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OBSERVE_SPEED_LIMIT": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "ACTIVE_SPEED_CONTROL_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "DO_NOT_SLOWDOWN_UNNECESSARILY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SPEED_RESTRICTION_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "POLICE_SPEED_CHECKS_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        },
+        "RestArea": {
+            "eventTypeValues": { },
+            "eventCode": null
+        },
+        "VehicleObstruction": {
+            "eventTypeValues": {
+                "CONVOY": {
+                    "additionalValues": { },
+                    "value": 1755
+                },
+                "DANGEROUS_SLOW_MOVING_VEHICLE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "PROHIBITED_VEHICLE_ON_THE_ROADWAY": {
+                    "additionalValues": { },
+                    "value": 1705
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "VEHICLE_ON_FIRE": {
+                    "additionalValues": { },
+                    "value": 213
+                },
+                "SNOWPLOUGH": {
+                    "additionalValues": { },
+                    "value": 681
+                },
+                "EMERGENCY_VEHICLE": {
+                    "additionalValues": { },
+                    "value": 1706
+                },
+                "BROKEN_DOWN_BUS": {
+                    "additionalValues": { },
+                    "value": 346
+                },
+                "VEHICLE_STUCK": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "VEHICLE_ON_WRONG_CARRIAGEWAY": {
+                    "additionalValues": { },
+                    "value": 1701
+                },
+                "SALTING_OR_GRITTING_VEHICLE_IN_USE": {
+                    "additionalValues": { },
+                    "value": 675
+                },
+                "VEHICLE_STUCK_UNDER_BRIDGE": {
+                    "additionalValues": { },
+                    "value": 1086
+                },
+                "BROKEN_DOWN_HEAVY_LORRY": {
+                    "additionalValues": { },
+                    "value": 212
+                },
+                "SLOW_MOVING_MAINTENANCE_VEHICLE": {
+                    "additionalValues": { },
+                    "value": 804
+                },
+                "MILITARY_CONVOY": {
+                    "additionalValues": { },
+                    "value": 1766
+                },
+                "SLOW_VEHICLE": {
+                    "additionalValues": { },
+                    "value": 1754
+                },
+                "DAMAGED_VEHICLE": {
+                    "additionalValues": { },
+                    "value": 323
+                },
+                "UNLIT_VEHICLE_ON_THE_ROAD": {
+                    "additionalValues": { },
+                    "value": 859
+                },
+                "VEHICLE_CARRYING_HAZARDOUS_MATERIALS": {
+                    "additionalValues": { },
+                    "value": 1765
+                },
+                "VEHICLE_WITH_OVERHEIGHT_LOAD": {
+                    "additionalValues": { },
+                    "value": 1739
+                },
+                "BROKEN_DOWN_VEHICLE": {
+                    "additionalValues": { },
+                    "value": 211
+                },
+                "ABANDONED_VEHICLE": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "TRACK_LAYING_VEHICLE": {
+                    "additionalValues": { },
+                    "value": 1764
+                },
+                "HIGH_SPEED_EMERGENCY_VEHICLE": {
+                    "additionalValues": { },
+                    "value": 1707
+                },
+                "LONG_LOAD": {
+                    "additionalValues": { },
+                    "value": 1753
+                },
+                "ABNORMAL_LOAD": {
+                    "additionalValues": { },
+                    "value": 1751
+                },
+                "VEHICLE_IN_DIFFICULTY": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "VEHICLE_WITH_OVERWIDE_LOAD": {
+                    "additionalValues": { },
+                    "value": 1752
+                },
+                "OVERHEIGHT_VEHICLE": {
+                    "additionalValues": { },
+                    "value": 347
+                }
+            },
+            "eventCode": null
+        },
+        "EmergencyInfo": {
+            "eventTypeValues": { },
+            "eventCode": null
+        },
+        "NetworkManagement": {
+            "eventTypeValues": {
+                "TRAFFIC_CONTOL_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NARROW_LANES": {
+                    "additionalValues": { },
+                    "value": 518
+                },
+                "CAR_POOL_LANE_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": 647
+                },
+                "RESTRICTIONS": {
+                    "additionalValues": { },
+                    "value": 493
+                },
+                "CONTRAFLOW": {
+                    "additionalValues": { },
+                    "value": 517
+                },
+                "BRIDGE_SWING_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "TIDAL_FLOW_LANE_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OTHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "NO_OVERTAKING": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "CLOSED_PERMANENTLY_FOR_THE_WINTER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "SINGLE_ALTERNATE_LINE_TRAFFIC": {
+                    "additionalValues": { },
+                    "value": 513
+                },
+                "USE_UNDER_SPECIFIED_RESTRICTIONS": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "USE_OF_SPECIFIED_LANE_ALLOWED": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "OVERNIGHT_CLOSURES": {
+                    "additionalValues": { },
+                    "value": 401
+                },
+                "CONVOY_SERVICE_DUE_TO_BAD_WEATHER": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "LANE_OR_CARRIAGEWAY_CLOSED": {
+                    "additionalValues": { },
+                    "value": 500
+                },
+                "RUSH_HOUR_LANE_IN_OPERATION": {
+                    "additionalValues": { },
+                    "value": null
+                },
+                "INTERMITTENT_SHORT_TERM_CLOSURES": {
+                    "additionalValues": { },
+                    "value": 666
+                },
+                "ROAD_CLOSED": {
+                    "additionalValues": {
+                        "CONNECTING_CARRIAGEWAY": 478,
+                        "PARALLEL_CARRIAGEWAY": 479,
+                        "EXIT_SLIP_ROAD": 474,
+                        "SLIP_ROADS": 408,
+                        "MAIN_CARRIAGEWAY": 401,
+                        "ENTRY_SLIP_ROAD": 471
+                    },
+                    "value": 401
+                },
+                "TRAFFIC_HELD": {
+                    "additionalValues": { },
+                    "value": 101
+                },
+                "NO_THROUGH_TRAFFIC": {
+                    "additionalValues": { },
+                    "value": 405
+                },
+                "INTERMITTENT_CLOSURES": {
+                    "additionalValues": { },
+                    "value": 28
+                },
+                "USE_SPECIFIED_LANE": {
+                    "additionalValues": { },
+                    "value": null
+                }
+            },
+            "eventCode": null
+        }
+    }
+}

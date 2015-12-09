@@ -1,0 +1,227 @@
+/* ------------------ START AWS Marketing Top Nav Mockup ------------------ */
+/*
+/* These rules style the placeholder top nav, to be replaced by styles provided
+/* by PartsService team when we integrate their top nav.
+/*
+/* Additional styles for the language selector and the top nav flyout menu are
+/* are at the end of jquery-ui.theme.css.
+/*
+/* ------------------------------------------------------------------------ */
+
+.aws-nav-header {
+  position: relative;
+  width: 100%;
+  height: 68px;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  background-color: #f7f7f7;
+  -moz-box-shadow: #e6e6e6 0 1px 3px;
+  -webkit-box-shadow: #e6e6e6 0 1px 3px;
+  box-shadow: #e6e6e6 0 1px 3px;
+  z-index: 6000
+}
+
+.aws-nav-header .aws-nav-header-left {
+  float: left
+}
+
+.aws-nav-header-left .aws-nav-flyout-trigger {
+  position: relative;
+  float: left;
+  display: block;
+  height: 43px;
+  margin: 0;
+  padding: 25px 22px 0 53px;
+  border-right: 1px solid #e2e2e2;
+  line-height: 1.9;
+  text-align: center;
+  font-size: 14px;
+  font-family: "HelveticaNeueBold", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0;
+  cursor: pointer;
+  outline: 0;
+  -webkit-user-select: none;
+  -webkit-font-smoothing: antialiased
+}
+
+.aws-nav-header .aws-nav-header-left .aws-nav-flyout-trigger::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 1px;
+  height: 67px;
+  border-right: 1px solid #fff
+}
+
+.aws-nav-header .aws-nav-header-left .aws-nav-flyout-trigger::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -2px;
+  display: block;
+  width: 1px;
+  height: 67px;
+  border-right: 1px solid #fff
+}
+
+.no-touch .aws-nav-header .aws-nav-header-left .aws-nav-flyout-trigger::after {
+  border-right: 1px solid #fefefe
+}
+
+.aws-nav-header .aws-nav-header-left .aws-nav-flyout-trigger .fa-bars {
+  position: absolute;
+  top: 19px;
+  left: 22px;
+  display: block;
+  width: 21px;
+  height: 35px;
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-size: 25px
+}
+
+.aws-nav-header .aws-nav-header-left .aws-nav-flyout-trigger:hover, .aws-nav-header .aws-nav-header-left .aws-nav-flyout-trigger.active {
+  color: #333
+}
+
+.aws-nav-header .aws-nav-header-left .aws-nav-flyout-trigger.active {
+  color: #e47911
+}
+
+.aws-nav-header .aws-nav-header-left .aws-nav-logo {
+  float: left;
+  width: 105px;
+  margin: 14px 0 0 20px
+}
+
+.aws-nav-header .aws-nav-header-left .aws-nav-logo a {
+  display: block
+}
+
+.aws-nav-header .aws-nav-header-left .aws-nav-logo span {
+  display: block;
+  width: 105px;
+  height: 39px;
+  border: 0;
+  background: transparent url("../images/aws_logo_105x39.png") no-repeat scroll 0 0;
+  overflow: hidden
+}
+
+.aws-nav-header .aws-nav-header-left .aws-nav-logo span:before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 150%
+}
+
+.aws-nav-header .aws-nav-header-right {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  height: 66px;
+  padding-right: 30px;
+  background-color: #f7f7f7;
+  z-index: 6100
+}
+
+.aws-nav-header .aws-nav-header-right .aws-nav-popover-trigger {
+  float: right;
+  margin-top: 17px;
+}
+
+.aws-nav-header .aws-nav-header-right .aws-nav-cta-button-outer {
+  float: right
+}
+
+.aws-nav-header .aws-nav-header-right .aws-nav-button {
+  display: inline-block;
+  margin: 17px 0 0 15px;
+  padding: 7px 16px 5px;
+  border: 1px solid;
+  border-color: #be952c #a68226 #9b7924;
+  line-height: 1.4;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1em;
+  font-family: "HelveticaNeueBold", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  text-shadow: rbga(255, 255, 255, 0.8) 0 1px 0;
+  text-decoration: none !important;
+  background: #eeba37;
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fee6b0), color-stop(100%, #eeba37));
+  background-image: -moz-linear-gradient(#fee6b0 0%, #eeba37 100%);
+  background-image: -webkit-linear-gradient(#fee6b0 0%, #eeba37 100%);
+  background-image: linear-gradient(#fee6b0 0%, #eeba37 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#fee6b0', endColorstr='#eeba37');
+  -moz-box-shadow: rgba(255, 255, 255, 0.6) 0 1px 0 inset;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.6) 0 1px 0 inset;
+  box-shadow: rgba(255, 255, 255, 0.6) 0 1px 0 inset;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased
+}
+
+#aws-nav-cta-button {
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+a#aws-nav-cta-button:hover {
+  text-decoration:none;
+  background: #eeba37;
+  
+  
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #FEDB7F), color-stop(100%, #ffc20d));
+  background-image: -moz-linear-gradient(#FEDB7F 0%, #ffc20d 100%);
+  background-image: -webkit-linear-gradient(#FEDB7F 0%, #ffc20d 100%);
+  background-image: linear-gradient(#FEDB7F 0%, #ffc20d 100%);
+  
+}
+
+div#aws-nav.aws-nav-header span {
+  font-size: 14px;
+}
+
+#aws-nav {
+  position: fixed;
+  top: 0px;
+}
+
+#aws-nav-flyout-trigger {
+  display: none;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/* media queries / breakpoints                                                                                              */
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+@media all and (max-width: 600px) {
+  #aws-nav-header-right {
+    display: none;
+  }
+}
+
+@media all and (min-width: 1001px) {
+  #aws-nav-flyout-trigger {
+    display: block;
+  }
+}
+
+/*Removing flyout trigger on ipad landscape view*/
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+  #aws-nav-flyout-trigger {
+    display: none;
+  }
+}

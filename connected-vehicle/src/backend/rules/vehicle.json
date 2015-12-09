@@ -1,0 +1,18 @@
+{
+    "sql": "SELECT * FROM 'vehicle/'",
+    "ruleDisabled": false,
+    "actions": [
+        {
+            "kinesis": {
+                "roleArn": "arn:aws:iam::673485280914:role/icebreaker-actions-role",
+                "streamName": "vehicle",
+                "partitionKey": "pk100"
+            },
+            "sqs": {
+                "roleArn": "arn:aws:iam::673485280914:role/icebreaker-actions-role",
+                "queueUrl": "https://sqs.us-east-1.amazonaws.com/673485280914/vehicle",
+                "useBase64":false
+            }
+        }
+    ]
+}

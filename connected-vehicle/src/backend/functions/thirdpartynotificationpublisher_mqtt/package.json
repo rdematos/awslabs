@@ -1,0 +1,11 @@
+{
+  "name": "thirdpartypublisher",
+  "version": "0.0.1",
+  "description": "publisher function",
+  "author": "Ricardo DeMatos @rdematos",
+  "dependencies": {
+    "mqtt": "*"  },
+  "preferGlobal": true,
+  "private": true
+}
+

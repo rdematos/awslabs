@@ -1,0 +1,53 @@
+
+DMS -> Shadow Topic: DMS State Data
+Shadow Topic -> Subscriber Function: DMS Lat/Long/Heading
+Subscriber Function -> DMS: Topic Name
+DMS -> Notification Topic: Subscription
+
+loop RSE Event Ingest - sends the events from broker to ingest stream
+    RSE -> Shadow Topic: Roadside Enviromental Data
+    Shadow Topic -> RSE Stream: RSE Event
+end
+
+loop RSE Event Geohash Encoder - calculates rse position geohash and stores the geohash and enviromental situation data (temp, moisture) in database.
+    RSE Stream -> RSE Geohash Function: RSE Events
+    RSE Geohash Function  -> RSE Event Table: RSE Geohashed Events
+    RSE Stream -> 
+end
+
+loop Vehicle Topic Tile Subscriber - calculates vehicle position geohash, calculates neighbor geohashes based on vehicle heading, converts calculated geohash to topic name and commands vehicle to subscribe to topic.
+    Vehicle -> Shadow Topic: Vehicle Enviromental Data
+    Shadow Topic -> Subscriber Function: Vehicle Lat/Long/Heading
+    Subscriber Function -> Vehicle: Topic Name
+    Vehicle -> Notification Topic: Subscription
+end
+
+loop Vehicle Event Ingest - sends the events from broker to ingest stream
+    Vehicle -> Shadow Topic: Vehicle Enviromental Data
+    Shadow Topic -> Vehicle Stream: Vehicle Events
+end
+
+loop Aggregator - calculates geohash for vehicle events and combines the vehicle event with nearby RSE data
+    Vehicle Stream -> Vehicle Geohash Function: Vehicle Events
+    Vehicle Geohash Function  -> Decorator Function: Geohashed Vehicle Event
+    RSE Event Table -> Decorator Function: RSE Enviromental Situation Data
+    Decorator Function -> Decorated Event Stream: Decorated Event
+end
+
+loop Notifier - inspects decorated vehicle events and, if machine learning model predicts it event is worth of notification, publishes a notification.
+    Decorated Event Stream -> Smart Notification Function: Decorated Event
+    Smart Notification Function-> Prediction API: Event Parameters
+    Prediction API -> Smart Notification Function: Notification Prediction
+    Smart Notification Function -> Notification Topic: Notification
+    Notification Topic-> Vehicle: Notication
+    Notification Topic-> DMS: Notication
+    Notification Topic-> Traffic Incident Service: Notication (via SNS)
+
+end
+
+loop Machine Learning Model - records Vehicle Dynamics in region of notification and whether or not warning was observed. Trains real time prediction model used by Notifier.
+    Decorated Event Stream -> Trainer Function: Decorated Events
+    Trainer Function -> ML Model Training: Training Data
+    ML Model Training -> Prediction API: Model
+
+end

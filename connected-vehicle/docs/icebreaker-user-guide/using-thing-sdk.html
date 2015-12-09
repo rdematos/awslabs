@@ -1,0 +1,325 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Using the Thing C SDK">
+      <title>Using the Thing SDK - Icebreaker</title>
+      <link rel="home" href="#top" title="Icebreaker">
+      <link rel="up" href="#top" title="Icebreaker">
+      <link rel="prev" href="working-with-thing-shadows.html" title="Working with Thing Shadows">
+      <link rel="next" href="thing-sdk-porting-guide.html" title="Thing SDK Porting Guide">
+      <meta name="keywords" content="">
+      <meta name="deployment_region" content="IAD">
+      <meta name="product" content="Icebreaker">
+      <meta name="guide" content="Developer Guide">
+      <meta name="guide-locale" content="en_us">
+      <link rel="icon" type="image/ico" href="//media.amazonwebservices.com/favicon.ico">
+      <link rel="shortcut icon" type="image/ico" href="//media.amazonwebservices.com/favicon.ico">
+      <link rel="canonical" href="http://docs.aws.amazon.com/Icebreaker/latest/developerguide/using-thing-sdk.html">
+      <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+      <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="css/google-font.css">
+      <link rel="stylesheet" type="text/css" href="css/highlight-default.css">
+      <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.css">
+      <link rel="stylesheet" type="text/css" href="css/awsdocs.css"><script type="text/javascript" src="js/highlight.pack.js"></script><script type="text/javascript" src="js/jquery.min.js"></script><script type="text/javascript" src="js/jquery-ui.min.js"></script><script type="text/javascript" src="js/handlebars.js"></script><script type="text/javascript" src="js/awsdocs.min.js"></script></head>
+   <body id="top">
+      <div id="aws-nav" class="aws-nav-header">
+         <div class="aws-nav-header-left">
+            <div class="aws-nav-logo"><a href="https://aws.amazon.com"><span>Amazon Web Services</span></a></div>
+         </div>
+         <div id="aws-nav-header-right" class="aws-nav-header-right">
+            <div class="aws-nav-cta-button-outer"><a id="aws-nav-cta-button" class="aws-nav-button" href="https://console.aws.amazon.com/console/home">Sign In to the Console</a></div>
+            <div class="aws-nav-popover-trigger" data-dropdown="aws-nav-dropdown-lang"><select id="languageSelection" onchange="SelectLanguage()">
+                  <option value="/de_de/Icebreaker/latest/developerguide/using-thing-sdk.html">Deutsch</option>
+                  <option value="/en_us/Icebreaker/latest/developerguide/using-thing-sdk.html" selected>English</option>
+                  <option value="/es_es/Icebreaker/latest/developerguide/using-thing-sdk.html">Espa&ntilde;ol</option>
+                  <option value="/fr_fr/Icebreaker/latest/developerguide/using-thing-sdk.html">Fran&ccedil;ais</option>
+                  <option value="/ja_jp/Icebreaker/latest/developerguide/using-thing-sdk.html">&#26085;&#26412;&#35486;</option>
+                  <option value="/pt_br/Icebreaker/latest/developerguide/using-thing-sdk.html">Portugu&ecirc;s</option>
+                  <option value="/ko_kr/Icebreaker/latest/developerguide/using-thing-sdk.html">&#54620;&#44397;&#50612;</option>
+                  <option value="/zh_cn/Icebreaker/latest/developerguide/using-thing-sdk.html">&#20013;&#25991; (&#31616;&#20307;)</option></select></div>
+            <div id="aws-nav-quicklinks-separator" class="aws-nav-quicklinks-separator">
+               <div class="aws-nav-left"></div>
+               <div class="aws-nav-right"></div>
+            </div>
+         </div>
+         <div id="topnav-flyout-menu-container">
+            <ul id="topnav-flyout-menu"><script id="flyout-item-template" type="text/x-handlebars-template">           
+                    {{#flyoutList}}
+                    
+                    <li>{{listItem}}
+                        {{#if subList}}
+                        <ul>
+                            {{#subList}}
+                            <li class="awsdocs-flyout-link-wrapper"><a href="{{target}}">{{text}}</a></li>
+                            {{/subList}}
+                        </ul>
+                        {{/if}}
+                    </li>
+                    
+                    {{/flyoutList}}
+                </script></ul>
+            <div id="topnav-flyout-menu-spacer"></div>
+         </div>
+      </div><script type="text/javascript">
+         <!--
+						var thispage = "using-thing-sdk.html";
+						var tocroot = location.protocol + '//' + location.hostname + location.pathname;
+						--></script><div id="content-container">
+         <div id="left-column" class="ui-resizable">
+            <div id="left-col-header">
+               <div id="left-col-top-content">
+                  <div id="service-name">Icebreaker </div>
+                  <div id="search"><i id="search-icon" class="fa fa-search fa-2x"></i></div>
+                  <div id="guide-info">Developer Guide
+                     <div id="content-button"><i id="toggle-contents" class="fa fa-bars"></i></div>
+                  </div>
+               </div>
+               <form id="finegrainedSearch" method="get" onsubmit="return searchFormSubmit(this);" action="/search/doc-search.html">
+                  <div id="search-form"><select id="search-select" name="searchPath">
+                        <option value="all">Entire Site</option>
+                        <option value="AWSMarketplace">AMIs from AWS Marketplace</option>
+                        <option value="amis">AMIs from All Sources</option>
+                        <option value="articles">Articles &amp; Tutorials</option>
+                        <option value="products_and_info">AWS Product Information</option>
+                        <option value="case_studies">Case Studies</option>
+                        <option value="customerapps">Customer Apps</option>
+                        <option value="documentation">Documentation</option>
+                        <option value="documentation-product">Documentation - This Product</option>
+                        <option value="documentation-guide" selected>Documentation - This Guide</option>
+                        <option value="datasets">Public Data Sets</option>
+                        <option value="releasenotes">Release Notes</option>
+                        <option value="solution_providers">Partners</option>
+                        <option value="code">Sample Code &amp; Libraries</option></select><br><input id="search-query" name="searchQuery" type="text" placholder="$loc-search-search"><input id="search-button" src="images/search-button.png" alt="Go" type="image"></div><input type="hidden" name="this_doc_product" id="this_doc_product" value="Icebreaker"><input type="hidden" name="this_doc_guide" id="this_doc_guide" value="Developer Guide"><input type="hidden" name="doc_locale" value="en_us"></form>
+            </div>
+            <div id="toc">
+               <ul class="awstoc">
+                  <li class="awstoc closed"><a class="awstoc" href="what-is-icebreaker.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-what-is-icebreaker.html');">What Is AWS Icebreaker?</a><ul class="awstoc">
+                        <li class="awstoc leaf"><a class="awstoc" href="Icebreaker.components.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-Icebreaker.components.html');">Icebreaker Components</a></li>
+                     </ul>
+                  </li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-getting-started.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-getting-started.html');">Getting Started with AWS Icebreaker</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-authentication.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-authentication.html');">AWS Icebreaker Authentication</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-authorization.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-authorization.html');">AWS Icebreaker Authorization</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-policy-samples.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-policy-samples.html');">Icebreaker Policy Samples</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="working-with-rules.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-working-with-rules.html');">Working with Rules</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="using-thing-registry.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-using-thing-registry.html');">Working with the AWS Icebreaker Thing Registry</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="working-with-thing-shadows.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-working-with-thing-shadows.html');">Working with Thing Shadows</a></li>
+                  <li class="awstoc leaf"><a class="awstoc selected" href="using-thing-sdk.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-using-thing-sdk.html');">Using the Thing SDK</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="thing-sdk-porting-guide.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-thing-sdk-porting-guide.html');">Thing SDK Porting Guide</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-sdk-for-java.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-sdk-for-java.html');">Using Icebreaker with the AWS SDKs for Java and
+                                Javascript</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="troubleshooting-with-logs.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-troubleshooting-with-logs.html');">Troubleshooting with logs</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="appendix.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-appendix.html');">Icebreaker Appendix</a></li>
+               </ul>
+            </div>
+         </div>
+         <div id="main-column">
+            <div id="main">
+               <div id="main-content">
+                  <div id="breadcrumbs">
+                     <table summary="Breadcrumbs">
+                        <tr>
+                           <td>
+                              <div class="navheader">
+                                 <div class="breadcrumb"><a href="http://aws.amazon.com/documentation/" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-breadcrumbs', 'aws-docs-click', 'http://aws.amazon.com/documentation/');">AWS Documentation</a> &raquo; <a href="http://aws.amazon.com/documentation/Icebreaker/" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-breadcrumbs', 'aws-docs-click', 'http://aws.amazon.com/documentation/Icebreaker/');">AWS Icebreaker</a> &raquo; <a href="http://docs.aws.amazon.com/Icebreaker/latest/developerguide/" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-breadcrumbs', 'aws-docs-click', 'http://docs.aws.amazon.com/Icebreaker/latest/developerguide/');">Developer Guide</a> &raquo; <span class="breadcrumb">Using the Thing SDK</span></div>
+                              </div>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div id="main-col-body">
+                     <div class="chapter" id="using-thing-sdk">
+                        <div class="titlepage">
+                           <div>
+                              <div>
+                                 <h1 class="topictitle">Using the Thing SDK</h1>
+                              </div>
+                           </div>
+                        </div>
+                        <p>Download AWS Icebreaker Thing SDK for C using the following AWS CLI command:</p>
+                        <p><code class="code">aws s3 cp s3://Icebreaker-private-beta/aws-iot-thing-sdk-c.tar aws-iot-thing-sdk-c.tar</code></p>
+                        <p>Identify the thing or device you want to connect to Icebreaker and confirm that you can SSH into it or otherwise 
+                                   access it for development purposes.
+                        </p>
+                        <p>Copy the tarball on to the thing and expand it using command:</p>
+                        <p><code class="code">tar -xf <em class="replaceable"><code>tarball-path</code></em></code></p>
+                        <p>This will create 4 directories:</p>
+                        <div class="orderedlist">
+                           <ol class="orderedlist" type="1">
+                              <li class="listitem">
+                                 <p><span class="emphasis"><em>iot_src</em></span> - the AWS IoT SDK source files
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p><span class="emphasis"><em>sample_app</em></span> - the sample application targeted to an embedded Linux platform with access to 
+                                                OpenSSL
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p><span class="emphasis"><em>mqtt_paho_emb</em></span> - the Paho MQTT Embedded C client
+                                 </p>
+                              </li>
+                              <li class="listitem">
+                                 <p><span class="emphasis"><em>tls</em></span> - TLS certificates directory
+                                 </p>
+                              </li>
+                           </ol>
+                        </div>
+                        <p>The SDK contains a sample (subscribe_publish_sample.c) that shows how to write an app that sends and receives MQTT messages
+                           
+                                   to/from Icebreaker. Open the subscribe_publish_sample.c file and set the following variables:
+                        </p>
+                        <table border="0" summary="Simple list" class="simplelist">
+                           <tr>
+                              <td>certDirectory &#8211; the name of directory where you certificates are located</td>
+                           </tr>
+                           <tr>
+                              <td>cafileName - the name of the <a class="ulink" href="https://www.symantec.com/content/en/us/enterprise/verisign/roots/VeriSign-Class%203-Public-Primary-Certification-Authority-G5.pem" target="_blank">root CA certificate</a></td>
+                           </tr>
+                           <tr>
+                              <td>clientCRTName &#8211; the name of the Icebreaker-generated certificate clientKeyName  -  the name of your private key</td>
+                           </tr>
+                        </table>
+                        <p>Build the SDK using the included makefile:</p>
+                        <p><code class="code">make &#8211;f LinuxPahoOpensslMakefile.mk</code></p>
+                        <p>Run the sample by typing:</p>
+                        <p><code class="code">./subscribe_publish_sample</code></p>
+                        <p>The sample uses default values for host name, port, and cert locations. Optionally, you can specify host name, port,
+                                   and cert locations on the command line:
+                        </p>
+                        <p><code class="code">./subscribe_publish_sample &#8211;host &#8220;g.us-east-1.pb.iot.amazonaws.com&#8221; &#8211;p 8883 &#8211;c &#8220;cert-dir&#8221;</code>    
+                                   
+                        </p>
+                        <div class="aws-note">
+                           <p class="aws-note">Note</p>
+                           <p>Ensure egress to port 8883 is allowed on your network.</p>
+                        </div>
+                        <p>       
+                               
+                        </p>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="d0e4088">Connecting to Icebreaker</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>The <code class="code">MQTTConnectParams</code> struct is used to specify the connection settings. The <code class="code">ib_mqtt_connect()</code> 
+                                          function takes a <code class="code">MQTTConnectParams</code> instance and connects to Icebreaker.
+                           </p>
+                        </div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="d0e4106">Server Certificate Validation</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>As part of the TLS handshake the device (client) needs to perform server certificate
+                                          validation. One step in this validation is to determine if the current time (on the device)
+                                          falls within the current time range of the certificate. Devices must have an accurate time
+                                          set to properly validate the server certificate. We do not recommend disabling server
+                                          certificate validation as a workaround for devices that do not have an accurate time set.
+                                          Time can be determined through NTP or other supported mechanism.
+                           </p>
+                        </div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="d0e4115">Subscribing to a Topic</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>To subscribe to a topic, create an instance of <code class="code">MQTTSubscribeParams</code>, specify the callback handler to call 
+                                          when a message is received, the topic to subscribe to, and the QoS value required. Pass the <code class="code">MQTTSubscribeParams</code> 
+                                          to the <code class="code">ib_mqtt_subscribe()</code> function.
+                           </p>
+                        </div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="d0e4133">Publishing a Message to a Topic</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>Create an instance of <code class="code">MQTTMessageParams</code> and specify the quality of service (QoS) requested, whether the 
+                                          message should be retained, and the message payload. Create an instance of <code class="code">MQTTPublishParams</code> specifying 
+                                          the topic and the <code class="code">MQTTMessageParams</code> struct that contains the message. Call the <code class="code">ib_mqtt_publish()</code>
+                                          function passing in the <code class="code">MQTTPublishParams</code> instance. The sample is a simple single-threaded app so periodic 
+                                          calls to <code class="code">ib_mqtt_yield()</code> are required to give the SDK and the MQTT client time to process messages.
+                           </p>
+                        </div>
+                     </div>
+                  </div><img src="images/expanderarrow.png" style="display:none;height:0;width:0"><div id="main-col-footer">
+                     <div id="doc-conventions"><a target="_top" href="/general/latest/gr/docconventions.html">Document Conventions</a></div>
+                     <div id="next"><a class="awstoc" accesskey="p" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-previous', 'aws-docs-click', location.protocol + '//' + location.hostname + '/working-with-thing-shadows.html');" href="working-with-thing-shadows.html">&laquo; Previous </a><a class="awstoc" accesskey="n" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-next', 'aws-docs-click', location.protocol + '//' + location.hostname + '/thing-sdk-porting-guide.html');" href="thing-sdk-porting-guide.html">Next &raquo;</a></div>
+                  </div>
+               </div>
+            </div>
+            <div id="right-expanded">
+               <div id="right-content-wrapper">
+                  <div id="right-col-header"><a id="pdf_link" href="icebreaker-dg.pdf" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-pdf-link', 'aws-docs-click', 'icebreaker-dg.pdf);"> PDF </a></div>
+                  <div id="pagetoc">
+                     <p>On this page:</p>
+                     <ul class="pagetoc">
+                        <li class="pagetoc" name="Connecting to Icebreaker"><a class="pagetoc" href="#d0e4088">Connecting to Icebreaker</a></li>
+                        <li class="pagetoc" name="Server Certificate Validation"><a class="pagetoc" href="#d0e4106">Server Certificate Validation</a></li>
+                        <li class="pagetoc" name="Subscribing to a Topic"><a class="pagetoc" href="#d0e4115">Subscribing to a Topic</a></li>
+                        <li class="pagetoc" name="Publishing a Message to a Topic"><a class="pagetoc" href="#d0e4133">Publishing a Message to a Topic</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="footer">
+         <div id="footer-left"><a target="_top" href="http://aws.amazon.com/terms">Terms of Use</a> | &copy; 2015, Amazon Web Services, Inc. or its affiliates. All rights reserved.
+         </div>
+         <div id="footer-right">
+            <div id="feedback">
+               <div id="forums"><a id="forum_link" target="_blank" href="http://forums.aws.amazon.com/forum.jspa?forumID=3" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-forums-link', 'aws-docs-click', 'http://forums.aws.amazon.com/forum.jspa?forumID=3');">Have a question? Try the Forums.</a></div>
+               <div id="feedback-message">Did this page help you?</div>
+               <div id="feedback-yesno-buttons"><a class="awstoc btn btn-default" target="_blank" href="feedbackyes.html?topic_id=using-thing-sdk">Yes</a><a class="awstoc btn btn-default" target="_blank" href="feedbackno.html?topic_id=using-thing-sdk">No</a></div>
+               <div id="feedback-feedback-button"><a class="awstoc btn btn-default" target="_blank" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=ICE&amp;hidden_guide_name=Developer Guide&amp;hidden_api_version=&amp;hidden_file_name=using-thing-sdk">Feedback</a></div>
+            </div>
+         </div>
+      </div>
+      <noscript>
+         <div>
+            <div>
+               <div>
+                  <div id="error_messages"><img src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png" style="float: left;" alt="Warning"><div id="js_error_message"><strong>Javascript is disabled or is unavailable in your browser.</strong><br> To use the AWS Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions. 
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </noscript>
+      <!-- SiteCatalyst code version: H.25.2.
+            Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+            More info available at http://www.omniture.com --><script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js"></script><script language="JavaScript" type="text/javascript">
+         <!--
+
+            // Documentation Service Name
+            s.prop66='Icebreaker';
+            s.eVar66='D=c66';
+  
+            // Documentation Guide Name                                                                 
+            s.prop65='Developer Guide';
+            s.eVar65='D=c65';
+
+            var s_code=s.t();if(s_code)document.write(s_code)//--></script><script language="JavaScript" type="text/javascript">
+         <!--
+                if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+                //--></script><noscript><img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt=""></noscript>
+      <!--/DO NOT REMOVE/-->
+      <!-- End SiteCatalyst code version: H.25.2. -->
+   </body>
+</html>

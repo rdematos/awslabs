@@ -1,0 +1,1 @@
+mosquitto_sub --cafile ../../certs/rootCA.pem --cert ../../certs/cert.pem --key ../../certs/privkey.pem -h g.us-east-1.pb.iot.amazonaws.com -p 8883 -q 1 -d -t notification/h/c/j/z/# -i testnotificationsubscriber

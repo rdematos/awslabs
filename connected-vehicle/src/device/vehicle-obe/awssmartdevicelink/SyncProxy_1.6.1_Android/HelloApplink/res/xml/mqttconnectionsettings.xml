@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".MqttSettingsActivity">
+
+    <EditTextPreference
+        android:title="Client ID"
+        android:key="clientID"
+        />
+    <EditTextPreference
+        android:title="Emulator IP"
+        android:key="emulatorIP"
+        />
+
+    <EditTextPreference
+        android:title="Server"
+        android:key="server"
+        />
+
+    <EditTextPreference
+        android:title="Port"
+        android:key="port"
+        />
+
+    <CheckBoxPreference
+        android:title="Clean Session"
+        android:key="cleanSession"
+        android:summary=""
+        />
+
+    <CheckBoxPreference
+        android:title="SSL"
+        android:key="useSsl"
+        android:defaultValue="true"
+        />
+
+    <EditTextPreference
+        android:title="Keystore File"
+        android:key="keystoreFile"
+        />
+
+    <EditTextPreference
+        android:title="Passphrase"
+        android:key="passphrase"
+        />
+
+    <EditTextPreference
+        android:title="Timeout"
+        android:key="timeout"
+        android:summary="60"
+        />
+
+    <EditTextPreference
+        android:title="Keep Alive"
+        android:key="keepAlive"
+        android:summary="200"
+        />
+
+</PreferenceScreen>

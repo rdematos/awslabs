@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Icebreaker Components - Icebreaker</title>
+      <link rel="home" href="#top" title="Icebreaker">
+      <link rel="up" href="what-is-icebreaker.html" title="What Is AWS Icebreaker?">
+      <link rel="prev" href="what-is-icebreaker.html" title="What Is AWS Icebreaker?">
+      <link rel="next" href="icebreaker-getting-started.html" title="Getting Started with AWS Icebreaker">
+      <meta name="keywords" content="">
+      <meta name="deployment_region" content="IAD">
+      <meta name="product" content="Icebreaker">
+      <meta name="guide" content="Developer Guide">
+      <meta name="guide-locale" content="en_us">
+      <link rel="icon" type="image/ico" href="//media.amazonwebservices.com/favicon.ico">
+      <link rel="shortcut icon" type="image/ico" href="//media.amazonwebservices.com/favicon.ico">
+      <link rel="canonical" href="http://docs.aws.amazon.com/Icebreaker/latest/developerguide/Icebreaker.components.html">
+      <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+      <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="css/google-font.css">
+      <link rel="stylesheet" type="text/css" href="css/highlight-default.css">
+      <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.css">
+      <link rel="stylesheet" type="text/css" href="css/awsdocs.css"><script type="text/javascript" src="js/highlight.pack.js"></script><script type="text/javascript" src="js/jquery.min.js"></script><script type="text/javascript" src="js/jquery-ui.min.js"></script><script type="text/javascript" src="js/handlebars.js"></script><script type="text/javascript" src="js/awsdocs.min.js"></script></head>
+   <body id="top">
+      <div id="aws-nav" class="aws-nav-header">
+         <div class="aws-nav-header-left">
+            <div class="aws-nav-logo"><a href="https://aws.amazon.com"><span>Amazon Web Services</span></a></div>
+         </div>
+         <div id="aws-nav-header-right" class="aws-nav-header-right">
+            <div class="aws-nav-cta-button-outer"><a id="aws-nav-cta-button" class="aws-nav-button" href="https://console.aws.amazon.com/console/home">Sign In to the Console</a></div>
+            <div class="aws-nav-popover-trigger" data-dropdown="aws-nav-dropdown-lang"><select id="languageSelection" onchange="SelectLanguage()">
+                  <option value="/de_de/Icebreaker/latest/developerguide/Icebreaker.components.html">Deutsch</option>
+                  <option value="/en_us/Icebreaker/latest/developerguide/Icebreaker.components.html" selected>English</option>
+                  <option value="/es_es/Icebreaker/latest/developerguide/Icebreaker.components.html">Espa&ntilde;ol</option>
+                  <option value="/fr_fr/Icebreaker/latest/developerguide/Icebreaker.components.html">Fran&ccedil;ais</option>
+                  <option value="/ja_jp/Icebreaker/latest/developerguide/Icebreaker.components.html">&#26085;&#26412;&#35486;</option>
+                  <option value="/pt_br/Icebreaker/latest/developerguide/Icebreaker.components.html">Portugu&ecirc;s</option>
+                  <option value="/ko_kr/Icebreaker/latest/developerguide/Icebreaker.components.html">&#54620;&#44397;&#50612;</option>
+                  <option value="/zh_cn/Icebreaker/latest/developerguide/Icebreaker.components.html">&#20013;&#25991; (&#31616;&#20307;)</option></select></div>
+            <div id="aws-nav-quicklinks-separator" class="aws-nav-quicklinks-separator">
+               <div class="aws-nav-left"></div>
+               <div class="aws-nav-right"></div>
+            </div>
+         </div>
+         <div id="topnav-flyout-menu-container">
+            <ul id="topnav-flyout-menu"><script id="flyout-item-template" type="text/x-handlebars-template">           
+                    {{#flyoutList}}
+                    
+                    <li>{{listItem}}
+                        {{#if subList}}
+                        <ul>
+                            {{#subList}}
+                            <li class="awsdocs-flyout-link-wrapper"><a href="{{target}}">{{text}}</a></li>
+                            {{/subList}}
+                        </ul>
+                        {{/if}}
+                    </li>
+                    
+                    {{/flyoutList}}
+                </script></ul>
+            <div id="topnav-flyout-menu-spacer"></div>
+         </div>
+      </div><script type="text/javascript">
+         <!--
+						var thispage = "Icebreaker.components.html";
+						var tocroot = location.protocol + '//' + location.hostname + location.pathname;
+						--></script><div id="content-container">
+         <div id="left-column" class="ui-resizable">
+            <div id="left-col-header">
+               <div id="left-col-top-content">
+                  <div id="service-name">Icebreaker </div>
+                  <div id="search"><i id="search-icon" class="fa fa-search fa-2x"></i></div>
+                  <div id="guide-info">Developer Guide
+                     <div id="content-button"><i id="toggle-contents" class="fa fa-bars"></i></div>
+                  </div>
+               </div>
+               <form id="finegrainedSearch" method="get" onsubmit="return searchFormSubmit(this);" action="/search/doc-search.html">
+                  <div id="search-form"><select id="search-select" name="searchPath">
+                        <option value="all">Entire Site</option>
+                        <option value="AWSMarketplace">AMIs from AWS Marketplace</option>
+                        <option value="amis">AMIs from All Sources</option>
+                        <option value="articles">Articles &amp; Tutorials</option>
+                        <option value="products_and_info">AWS Product Information</option>
+                        <option value="case_studies">Case Studies</option>
+                        <option value="customerapps">Customer Apps</option>
+                        <option value="documentation">Documentation</option>
+                        <option value="documentation-product">Documentation - This Product</option>
+                        <option value="documentation-guide" selected>Documentation - This Guide</option>
+                        <option value="datasets">Public Data Sets</option>
+                        <option value="releasenotes">Release Notes</option>
+                        <option value="solution_providers">Partners</option>
+                        <option value="code">Sample Code &amp; Libraries</option></select><br><input id="search-query" name="searchQuery" type="text" placholder="$loc-search-search"><input id="search-button" src="images/search-button.png" alt="Go" type="image"></div><input type="hidden" name="this_doc_product" id="this_doc_product" value="Icebreaker"><input type="hidden" name="this_doc_guide" id="this_doc_guide" value="Developer Guide"><input type="hidden" name="doc_locale" value="en_us"></form>
+            </div>
+            <div id="toc">
+               <ul class="awstoc">
+                  <li class="awstoc opened"><a class="awstoc" href="what-is-icebreaker.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-what-is-icebreaker.html');">What Is AWS Icebreaker?</a><ul class="awstoc">
+                        <li class="awstoc leaf"><a class="awstoc selected" href="Icebreaker.components.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-Icebreaker.components.html');">Icebreaker Components</a></li>
+                     </ul>
+                  </li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-getting-started.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-getting-started.html');">Getting Started with AWS Icebreaker</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-authentication.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-authentication.html');">AWS Icebreaker Authentication</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-authorization.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-authorization.html');">AWS Icebreaker Authorization</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-policy-samples.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-policy-samples.html');">Icebreaker Policy Samples</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="working-with-rules.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-working-with-rules.html');">Working with Rules</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="using-thing-registry.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-using-thing-registry.html');">Working with the AWS Icebreaker Thing Registry</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="working-with-thing-shadows.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-working-with-thing-shadows.html');">Working with Thing Shadows</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="using-thing-sdk.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-using-thing-sdk.html');">Using the Thing SDK</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="thing-sdk-porting-guide.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-thing-sdk-porting-guide.html');">Thing SDK Porting Guide</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-sdk-for-java.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-sdk-for-java.html');">Using Icebreaker with the AWS SDKs for Java and
+                                Javascript</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="troubleshooting-with-logs.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-troubleshooting-with-logs.html');">Troubleshooting with logs</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="appendix.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-appendix.html');">Icebreaker Appendix</a></li>
+               </ul>
+            </div>
+         </div>
+         <div id="main-column">
+            <div id="main">
+               <div id="main-content">
+                  <div id="breadcrumbs">
+                     <table summary="Breadcrumbs">
+                        <tr>
+                           <td>
+                              <div class="navheader">
+                                 <div class="breadcrumb"><a href="http://aws.amazon.com/documentation/" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-breadcrumbs', 'aws-docs-click', 'http://aws.amazon.com/documentation/');">AWS Documentation</a> &raquo; <a href="http://aws.amazon.com/documentation/Icebreaker/" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-breadcrumbs', 'aws-docs-click', 'http://aws.amazon.com/documentation/Icebreaker/');">AWS Icebreaker</a> &raquo; <a href="http://docs.aws.amazon.com/Icebreaker/latest/developerguide/" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-breadcrumbs', 'aws-docs-click', 'http://docs.aws.amazon.com/Icebreaker/latest/developerguide/');">Developer Guide</a> &raquo; <a href="what-is-icebreaker.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-breadcrumbs', 'aws-docs-click', location.protocol + '//' + location.hostname + '/what-is-icebreaker.html');">What Is AWS Icebreaker?</a> &raquo; <span class="breadcrumb">Icebreaker Components</span></div>
+                              </div>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div id="main-col-body">
+                     <div class="section">
+                        <div class="titlepage">
+                           <div>
+                              <div>
+                                 <h1 class="topictitle">Icebreaker Components</h1>
+                              </div>
+                           </div>
+                        </div>
+                        <p>The following diagram illustrates the structure of the AWS Icebreaker service:</p>
+                        <div class="mediaobject"><img src="images/icebreaker-layers.png"></div>
+                        <p>The Icebreaker service is composed of several "layers":
+                                   
+                        </p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="disc">
+                              <li class="listitem">
+                                 <p>Communication Layer</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Thing Management Layer</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Security Layer</p>
+                              </li>
+                           </ul>
+                        </div>
+                        <p>The communication layer is composed of the Gateway, Pub/Sub Broker, and the Rules Engine. The Gateway
+                                          is the main entry point into Icebreaker that allows things to securely connect to Icebreaker using MQTT
+                                          or HTTP. The Pub/Sub Broker is an MQTT broker that enables things to publish and/or subscribe to MQTT messages.
+                                          The Rules Engine  allows you to write rules in an SQL-like syntax. Rules enable filtering, aggregating and
+                           forwarding
+                                          messages, as well as taking appropriate actions on receiving relevant data, such as invoking Lambda functions,
+                           or 
+                                          writing message data to DynamoDB tables.
+                        </p>
+                        <p>The thing management layer is composed of the Thing Registry and thing shadows. The Thing Registry is a list 
+                                          of all things (devices, sensors, apps, etc) that have been registered with Icebreaker. It provides operations
+                           
+                                          to add, update, retrieve (describe), delete, attach and detach credentials (principals). Thing Shadows provide
+                           a 
+                                          virtual representation of a thing. Things can be any type of Icebreaker clients such as micro controllers,
+                           sensors,
+                                          actuators, mobile devices, or applications. Thing Shadows enable you to request the state or update the state
+                           of a 
+                                          thing using a REST API or AWS CLI. The state of a thing is represented as a JSON object.
+                        </p>
+                        <p>The Security Layer contains the Identity services which performs authentication and authorization operations. Things are authenticated
+                           
+                                       using X.509 certificates or AWS Cognito credentials. Authorization is configured by defining roles. 
+                        </p>
+                     </div>
+                  </div><img src="images/expanderarrow.png" style="display:none;height:0;width:0"><div id="main-col-footer">
+                     <div id="doc-conventions"><a target="_top" href="/general/latest/gr/docconventions.html">Document Conventions</a></div>
+                     <div id="next"><a class="awstoc" accesskey="p" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-previous', 'aws-docs-click', location.protocol + '//' + location.hostname + '/what-is-icebreaker.html');" href="what-is-icebreaker.html">&laquo; Previous </a><a class="awstoc" accesskey="n" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-next', 'aws-docs-click', location.protocol + '//' + location.hostname + '/icebreaker-getting-started.html');" href="icebreaker-getting-started.html">Next &raquo;</a></div>
+                  </div>
+               </div>
+            </div>
+            <div id="right-expanded">
+               <div id="right-content-wrapper">
+                  <div id="right-col-header"><a id="pdf_link" href="icebreaker-dg.pdf" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-pdf-link', 'aws-docs-click', 'icebreaker-dg.pdf);"> PDF </a></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="footer">
+         <div id="footer-left"><a target="_top" href="http://aws.amazon.com/terms">Terms of Use</a> | &copy; 2015, Amazon Web Services, Inc. or its affiliates. All rights reserved.
+         </div>
+         <div id="footer-right">
+            <div id="feedback">
+               <div id="forums"><a id="forum_link" target="_blank" href="http://forums.aws.amazon.com/forum.jspa?forumID=3" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-forums-link', 'aws-docs-click', 'http://forums.aws.amazon.com/forum.jspa?forumID=3');">Have a question? Try the Forums.</a></div>
+               <div id="feedback-message">Did this page help you?</div>
+               <div id="feedback-yesno-buttons"><a class="awstoc btn btn-default" target="_blank" href="feedbackyes.html?topic_id=Icebreaker.components">Yes</a><a class="awstoc btn btn-default" target="_blank" href="feedbackno.html?topic_id=Icebreaker.components">No</a></div>
+               <div id="feedback-feedback-button"><a class="awstoc btn btn-default" target="_blank" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=ICE&amp;hidden_guide_name=Developer Guide&amp;hidden_api_version=&amp;hidden_file_name=Icebreaker.components">Feedback</a></div>
+            </div>
+         </div>
+      </div>
+      <noscript>
+         <div>
+            <div>
+               <div>
+                  <div id="error_messages"><img src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png" style="float: left;" alt="Warning"><div id="js_error_message"><strong>Javascript is disabled or is unavailable in your browser.</strong><br> To use the AWS Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions. 
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </noscript>
+      <!-- SiteCatalyst code version: H.25.2.
+            Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+            More info available at http://www.omniture.com --><script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js"></script><script language="JavaScript" type="text/javascript">
+         <!--
+
+            // Documentation Service Name
+            s.prop66='Icebreaker';
+            s.eVar66='D=c66';
+  
+            // Documentation Guide Name                                                                 
+            s.prop65='Developer Guide';
+            s.eVar65='D=c65';
+
+            var s_code=s.t();if(s_code)document.write(s_code)//--></script><script language="JavaScript" type="text/javascript">
+         <!--
+                if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+                //--></script><noscript><img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt=""></noscript>
+      <!--/DO NOT REMOVE/-->
+      <!-- End SiteCatalyst code version: H.25.2. -->
+   </body>
+</html>

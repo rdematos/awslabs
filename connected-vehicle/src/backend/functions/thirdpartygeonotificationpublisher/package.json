@@ -1,0 +1,14 @@
+{
+  "name": "geonotification",
+  "version": "0.0.1",
+  "description": "geonotification function",
+  "author": "Ricardo DeMatos @rdematos",
+  "dependencies": {
+    "ngeohash": "*",
+    "mqtt": "*",
+"JSONPath":"*"
+  },
+  "preferGlobal": true,
+  "private": true
+}
+

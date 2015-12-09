@@ -1,0 +1,1 @@
+include ':HelloApplink', ':SmartDeviceLinkLibrary-4.0.0-Android', ':app'

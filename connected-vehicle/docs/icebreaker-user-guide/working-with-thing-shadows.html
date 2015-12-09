@@ -1,0 +1,932 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Working with Thing Shadows">
+      <title>Working with Thing Shadows - Icebreaker</title>
+      <link rel="home" href="#top" title="Icebreaker">
+      <link rel="up" href="#top" title="Icebreaker">
+      <link rel="prev" href="using-thing-registry.html" title="Working with the AWS Icebreaker Thing Registry">
+      <link rel="next" href="using-thing-sdk.html" title="Using the Thing SDK">
+      <meta name="keywords" content="">
+      <meta name="deployment_region" content="IAD">
+      <meta name="product" content="Icebreaker">
+      <meta name="guide" content="Developer Guide">
+      <meta name="guide-locale" content="en_us">
+      <link rel="icon" type="image/ico" href="//media.amazonwebservices.com/favicon.ico">
+      <link rel="shortcut icon" type="image/ico" href="//media.amazonwebservices.com/favicon.ico">
+      <link rel="canonical" href="http://docs.aws.amazon.com/Icebreaker/latest/developerguide/working-with-thing-shadows.html">
+      <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+      <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="css/google-font.css">
+      <link rel="stylesheet" type="text/css" href="css/highlight-default.css">
+      <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.css">
+      <link rel="stylesheet" type="text/css" href="css/awsdocs.css"><script type="text/javascript" src="js/highlight.pack.js"></script><script type="text/javascript" src="js/jquery.min.js"></script><script type="text/javascript" src="js/jquery-ui.min.js"></script><script type="text/javascript" src="js/handlebars.js"></script><script type="text/javascript" src="js/awsdocs.min.js"></script></head>
+   <body id="top">
+      <div id="aws-nav" class="aws-nav-header">
+         <div class="aws-nav-header-left">
+            <div class="aws-nav-logo"><a href="https://aws.amazon.com"><span>Amazon Web Services</span></a></div>
+         </div>
+         <div id="aws-nav-header-right" class="aws-nav-header-right">
+            <div class="aws-nav-cta-button-outer"><a id="aws-nav-cta-button" class="aws-nav-button" href="https://console.aws.amazon.com/console/home">Sign In to the Console</a></div>
+            <div class="aws-nav-popover-trigger" data-dropdown="aws-nav-dropdown-lang"><select id="languageSelection" onchange="SelectLanguage()">
+                  <option value="/de_de/Icebreaker/latest/developerguide/working-with-thing-shadows.html">Deutsch</option>
+                  <option value="/en_us/Icebreaker/latest/developerguide/working-with-thing-shadows.html" selected>English</option>
+                  <option value="/es_es/Icebreaker/latest/developerguide/working-with-thing-shadows.html">Espa&ntilde;ol</option>
+                  <option value="/fr_fr/Icebreaker/latest/developerguide/working-with-thing-shadows.html">Fran&ccedil;ais</option>
+                  <option value="/ja_jp/Icebreaker/latest/developerguide/working-with-thing-shadows.html">&#26085;&#26412;&#35486;</option>
+                  <option value="/pt_br/Icebreaker/latest/developerguide/working-with-thing-shadows.html">Portugu&ecirc;s</option>
+                  <option value="/ko_kr/Icebreaker/latest/developerguide/working-with-thing-shadows.html">&#54620;&#44397;&#50612;</option>
+                  <option value="/zh_cn/Icebreaker/latest/developerguide/working-with-thing-shadows.html">&#20013;&#25991; (&#31616;&#20307;)</option></select></div>
+            <div id="aws-nav-quicklinks-separator" class="aws-nav-quicklinks-separator">
+               <div class="aws-nav-left"></div>
+               <div class="aws-nav-right"></div>
+            </div>
+         </div>
+         <div id="topnav-flyout-menu-container">
+            <ul id="topnav-flyout-menu"><script id="flyout-item-template" type="text/x-handlebars-template">           
+                    {{#flyoutList}}
+                    
+                    <li>{{listItem}}
+                        {{#if subList}}
+                        <ul>
+                            {{#subList}}
+                            <li class="awsdocs-flyout-link-wrapper"><a href="{{target}}">{{text}}</a></li>
+                            {{/subList}}
+                        </ul>
+                        {{/if}}
+                    </li>
+                    
+                    {{/flyoutList}}
+                </script></ul>
+            <div id="topnav-flyout-menu-spacer"></div>
+         </div>
+      </div><script type="text/javascript">
+         <!--
+						var thispage = "working-with-thing-shadows.html";
+						var tocroot = location.protocol + '//' + location.hostname + location.pathname;
+						--></script><div id="content-container">
+         <div id="left-column" class="ui-resizable">
+            <div id="left-col-header">
+               <div id="left-col-top-content">
+                  <div id="service-name">Icebreaker </div>
+                  <div id="search"><i id="search-icon" class="fa fa-search fa-2x"></i></div>
+                  <div id="guide-info">Developer Guide
+                     <div id="content-button"><i id="toggle-contents" class="fa fa-bars"></i></div>
+                  </div>
+               </div>
+               <form id="finegrainedSearch" method="get" onsubmit="return searchFormSubmit(this);" action="/search/doc-search.html">
+                  <div id="search-form"><select id="search-select" name="searchPath">
+                        <option value="all">Entire Site</option>
+                        <option value="AWSMarketplace">AMIs from AWS Marketplace</option>
+                        <option value="amis">AMIs from All Sources</option>
+                        <option value="articles">Articles &amp; Tutorials</option>
+                        <option value="products_and_info">AWS Product Information</option>
+                        <option value="case_studies">Case Studies</option>
+                        <option value="customerapps">Customer Apps</option>
+                        <option value="documentation">Documentation</option>
+                        <option value="documentation-product">Documentation - This Product</option>
+                        <option value="documentation-guide" selected>Documentation - This Guide</option>
+                        <option value="datasets">Public Data Sets</option>
+                        <option value="releasenotes">Release Notes</option>
+                        <option value="solution_providers">Partners</option>
+                        <option value="code">Sample Code &amp; Libraries</option></select><br><input id="search-query" name="searchQuery" type="text" placholder="$loc-search-search"><input id="search-button" src="images/search-button.png" alt="Go" type="image"></div><input type="hidden" name="this_doc_product" id="this_doc_product" value="Icebreaker"><input type="hidden" name="this_doc_guide" id="this_doc_guide" value="Developer Guide"><input type="hidden" name="doc_locale" value="en_us"></form>
+            </div>
+            <div id="toc">
+               <ul class="awstoc">
+                  <li class="awstoc closed"><a class="awstoc" href="what-is-icebreaker.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-what-is-icebreaker.html');">What Is AWS Icebreaker?</a><ul class="awstoc">
+                        <li class="awstoc leaf"><a class="awstoc" href="Icebreaker.components.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-Icebreaker.components.html');">Icebreaker Components</a></li>
+                     </ul>
+                  </li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-getting-started.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-getting-started.html');">Getting Started with AWS Icebreaker</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-authentication.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-authentication.html');">AWS Icebreaker Authentication</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-authorization.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-authorization.html');">AWS Icebreaker Authorization</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-policy-samples.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-policy-samples.html');">Icebreaker Policy Samples</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="working-with-rules.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-working-with-rules.html');">Working with Rules</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="using-thing-registry.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-using-thing-registry.html');">Working with the AWS Icebreaker Thing Registry</a></li>
+                  <li class="awstoc leaf"><a class="awstoc selected" href="working-with-thing-shadows.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-working-with-thing-shadows.html');">Working with Thing Shadows</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="using-thing-sdk.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-using-thing-sdk.html');">Using the Thing SDK</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="thing-sdk-porting-guide.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-thing-sdk-porting-guide.html');">Thing SDK Porting Guide</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-sdk-for-java.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-sdk-for-java.html');">Using Icebreaker with the AWS SDKs for Java and
+                                Javascript</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="troubleshooting-with-logs.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-troubleshooting-with-logs.html');">Troubleshooting with logs</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="appendix.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-appendix.html');">Icebreaker Appendix</a></li>
+               </ul>
+            </div>
+         </div>
+         <div id="main-column">
+            <div id="main">
+               <div id="main-content">
+                  <div id="breadcrumbs">
+                     <table summary="Breadcrumbs">
+                        <tr>
+                           <td>
+                              <div class="navheader">
+                                 <div class="breadcrumb"><a href="http://aws.amazon.com/documentation/" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-breadcrumbs', 'aws-docs-click', 'http://aws.amazon.com/documentation/');">AWS Documentation</a> &raquo; <a href="http://aws.amazon.com/documentation/Icebreaker/" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-breadcrumbs', 'aws-docs-click', 'http://aws.amazon.com/documentation/Icebreaker/');">AWS Icebreaker</a> &raquo; <a href="http://docs.aws.amazon.com/Icebreaker/latest/developerguide/" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-breadcrumbs', 'aws-docs-click', 'http://docs.aws.amazon.com/Icebreaker/latest/developerguide/');">Developer Guide</a> &raquo; <span class="breadcrumb">Working with Thing Shadows</span></div>
+                              </div>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div id="main-col-body">
+                     <div class="chapter" id="working-with-thing-shadows">
+                        <div class="titlepage">
+                           <div>
+                              <div>
+                                 <h1 class="topictitle">Working with Thing Shadows</h1>
+                              </div>
+                           </div>
+                        </div>
+                        <p>AWS Icebreaker enables bi-directional communication between Internet connected things (sensors, actuators, devices, applications,
+                           etc.) and the cloud. These things may be connected to the Internet intermittently or not at all. Thing Shadows allow applications
+                           to easily interact with the things connected to Icebreaker.
+                        </p>
+                        <p> Thing Shadows is a JSON document store that contains the state of a thing. The documents stored are identified and accessed
+                           by a developer provided &#8220;thing name&#8221;, a string identifier that is unique to your AWS account. You can update the document
+                           using the Thing Shadow RESTful API or publishing MQTT messages to Thing Shadows special $shadow topics. Devices and applications
+                           can subscribe to Thing Shadows special $shadow topics to be notified when a Thing Shadows document is updated. In this way,
+                           applications can update the state of a document and devices can immediately sync those changes.
+                        </p>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="d0e3322">Data-flow in Thing Shadows</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>To understand how data flows into and out of a thing shadow, think about the following scenario: You have a resource-constrained
+                              device (in this case an Internet connected light bulb) that communicates with thing shadows over MQTT. You also have an app
+                              running on a mobile phone that controls the light bulb and communicates with thing shadows over an REST API.  The following
+                              diagram shows the flow of data in this type of scenario.
+                           </p>
+                           <div class="mediaobject"><img src="images/thing-shadows-data-flow.png"></div>
+                           <p>1. After your light bulb is registered with Icebreaker it can start sending MQTT messages containing its current state. These
+                              messages are published on a topic called $shadow/beta/state/thing-name. For example, say we have an Internet connected light
+                              bulb called mylight. The light bulb would publish a message to $shadow/beta/state/mylight. The contents of the message would
+                              look like the following:
+                           </p><pre class="programlisting"><code class="nohighlight">    
+{
+     "state": {
+         "reported": {
+             "color":"red"
+         }
+     }
+}</code></pre><p>2. Thing shadows receives and stores this information:</p><pre class="programlisting"><code class="nohighlight">{
+    "state": {
+       "reported":{
+          "color":"red"
+       }
+    },
+    "version":&#8221;1&#8221;,
+    "metadata": {
+        "reported": {
+            "color":&lt;time-stamp&gt;
+        }
+    }
+}
+</code></pre><p>The state data is given a version number and metadata is generated. The metadata contains a timestamp indicating when each
+                              JSON property was last updated.
+                           </p>
+                           <p>3. Now your mobile device app needs to display the current state of the light bulb. So it makes an HTTP request to get the
+                              current state of the light:
+                           </p>
+                           <p><code class="code">GET /things/mylight/state</code></p>
+                           <p>Thing shadows returns the entire JSON document (containing thing state, thing metadata, and version):</p><pre class="programlisting"><code class="nohighlight">{
+    "state": {
+        "reported":{
+            "color":"red"
+        }
+    },
+    "version":&#8221;1&#8221;,
+    "metadata": {
+        "reported": {
+            "color":&lt;time-stamp&gt;
+        }
+    }
+}</code></pre><p>4. Now you use the app to change the color of the light bulb to green. The app makes an HTTP request setting the desired color
+                              of the light to green:
+                           </p>
+                           <p><code class="code">POST /things/mylight/state</code></p><pre class="programlisting"><code class="nohighlight">{
+    "state":{
+        "desired":{
+            "color":"green"
+        }
+    }
+}</code></pre><p>Thing shadows receives this information and updates the JSON in the shadow store for the light bulb which now looks like this:</p><pre class="programlisting"><code class="nohighlight">{
+    "state": {
+        "desired": {
+            "color":"green"
+        },
+        "reported":{
+             "color":"red"
+        },
+        "version":&#8221;1&#8221;,
+        "metadata": {
+            "desired": {
+                 "color":&lt;time-stamp&gt;
+            },
+            "reported": {
+                 "color":&lt;time-stamp&gt;
+            }
+        }
+} </code></pre><p>Because the shadow for the light bulb has changed, thing shadows publishes a message on <code class="code">$aws/things/mylight/shadow/update/accepted</code></p><pre class="programlisting"><code class="nohighlight">{
+     "state":{
+         "desired":{
+             "color":"green"
+         },
+         "reported":{
+             "color":"red"
+         },
+         "version":"2",
+         "metadata": {        
+             "reported":{
+                  "color":&lt;time-stamp&gt;
+             },
+             "desired":{
+                 "color":&lt;time-stamp&gt;
+             }
+         }
+    }
+}</code></pre><p>5. Thing shadows detects the difference between the reported and desired
+                                          states and publishes a message on
+                                          <code class="code">$aws/things/mylight/shadow/update/delta</code>:
+                           </p><pre class="programlisting"><code class="nohighlight">{
+     "state":{
+         "color":"green"
+     },
+     "version":"3",
+     "metadata":{
+         "color":&lt;time-stamp&gt;
+     }
+}</code></pre><p>This information only contains the difference between the reported and desired states.</p>
+                           <p>6. The light bulb receives the MQTT message because it is subscribed to
+                                              <code class="code">$aws/things/mylight/shadow/update/delta</code> and changes the color of the
+                                          light. When that occurs, it publishes its current state to
+                                                     <code class="code">$aws/things/{thingName}/shadow/update
+                                                        </code>:
+                           </p><pre class="programlisting"><code class="nohighlight">{
+     "state": {
+          "reported":{
+              "color":"green"
+          }
+     }
+}</code></pre><p>7. Since the data in thing shadows has changed, a message is published to  <code class="code">$aws/things/mylight/shadow/update/delta</code>:
+                           </p><pre class="programlisting"><code class="nohighlight">{
+     "state":{
+         "desired":{
+             "color":"green"
+         },
+         "reported":{
+             "color":"green"
+         },
+         "version":"3",
+         "metadata": {
+             "reported":{
+                   "color":&lt;time-stamp&gt;
+              },
+              "desired":{
+                  "color":&lt;time-stamp&gt;
+              }
+          }
+     }
+}</code></pre><p>The phone app can subscribe to this topic to receive confirmation that its request was successfully completed. Additionally
+                              thing shadows publishes a message to <code class="code">$aws/things/mylight/shadow/update/delta</code>:
+                           </p><pre class="programlisting"><code class="nohighlight">{
+    "state":{
+        "version":"3",
+    }
+}</code></pre><p>This only contains the version number because there is no difference between the reported and desired states within the thing
+                              shadow.
+                           </p>
+                        </div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="d0e3436">Thing Shadow Document</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>A Thing Shadows state document contains the following parts:</p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="disc">
+                                 <li class="listitem">
+                                    <p>state: the state of the thing. State has two sub-nodes:</p>
+                                    <div class="itemizedlist">
+                                       <ul class="itemizedlist" type="circle">
+                                          <li class="listitem">
+                                             <p>desired: the desired state of the thing. Applications can write to this portion of the document to update the state of a thing</p>
+                                          </li>
+                                          <li class="listitem">
+                                             <p>reported: the reported state of the thing. Devices write to this portion of the document to report their new state</p>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </li>
+                                 <li class="listitem">
+                                    <p>metadata: This section contains information about the data stored in the state section of the document. Right now we are just
+                                       storing timestamps of each attribute in the state section. This allows developers to know when the state was updated.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p>version: the document version. Every time the document is updated this version number is incremented. This version can be
+                                       used for optimistic locking by developers to ensure the document they are updating is equal to the document they last read.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p>clientToken: a string sent by the client and echoed by Icebreaker. You can use this to determine whether a recieved response
+                                       was triggered by your own request or someone else publishing on a topic.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                           <p>Thing Shadows supports full JSON so a developer can store values, objects, and arrays in the reported and desired sections
+                              of the thing shadow document.
+                           </p>
+                           <p>The following is an example thing shadow document:</p><pre class="programlisting"><code class="nohighlight">{
+     "state" : {
+         "desired" : {
+             "color" : "RED",
+             "sequence" : [ "RED", "GREEN", "BLUE" ]
+         },
+         "reported" : {
+              "color" : "GREEN"
+         }
+      },
+     "metadata" : {
+          "desired" : {
+              "color" : {
+                  "timestamp" : &lt;time-stamp&gt;
+              },
+              "sequence" : {
+                   "timestamp" : &lt;time-stamp&gt;
+              }
+          },
+          "reported" : {
+              "color" : {
+                   "timestamp" : &lt;time-stamp&gt;
+              }
+          }
+     },
+     "version" : 10
+}</code></pre></div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="d0e3484">Retrieving a Thing Shadow</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>You can retrieve the current, complete thing shadow document by issuing a HTTP GET to the documents RESTful URL, publishing
+                              an empty message to the ./get topic, or using the AWS CLI <code class="code">get-thing-shadow</code>. This returns the entire document plus the delta between the desired and reported state. For example:
+                           </p>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3495">Using HTTP GET</h3>
+                                    </div>
+                                 </div>
+                              </div><pre class="programlisting"><code class="nohighlight">{
+    "state" : {
+        "desired" : {
+ 	        "lights": { "color": "RED" },
+            "engine" : "ON"
+        },
+        "reported" : {
+             "lights" : { "color": "GREEN"  },
+ 		     "engine" : "ON"
+        }
+   },
+   "metadata" : { 
+        "desired" : {
+             "lights": { "color": { "timestamp" : &lt;time-stamp&gt; },
+             "engine" : { "timestamp" : &lt;time-stamp&gt; }
+        },
+       "reported" : {
+             "lights" : { "color" : { "timestamp" : &lt;time-stamp&gt; }  },
+             "engine" : { "timestamp" : &lt;time-stamp&gt; }
+       }
+   },
+   "version" : 10
+}</code></pre><p>HTTP request:</p>
+                              <p><code class="code">GET https://g.us-east-1.pb.iot.amazonaws.com/things/{thingName}/shadow</code></p>
+                              <p>HTTP response:</p><pre class="programlisting"><code class="nohighlight">{
+     "state" : {
+          "desired" : {
+              "lights": { "color": "RED" },
+              "engine" : "ON"
+          },
+          "reported" : {
+              "lights" : { "color": "GREEN"  },
+              "engine" : "ON"
+          },
+          "delta" : {
+              "lights" : { "color": "RED"  }
+          }
+      },
+      "metadata" : { 
+          "desired" : {
+              "lights" : { "color": { "timestamp" : &lt;time-stamp&gt; },
+              "engine" : { "timestamp" : &lt;time-stamp&gt; }
+           },
+           "reported" : {
+               "lights" : { "color" : { "timestamp" : &lt;time-stamp&gt; }  },
+               "engine":{ "timestamp" : &lt;time-stamp&gt; }
+           },
+           "delta" : {
+               "lights" : { "color": { "timestamp" : &lt;time-stamp&gt; }  }
+           }
+      },
+      "version" : 10
+}</code></pre><p>Retrieving a Thing Shadows document requires a policy that allows the calling principal to perform the  <code class="code">"iot:GetThingShadow"</code> action. Thing Shadows accept two forms of authentication: sigv4 with IAM credentials or TLS mutual authentication with an
+                                 Icebreaker certificate.
+                              </p>
+                              <p>The following snippet is an example policy that allows a caller to retrieve a Thing Shadows document using an Icebreaker certificate
+                                 for authentication:
+                              </p><pre class="programlisting"><code class="nohighlight">{
+   "Version": "2012-10-17",
+   "Statement": [{
+      "Effect": "Allow",
+      "Action": "iot:GetThingShadow",
+      "Resource": ["arn:aws:iot:us-east-1:<em class="replaceable"><code>&lt;accountId&gt;</code></em>:thing/<em class="replaceable"><code>&lt;thing&gt;</code></em>"]
+   }]
+}
+</code></pre><p>The following snippet is an example policy that allows a caller to update a Thing Shadows document using IAM credentials for
+                                 authentication:
+                              </p><pre class="programlisting"><code class="nohighlight">{
+   "Version": "2012-10-17",
+   "Statement": [{
+      "Effect": "Allow",
+      "Action": ["iot:GetThingShadow"],
+      "Resource": ["arn:aws:iot:us-east-1:<em class="replaceable"><code>&lt;accountId&gt;</code></em>:thing/<em class="replaceable"><code>&lt;thing&gt;</code></em>"]
+   }]
+}</code></pre></div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3547">Using MQTT</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>If Icebreaker recieves an empty message on the ./get topic, it publishes the entire state document to the $aws/things/{thing-name}/shadow/get/accepted
+                                 topic.
+                              </p>
+                           </div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3556">Using AWS CLI</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>You can also retrieve the Thing Shadows document using the <code class="code">get-thing-shadow</code> CLI command. The command takes a single parameter: <code class="code">--thing-name</code> that specifies the thing you are retrieving.
+                              </p>
+                              <p>Example command line:</p>
+                              <p><code class="code">aws iot-data --endpoint-url https://g.us-east-1.pb.iot.amazonaws.com get-thing-shadow --thing-name myRGBLight output.txt</code></p>
+                           </div>
+                        </div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="d0e3579">Updating Thing Shadows</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>You can update a Thing Shadows document by using the  AWS CLI, the REST API or by publishing a message on the <code class="code">$aws/things/{thingName}/shadow/update</code> topic. If the specified thing does not exist, it is created.
+                           </p>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3590">Using the AWS CLI</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>You update the Thing Shadows document using the <code class="code">update-thing-shadow</code> CLI command. The command parameters are:
+                              </p>
+                              <table border="0" summary="Simple list" class="simplelist">
+                                 <tr>
+                                    <td>--thing-name : the thing name</td>
+                                 </tr>
+                                 <tr>
+                                    <td>--payload : the JSON object that specifies the new state</td>
+                                 </tr>
+                              </table>
+                              <p>Example command line:</p>
+                              <p><code class="code">aws iot-data --endpoint-url https://g.us-east-1.pb.iot.amazonaws.com update-thing-shadow --thing-name myRGBLight --payload
+                                    "{ \"state\": { \"desired\": { \"color\": \"RED\" }, \"reported\": { \"color\": \"GREEN\" } } }" output.txt</code></p>
+                           </div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3618">Using the REST API</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>
+                                                        To update a Thing Shadow using the REST API, send an HTTP POST to: <code class="code"> https://g.us-east-1.pb.iot.amazonaws.com/things/<em class="replaceable"><code>{thingName}</code></em>/shadow</code> with the JSON document in the HTTP request body. The JSON document should contain only the values you are adding or changing.
+                                 For example:
+                              </p><pre class="programlisting"><code class="nohighlight">{
+   state:{
+      "desired" : {
+        "color" : {  "r" : 10 },
+        "engine" : "ON"
+   }
+}</code></pre></div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3636">Using MQTT</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>Publish a message on the <code class="code">$aws/things/<em class="replaceable"><code>{thingName}</code></em>/shadow/update</code> topic.
+                              </p>
+                              <p>For example:</p><pre class="programlisting"><code class="nohighlight">{
+   "state" : { "desired" : {  "color" : "RED"  }, "reported" : { "color" : "GREEN" } }
+}</code></pre><div class="section">
+                                 <div class="titlepage">
+                                    <div>
+                                       <div>
+                                          <h4 class="title" id="d0e3656">Update topics</h4>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <p>Icebreaker publishes on the following special topics when updating shadows: </p>
+                                 <div class="itemizedlist">
+                                    <ul class="itemizedlist" type="disc">
+                                       <li class="listitem">
+                                          <p>$aws/things/{thingName}/shadow/update/accepted - Icebreaker publishes a message on this topic when updating a thing shadow</p>
+                                       </li>
+                                       <li class="listitem">
+                                          <p>$aws/things/{thingName}/shadow/update/rejected - Icebreaker publishes a message on this topic when a thing shadow cannot be
+                                             updated
+                                          </p>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="d0e3678">Deleting a Thing Shadow</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>You can delete a thing using the AWS CLI <code class="code">delete-thing-shadow</code> command, sending an HTTP DELETE request, or publishing an empty message or a JSON message with &#8220;clientToken&#8221; set on the AWS/things/{thing-name}/shadow/delete
+                              topic.
+                           </p>
+                           <p>clientToken is set if the sender is interested in getting a response that contains which client deleted the message. If the
+                              publisher choses to publish JSON, it must be valid JSON.
+                           </p>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3692">Using the AWS CLI</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>Use the delete-thing-shadow command:</p>
+                              <p><code class="code">aws iot-data delete-thing-shadow --thing-name {thingName} output.txt</code></p>
+                           </div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3705">Sending an HTTP Request</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>Send an HTTP DELETE request to https://https://g.us-east-1.pb.iot.amazonaws.com/things/{thing-name}/shadow</p>
+                           </div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3714">Using MQTT</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>Publish either an empty message or a message with clientToken set on the $aws/things{thingName}/shadow/delete topic. The message
+                                 should look like the following. An empty message:
+                              </p><pre class="programlisting"><code class="nohighlight">{}</code></pre><p>Or a message with clientToken set</p><pre class="programlisting"><code class="nohighlight">{
+    "clientToken":"&lt;unique-client-token&gt;:
+}</code></pre><div class="section">
+                                 <div class="titlepage">
+                                    <div>
+                                       <div>
+                                          <h4 class="title" id="d0e3731">Delete topics</h4>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <p>Icebreaker publishes on the following special topics when deleting shadows: </p>
+                                 <div class="itemizedlist">
+                                    <ul class="itemizedlist" type="disc">
+                                       <li class="listitem">
+                                          <p>$aws/things/{thingName}/shadow/delete/accepted - Icebreaker publishes a message on this topic when deleting a thing shadow</p>
+                                       </li>
+                                       <li class="listitem">
+                                          <p>$aws/things/{thingName}/shadow/delete/rejected - Icebreaker publishes a message on this topic when a thing shadow cannot be
+                                             deleted
+                                          </p>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3752">Deleting an attribute from a Thing Shadow</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>You can delete an attribute from a thing shadow by setting the associated field to null. Null is treated as delete by Thing
+                                 Shadows and any field with a value of null is removed from the document.  For example:
+                              </p>
+                              <p>Initial state:</p><pre class="programlisting"><code class="nohighlight">{
+    "state" : {
+        "desired" : {
+            "lights": { "color": "RED" },
+            "engine" : "ON"
+        },
+        "reported" : {
+            "lights" : { "color": "GREEN"  },
+            "engine" : "OFF"
+        }
+    }
+}</code></pre><p>Message payload:</p><pre class="programlisting"><code class="nohighlight">{
+    "state" : {
+         "desired" : null,
+         "reported: {
+             "engine" : null
+         }
+    }
+}</code></pre><p>Result:</p><pre class="programlisting"><code class="nohighlight">{
+    "reported" : {
+        "lights" : { "color" : "GREEN" }
+    }
+}</code></pre></div>
+                        </div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="d0e3780">MQTT Topics Used by Thing Shadows</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>Thing Shadows uses the following MQTT topics to allow things and applications to publish their current state and request the
+                              current state be updated:
+                           </p>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3788">update</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p><code class="code">$aws/things/<em class="replaceable"><code>{thingName}</code></em>/shadow/update</code> : a thing (device or app) can publish on this topic to update the JSON state document
+                              </p>
+                              <p>You can specify a version attribute in the JSON document to specify which version of the JSON document you are attempting
+                                 to update. When a version attribute is present in an MQTT message, Icebreaker only processes the update if the message version
+                                 matches the latest version of the state document in Icebreaker. The following example shows a message with a version attribute:
+                              </p><pre class="programlisting"><code class="nohighlight">{
+   "state" : {
+      "desired" : {
+         "color" : "RED",
+         "temperature" : 55
+      },
+      "reported" : {
+         "color" : "GREEN",
+         "temperature" : 35
+      }
+   },
+   "version" : 42,
+   "clientToken" : "UnqiueForTheClient"
+}</code></pre></div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3808">accepted</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p><code class="code">$aws/things/<em class="replaceable"><code>{thingName}</code></em>/update</code> : Icebreaker publishes to this topic when it accepts a change. The message body contains the updated state. For example,
+                                 if the following JSON document was published on <code class="code">$aws/things/<em class="replaceable"><code>{thingName}</code></em>/update</code>:
+                              </p><pre class="programlisting"><code class="nohighlight">{
+   &#8220;state&#8221; : { &#8220;desired&#8221;: { &#8220;color&#8221; : &#8220;RED&#8221; } }
+}</code></pre><p><code class="code">Icebreaker publishes the following JSON on $aws/things/<em class="replaceable"><code>{thingName}</code></em>/update/accepted</code>:
+                              </p><pre class="programlisting"><code class="nohighlight">{
+   &#8220;state&#8221; : { &#8220;desired&#8221;: { &#8220;color&#8221; : &#8220;RED&#8221; } }
+   &#8220;version&#8221; : 43,
+   &#8220;metadata&#8221; : { &#8220;desired&#8221; : { &#8220;color&#8221; : { &#8220;timestamp&#8221; : 100 } } }
+}</code></pre></div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3842">rejected</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p><code class="code">$aws/things/<em class="replaceable"><code>{thingName}</code></em>/shadow/update/rejected</code> : Icebreaker publishes on this topic when it rejects a change. For example:
+                              </p><pre class="programlisting"><code class="nohighlight">{
+   &#8220;code&#8221; : 400,
+   &#8220;message&#8221; : &#8220;invalid json",
+   "timestamp" : 100123,
+   "clientToken" : "1234",
+   "version": 12
+}</code></pre><p>The following parameters are used in every ./rejected message:</p>
+                              <div class="itemizedlist">
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       <p><code class="code">code</code> - an HTTP response code that indicates specific types of errors
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code">message</code> - a non-standardized text message that provides additional human readable error information
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code">timestamp</code> - indicates the time when the message was generated by Icebreaker
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code">clientToken</code> -  only present if a client token was used in the preceding publish to ./update
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code">version</code> - sent to allow for devices to re-sync on the current shadow document version
+                                       </p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3895">delta</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p><code class="code">$aws/things/<em class="replaceable"><code>{thingName}</code></em>/shadow/update/delta</code> : Icebreaker publishes on this topic when it accepts a change and the JSON state document contains different values for desired
+                                 and reported states.
+                              </p>
+                              <p>The following rules determine when messages are published to .shadow/update/delta and what is included in the messages:</p>
+                              <div class="itemizedlist">
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       <p>Messages published on the ./update/delta topic contain only the desired attributes that differ between the reported and desired
+                                          sections. The messages contains all of these attributes regardless of whether these attributes were contained in the current
+                                          ./update message or whether they were already stored in Icebreaker. Attributes that do not differ between reported and desired
+                                          are not included in messages published on ./update/delta
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p>If an attribute is in the reported section but has no equivalent in the desired section, it is not included in messages published
+                                          on .update/delta
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p>If an attribute is in the desired section but has no equivalent in the reported section, it is not included in messages published
+                                          on ./update/delta
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p>If an attribute is deleted from the reported section but still exists in the desired section it is included in messages published
+                                          on ./update/delta
+                                       </p>
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>The state and reported sections are attributes contained within the JSON document</p>
+                              </div>
+                              <p>The following examples illustrates a scenario where a device publishes its state and then an app updates the device state:</p>
+                              <p>Icebreaker contains to following JSON document for a thing:</p><pre class="programlisting"><code class="nohighlight">{
+   "state" : { "color" : "RED" }
+   "version" : 10,
+   "timestamp" : 1234567,
+   "metadata" : { "color" : { "timestamp" : 100 } }
+}</code></pre><p>A thing publishes the following message on ./update:</p><pre class="programlisting"><code class="nohighlight">{
+   "state" : { "reported": { "color" : "RED" } }
+}</code></pre><p>A controller app attempts to update the thing state:</p><pre class="programlisting"><code class="nohighlight">{
+   "state" : { "desired": { "color" : "GREEN" } }
+}</code></pre><p>Icebreaker publishes the following on ./update/delta:</p><pre class="programlisting"><code class="nohighlight">{
+   "state" : { "color" : "GREEN" }
+   "version" : 12,
+   "timestamp" : 2345679
+   "metadata" : { "color" : { "timestamp" : 2345678 } }
+}</code></pre></div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3962">delete accepted</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>$aws/things/{thingName}/shadow/delete/accepted - Icebreaker publishes a message on this topic when deleting a thing shadow</p>
+                           </div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e3971">delete rejected</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>$aws/things/{thingName}/shadow/delete/rejected - Icebreaker publishes a message on this topic when a thing shadow cannot be
+                                 deleted
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div><img src="images/expanderarrow.png" style="display:none;height:0;width:0"><div id="main-col-footer">
+                     <div id="doc-conventions"><a target="_top" href="/general/latest/gr/docconventions.html">Document Conventions</a></div>
+                     <div id="next"><a class="awstoc" accesskey="p" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-previous', 'aws-docs-click', location.protocol + '//' + location.hostname + '/using-thing-registry.html');" href="using-thing-registry.html">&laquo; Previous </a><a class="awstoc" accesskey="n" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-next', 'aws-docs-click', location.protocol + '//' + location.hostname + '/using-thing-sdk.html');" href="using-thing-sdk.html">Next &raquo;</a></div>
+                  </div>
+               </div>
+            </div>
+            <div id="right-expanded">
+               <div id="right-content-wrapper">
+                  <div id="right-col-header"><a id="pdf_link" href="icebreaker-dg.pdf" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-pdf-link', 'aws-docs-click', 'icebreaker-dg.pdf);"> PDF </a></div>
+                  <div id="pagetoc">
+                     <p>On this page:</p>
+                     <ul class="pagetoc">
+                        <li class="pagetoc" name="Data-flow in Thing Shadows"><a class="pagetoc" href="#d0e3322">Data-flow in Thing Shadows</a></li>
+                        <li class="pagetoc" name="Thing Shadow Document"><a class="pagetoc" href="#d0e3436">Thing Shadow Document</a></li>
+                        <li class="pagetoc" name="Retrieving a Thing Shadow"><a class="pagetoc" href="#d0e3484">Retrieving a Thing Shadow</a></li>
+                        <li class="pagetoc" name="Updating Thing Shadows"><a class="pagetoc" href="#d0e3579">Updating Thing Shadows</a></li>
+                        <li class="pagetoc" name="Deleting a Thing Shadow"><a class="pagetoc" href="#d0e3678">Deleting a Thing Shadow</a></li>
+                        <li class="pagetoc" name="MQTT Topics Used by Thing Shadows"><a class="pagetoc" href="#d0e3780">MQTT Topics Used by Thing Shadows</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="footer">
+         <div id="footer-left"><a target="_top" href="http://aws.amazon.com/terms">Terms of Use</a> | &copy; 2015, Amazon Web Services, Inc. or its affiliates. All rights reserved.
+         </div>
+         <div id="footer-right">
+            <div id="feedback">
+               <div id="forums"><a id="forum_link" target="_blank" href="http://forums.aws.amazon.com/forum.jspa?forumID=3" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-forums-link', 'aws-docs-click', 'http://forums.aws.amazon.com/forum.jspa?forumID=3');">Have a question? Try the Forums.</a></div>
+               <div id="feedback-message">Did this page help you?</div>
+               <div id="feedback-yesno-buttons"><a class="awstoc btn btn-default" target="_blank" href="feedbackyes.html?topic_id=working-with-thing-shadows">Yes</a><a class="awstoc btn btn-default" target="_blank" href="feedbackno.html?topic_id=working-with-thing-shadows">No</a></div>
+               <div id="feedback-feedback-button"><a class="awstoc btn btn-default" target="_blank" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=ICE&amp;hidden_guide_name=Developer Guide&amp;hidden_api_version=&amp;hidden_file_name=working-with-thing-shadows">Feedback</a></div>
+            </div>
+         </div>
+      </div>
+      <noscript>
+         <div>
+            <div>
+               <div>
+                  <div id="error_messages"><img src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png" style="float: left;" alt="Warning"><div id="js_error_message"><strong>Javascript is disabled or is unavailable in your browser.</strong><br> To use the AWS Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions. 
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </noscript>
+      <!-- SiteCatalyst code version: H.25.2.
+            Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+            More info available at http://www.omniture.com --><script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js"></script><script language="JavaScript" type="text/javascript">
+         <!--
+
+            // Documentation Service Name
+            s.prop66='Icebreaker';
+            s.eVar66='D=c66';
+  
+            // Documentation Guide Name                                                                 
+            s.prop65='Developer Guide';
+            s.eVar65='D=c65';
+
+            var s_code=s.t();if(s_code)document.write(s_code)//--></script><script language="JavaScript" type="text/javascript">
+         <!--
+                if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+                //--></script><noscript><img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt=""></noscript>
+      <!--/DO NOT REMOVE/-->
+      <!-- End SiteCatalyst code version: H.25.2. -->
+   </body>
+</html>

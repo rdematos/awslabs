@@ -1,0 +1,2 @@
+configurations.create("default")
+artifacts.add("default", file('SmartDeviceLinkLibrary-4.0.0-Android.jar'))

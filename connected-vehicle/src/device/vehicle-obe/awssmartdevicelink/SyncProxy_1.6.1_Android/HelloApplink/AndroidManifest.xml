@@ -1,0 +1,92 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.amazonaws.smartdevicelink"
+    android:versionCode="1"
+    android:versionName="1.6.1" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:name=".HelloFordApplication"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <activity
+            android:name="com.amazonaws.smartdevicelink.MainActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:label="@string/title_activity_main" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.amazonaws.smartdevicelink.MqttSettingsActivity"
+            android:label="MQTT Connection Settings" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:label="Locked" android:screenOrientation="portrait" android:name="com.amazonaws.smartdevicelink.LockScreenActivity"></activity>
+        
+        <service android:name="com.amazonaws.smartdevicelink.AppLinkService"></service>
+        
+        <receiver android:name="com.amazonaws.smartdevicelink.AppLinkReceiver">
+			<intent-filter>
+				<action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+				<action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
+				<action android:name="android.bluetooth.device.action.ACL_DISCONNECTED" />
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+				<action android:name="android.media.AUDIO_BECOMING_NOISY" />
+			</intent-filter>
+		</receiver>
+
+        <!-- Mqtt Service -->
+        <service android:name="org.eclipse.paho.android.service.MqttService" >
+        </service>
+
+        <!-- Client Connections Activity -->
+        <activity android:name="com.amazonaws.mqttlink.ClientConnections" >
+        </activity>
+
+        <!-- New Connection Activity -->
+        <activity
+            android:name="com.amazonaws.mqttlink.NewConnection"
+            android:label="@string/title_activity_new_connection" >
+        </activity>
+
+
+        <!-- Advanced Options Screen -->
+        <activity
+            android:name="com.amazonaws.mqttlink.Advanced"
+            android:label="@string/title_activity_advanced" >
+        </activity>
+
+        <!-- Last Will Activity -->
+        <activity
+            android:name="com.amazonaws.mqttlink.LastWill"
+            android:label="@string/title_activity_last_will" >
+        </activity>
+
+        <!--  Connection Details Activity -->
+        <activity
+            android:name="com.amazonaws.mqttlink.ConnectionDetails"
+            android:label="@string/title_activity_connection_details"
+            >
+        </activity>
+
+    </application>
+    
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+</manifest>

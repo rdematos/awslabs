@@ -1,0 +1,809 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Getting started with AWS Icebreaker.">
+      <title>Getting Started with AWS Icebreaker - Icebreaker</title>
+      <link rel="home" href="#top" title="Icebreaker">
+      <link rel="up" href="#top" title="Icebreaker">
+      <link rel="prev" href="Icebreaker.components.html" title="Icebreaker Components">
+      <link rel="next" href="icebreaker-authentication.html" title="AWS Icebreaker Authentication">
+      <meta name="keywords" content="">
+      <meta name="deployment_region" content="IAD">
+      <meta name="product" content="Icebreaker">
+      <meta name="guide" content="Developer Guide">
+      <meta name="guide-locale" content="en_us">
+      <link rel="icon" type="image/ico" href="//media.amazonwebservices.com/favicon.ico">
+      <link rel="shortcut icon" type="image/ico" href="//media.amazonwebservices.com/favicon.ico">
+      <link rel="canonical" href="http://docs.aws.amazon.com/Icebreaker/latest/developerguide/icebreaker-getting-started.html">
+      <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+      <link rel="stylesheet" type="text/css" href="font/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="css/google-font.css">
+      <link rel="stylesheet" type="text/css" href="css/highlight-default.css">
+      <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.css">
+      <link rel="stylesheet" type="text/css" href="css/awsdocs.css"><script type="text/javascript" src="js/highlight.pack.js"></script><script type="text/javascript" src="js/jquery.min.js"></script><script type="text/javascript" src="js/jquery-ui.min.js"></script><script type="text/javascript" src="js/handlebars.js"></script><script type="text/javascript" src="js/awsdocs.min.js"></script></head>
+   <body id="top">
+      <div id="aws-nav" class="aws-nav-header">
+         <div class="aws-nav-header-left">
+            <div class="aws-nav-logo"><a href="https://aws.amazon.com"><span>Amazon Web Services</span></a></div>
+         </div>
+         <div id="aws-nav-header-right" class="aws-nav-header-right">
+            <div class="aws-nav-cta-button-outer"><a id="aws-nav-cta-button" class="aws-nav-button" href="https://console.aws.amazon.com/console/home">Sign In to the Console</a></div>
+            <div class="aws-nav-popover-trigger" data-dropdown="aws-nav-dropdown-lang"><select id="languageSelection" onchange="SelectLanguage()">
+                  <option value="/de_de/Icebreaker/latest/developerguide/icebreaker-getting-started.html">Deutsch</option>
+                  <option value="/en_us/Icebreaker/latest/developerguide/icebreaker-getting-started.html" selected>English</option>
+                  <option value="/es_es/Icebreaker/latest/developerguide/icebreaker-getting-started.html">Espa&ntilde;ol</option>
+                  <option value="/fr_fr/Icebreaker/latest/developerguide/icebreaker-getting-started.html">Fran&ccedil;ais</option>
+                  <option value="/ja_jp/Icebreaker/latest/developerguide/icebreaker-getting-started.html">&#26085;&#26412;&#35486;</option>
+                  <option value="/pt_br/Icebreaker/latest/developerguide/icebreaker-getting-started.html">Portugu&ecirc;s</option>
+                  <option value="/ko_kr/Icebreaker/latest/developerguide/icebreaker-getting-started.html">&#54620;&#44397;&#50612;</option>
+                  <option value="/zh_cn/Icebreaker/latest/developerguide/icebreaker-getting-started.html">&#20013;&#25991; (&#31616;&#20307;)</option></select></div>
+            <div id="aws-nav-quicklinks-separator" class="aws-nav-quicklinks-separator">
+               <div class="aws-nav-left"></div>
+               <div class="aws-nav-right"></div>
+            </div>
+         </div>
+         <div id="topnav-flyout-menu-container">
+            <ul id="topnav-flyout-menu"><script id="flyout-item-template" type="text/x-handlebars-template">           
+                    {{#flyoutList}}
+                    
+                    <li>{{listItem}}
+                        {{#if subList}}
+                        <ul>
+                            {{#subList}}
+                            <li class="awsdocs-flyout-link-wrapper"><a href="{{target}}">{{text}}</a></li>
+                            {{/subList}}
+                        </ul>
+                        {{/if}}
+                    </li>
+                    
+                    {{/flyoutList}}
+                </script></ul>
+            <div id="topnav-flyout-menu-spacer"></div>
+         </div>
+      </div><script type="text/javascript">
+         <!--
+						var thispage = "icebreaker-getting-started.html";
+						var tocroot = location.protocol + '//' + location.hostname + location.pathname;
+						--></script><div id="content-container">
+         <div id="left-column" class="ui-resizable">
+            <div id="left-col-header">
+               <div id="left-col-top-content">
+                  <div id="service-name">Icebreaker </div>
+                  <div id="search"><i id="search-icon" class="fa fa-search fa-2x"></i></div>
+                  <div id="guide-info">Developer Guide
+                     <div id="content-button"><i id="toggle-contents" class="fa fa-bars"></i></div>
+                  </div>
+               </div>
+               <form id="finegrainedSearch" method="get" onsubmit="return searchFormSubmit(this);" action="/search/doc-search.html">
+                  <div id="search-form"><select id="search-select" name="searchPath">
+                        <option value="all">Entire Site</option>
+                        <option value="AWSMarketplace">AMIs from AWS Marketplace</option>
+                        <option value="amis">AMIs from All Sources</option>
+                        <option value="articles">Articles &amp; Tutorials</option>
+                        <option value="products_and_info">AWS Product Information</option>
+                        <option value="case_studies">Case Studies</option>
+                        <option value="customerapps">Customer Apps</option>
+                        <option value="documentation">Documentation</option>
+                        <option value="documentation-product">Documentation - This Product</option>
+                        <option value="documentation-guide" selected>Documentation - This Guide</option>
+                        <option value="datasets">Public Data Sets</option>
+                        <option value="releasenotes">Release Notes</option>
+                        <option value="solution_providers">Partners</option>
+                        <option value="code">Sample Code &amp; Libraries</option></select><br><input id="search-query" name="searchQuery" type="text" placholder="$loc-search-search"><input id="search-button" src="images/search-button.png" alt="Go" type="image"></div><input type="hidden" name="this_doc_product" id="this_doc_product" value="Icebreaker"><input type="hidden" name="this_doc_guide" id="this_doc_guide" value="Developer Guide"><input type="hidden" name="doc_locale" value="en_us"></form>
+            </div>
+            <div id="toc">
+               <ul class="awstoc">
+                  <li class="awstoc closed"><a class="awstoc" href="what-is-icebreaker.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-what-is-icebreaker.html');">What Is AWS Icebreaker?</a><ul class="awstoc">
+                        <li class="awstoc leaf"><a class="awstoc" href="Icebreaker.components.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-Icebreaker.components.html');">Icebreaker Components</a></li>
+                     </ul>
+                  </li>
+                  <li class="awstoc leaf"><a class="awstoc selected" href="icebreaker-getting-started.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-getting-started.html');">Getting Started with AWS Icebreaker</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-authentication.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-authentication.html');">AWS Icebreaker Authentication</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-authorization.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-authorization.html');">AWS Icebreaker Authorization</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-policy-samples.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-policy-samples.html');">Icebreaker Policy Samples</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="working-with-rules.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-working-with-rules.html');">Working with Rules</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="using-thing-registry.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-using-thing-registry.html');">Working with the AWS Icebreaker Thing Registry</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="working-with-thing-shadows.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-working-with-thing-shadows.html');">Working with Thing Shadows</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="using-thing-sdk.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-using-thing-sdk.html');">Using the Thing SDK</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="thing-sdk-porting-guide.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-thing-sdk-porting-guide.html');">Thing SDK Porting Guide</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="icebreaker-sdk-for-java.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-icebreaker-sdk-for-java.html');">Using Icebreaker with the AWS SDKs for Java and
+                                Javascript</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="troubleshooting-with-logs.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-troubleshooting-with-logs.html');">Troubleshooting with logs</a></li>
+                  <li class="awstoc leaf"><a class="awstoc" href="appendix.html" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-toc', 'aws-docs-click', tocroot + '-appendix.html');">Icebreaker Appendix</a></li>
+               </ul>
+            </div>
+         </div>
+         <div id="main-column">
+            <div id="main">
+               <div id="main-content">
+                  <div id="breadcrumbs">
+                     <table summary="Breadcrumbs">
+                        <tr>
+                           <td>
+                              <div class="navheader">
+                                 <div class="breadcrumb"><a href="http://aws.amazon.com/documentation/" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-breadcrumbs', 'aws-docs-click', 'http://aws.amazon.com/documentation/');">AWS Documentation</a> &raquo; <a href="http://aws.amazon.com/documentation/Icebreaker/" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-breadcrumbs', 'aws-docs-click', 'http://aws.amazon.com/documentation/Icebreaker/');">AWS Icebreaker</a> &raquo; <a href="http://docs.aws.amazon.com/Icebreaker/latest/developerguide/" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-breadcrumbs', 'aws-docs-click', 'http://docs.aws.amazon.com/Icebreaker/latest/developerguide/');">Developer Guide</a> &raquo; <span class="breadcrumb">Getting Started with AWS Icebreaker</span></div>
+                              </div>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <div id="main-col-body">
+                     <div class="chapter" id="icebreaker-getting-started">
+                        <div class="titlepage">
+                           <div>
+                              <div>
+                                 <h1 class="topictitle">Getting Started with AWS Icebreaker</h1>
+                              </div>
+                           </div>
+                        </div>
+                        <p>This topic will help you get started with Icebreaker by walking you through the
+                                   following:
+                        </p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="disc">
+                              <li class="listitem">
+                                 <p>Using the Icebreaker Console</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Install and configure the AWS Icebreaker CLI</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Create a thing in the Thing Registry</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Configuring Authentication and Authorization</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Verify Connectivity and MQTT Publish and Subscribe</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Configure and Test Rules</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Using the Thing Registry and Thing Shadows</p>
+                              </li>
+                           </ul>
+                        </div>
+                        <p>There are three ways to interact with the Icebreaker service:</p>
+                        <div class="itemizedlist">
+                           <ul class="itemizedlist" type="disc">
+                              <li class="listitem">
+                                 <p>Using the Icebreaker Console</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Using the Icebreaker CLI</p>
+                              </li>
+                              <li class="listitem">
+                                 <p>Using the Icebreaker SDKs</p>
+                              </li>
+                           </ul>
+                        </div>
+                        <p>The following sections will describe each of these in more detail.</p>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="using-icebreaker-console">Using the Icebreaker Console</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>The Icebreaker console can be found at: <a class="ulink" href="https://icebreaker-preview.us-east-1.aws.amazon.com/icebreaker" target="_blank">Icebreaker Console</a>. The console is divided up into three sections:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="disc">
+                                 <li class="listitem">
+                                    <p>Certificates</p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p>Rules and Integrations</p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p>Access and Policies</p>
+                                 </li>
+                              </ul>
+                           </div>
+                           <p>These sections are selectable by clicking on the appropriate icon in the upper left hand corner of the console.</p>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e383">Certificates</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>The certificates section allows you to submit a certificate signing request to generate a new certificate. It also allows
+                                 you to activate, transfer, deactivate, or revoke and existing certificate.
+                              </p>
+                           </div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e392">Rules and Integrations</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>The rules and integrations section allows you to add a new rule and view your existing rules.</p>
+                           </div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e401">Access and Policies</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>The access and policies section allows you to add new Icebreaker policies and view existing Icebreaker policies.</p>
+                           </div>
+                        </div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="installing-aws-cli">Installing AWS CLI</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>To interact with Icebreaker from the command line you can use the AWS CLI. To install latest version of AWS CLI, see 
+                                                <a class="ulink" href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-set-up.html" target="_blank">Install AWS CLI</a>. 
+                                                Make sure you have configured your AWS credentials with the AWS CLI. For more information, see <a class="ulink" href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html" target="_blank">Getting Started with AWS CLI</a>.
+                           </p>
+                           <p>Download AWS Icebreaker CLI models using the following AWS CLI command:</p>
+                           <p><code class="code">aws s3 cp s3://icebreaker-private-beta/aws-iot-cli.zip aws-iot-cli.zip</code></p>
+                           <p>Extract the .zip file. It will create a directory with the same name as the zip file.  That directory will contain an <code class="code">iot</code> directory. Copy the <code class="code">iot</code> and <code class="code">iot-data</code> directories to <code class="code">~/.aws/models</code> (on Unix or Linux) or <code class="code">%UserProfile%\.aws\models</code> (on Windows).
+                           </p>
+                           <p>Open a command prompt/shell, run <code class="code">aws iot help</code> and <code class="code">aws iot-data help</code> to learn more about Icebreaker commands. Run <code class="code">aws &lt;<em class="replaceable"><code>service name</code></em>&gt; &lt;<em class="replaceable"><code>command name</code></em>&gt; help</code>"" to learn more about any specific command. 
+                           </p>
+                           <div class="aws-note">
+                              <p class="aws-note">Note</p>
+                              <p>When your account is white listed, by default, the root user in your account has access to the <code class="code">icebreaker-private-beta</code> bucket in S3. To enable other IAM users in your account to access the bucket, attach the following IAM policy to the IAM
+                                 users:
+                              </p><pre class="programlisting"><code class="nohighlight">{
+       "Version": "2012-10-17", 
+        "Statement": [{
+             "Sid": "icebreaker1", 
+             "Effect": "Allow", 
+             "Action": [ 
+                  "s3:List*", 
+                  "s3:Get*" 
+             ], 
+             "Resource": [ 
+                  "arn:aws:s3:::icebreaker-private-beta", 
+                  "arn:aws:s3:::icebreaker-private-beta/*" 
+             ] 
+        }] 
+}</code></pre></div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="parameter-types">Getting Help and Working with Different Parameter Types</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>Open a command prompt/shell, run "aws iot help" and "aws iot-data help" to learn
+                                                 more about Icebreaker commands. Run "aws
+                                                     <em class="replaceable"><code>&lt;service-name&gt;</code></em>
+                                                 <em class="replaceable"><code>&lt;command-name&gt;</code></em> help" to learn more about any
+                                                 specific command.
+                              </p>
+                              <p>If you are having trouble with the formatting of a parameter for a specific command, 
+                                                 check the manual by typing help after the command name, for example:
+                              </p>
+                              <p><code class="code">$ aws iot &lt;command&gt; help</code></p>
+                              <p>The help for each subcommand describes its function, options, output, and examples.</p>
+                              <p>The sections and examples in this User Guide are verified for Windows OS command prompt.
+                                                 If you are using Linux, OS X, Unix or Windows Power Shell, note that there may be
+                                                 variations in the formats of commands, JSON and other parameter types.
+                              </p>
+                              <p> For example, to load parameters from a local file by providing the path to the file the
+                                                 commands will be:
+                              </p>
+                              <p><span class="emphasis"><em>Linux, OS X, or Unix</em></span></p><pre class="programlisting"><code class="nohighlight">// Read from a file in the current directory
+$ aws iot --endpoint-url https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta create-certificate-from-csr --certificate-signing-request file://csrfile.pem --set-as-active
+                
+// Read from a file in /path
+$ aws iot --endpoint-url https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta create-certificate-from-csr --certificate-signing-request file:///path/csrfile.pem --set-as-active
+               </code></pre><p><span class="emphasis"><em>Windows</em></span></p><pre class="programlisting"><code class="nohighlight">// Read from a file in C:\temp
+$ aws iot --endpoint-url https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta create-certificate-from-csr --certificate-signing-request file://C:\temp\csrfile.pem --set-as-active    </code></pre><p>For additional references on formatting commands, JSON parameters, etc., see <a class="ulink" href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html" target="_blank">Specifying Parameter Values for the AWS Command Line Interface</a> 
+                              </p>
+                           </div>
+                        </div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="create-thing">Create a thing in the Thing Registry</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>To connect a thing to Icebreaker you must first create a thing in the Thing Registry. The Thing Registry allows you to keep
+                              a simple record of all things connected to Icebreaker.You can create a thing by using the <code class="code">create-thing</code> CLI command or by using the Icebreaker console.
+                           </p>
+                           <p>In a command prompt/terminal, run the following command:</p>
+                           <p><code class="code">aws iot --endpoint-url https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta create-thing --thing-name <em class="replaceable"><code>&lt;thing-name&gt;</code></em></code></p>
+                           <p>This command takes a thing-name, creates a new thing, and displays the thing ARN and name:</p><pre class="programlisting"><code class="nohighlight">{
+    "thingArn": "arn:aws:iot:us-east-1:&lt;aws-account-id&gt;:thing/lightbulb", 
+    "thingName": "lightbulb"
+}</code></pre><p>You can use the <code class="code">list-things</code> command to confirm that the thing is created in the Thing Registry:
+                           </p>
+                           <p><code class="code">aws iot --endpoint-url https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta list-things</code></p>
+                           <p>This command lists all things in the Thing Registry for your AWS account:</p><pre class="programlisting"><code class="nohighlight">{
+    "things": [
+        {
+            "attributes": {}, 
+            "thingName": "lightbulb"
+        }
+    ]
+}
+</code></pre></div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="configuring-authentication-and-authorization">Configuring Authentication and Authorization</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>Icebreaker requires an X509 certificate for thing authentication. You can have Icebreaker create a certificate and key pair
+                              for you or you can create a keypair and a Certificate Signing Request (CSR) and submit them to Icebreaker to generate a certificate.
+                              For this tutorial we will let Icebreaker create the key pair and certificate:
+                           </p>
+                           <p>To create a certificate, use the <code class="code">create-keys-and-certificate</code> CLI command:
+                           </p>
+                           <p><code class="code">aws iot --endpoint https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta create-keys-and-certificate --set-as-active</code></p>
+                           <p>The command output contains the key pair and certificate. Notice the certificate ARN you will use it when saving the certificate
+                              to a file and when attaching the certificate to your thing.
+                           </p>
+                           <p>Save the certificate to a file using the <code class="code">describe-certificate</code> command:
+                           </p>
+                           <p><code class="code">aws iot --endpoint-url https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta&#8203; describe-certificate --certificate-id
+                                 &lt; <em class="replaceable"><code>id</code></em>&gt; --output text --query certificateDescription.certificatePem &gt; cert.pem</code></p>
+                           <p>where --certificate-id specifies the part after the last slash (/) in the certificate ARN                (<code class="code">arn:aws:iot:us-east-1:your-aws-account-id:cert/&lt;id-is-found-here&gt;</code>)
+                           </p>
+                           <p> Copy the key pair from the command line and save them into separate .pem files (private-key.pem and public-key.pem).</p>
+                           <div class="aws-note">
+                              <p class="aws-note">Note</p>
+                              <p>When copying the keys and certificate into a text file make sure to remove the embedded newlines ('\n').</p>
+                           </div>
+                           <p>Now that you have the certificate you can attach it to your thing. You attach a certificate to a thing using the <code class="code">attach-thing-principal</code> CLI command which takes two parameters:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="disc">
+                                 <li class="listitem">
+                                    <p>--thing-name - the name of the thing to attach the certificate to</p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p>--principal - the ARN of your certificate</p>
+                                 </li>
+                              </ul>
+                           </div>
+                           <p>The following shows how to call <code class="code">attach-thing-principal</code>:
+                           </p>
+                           <p><code class="code">aws iot --endpoint https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta attach-thing-principal --thing-name <em class="replaceable"><code>"&lt;thing-name&gt;"</code></em> --principal <em class="replaceable"><code>"&lt;certificate-arn&gt;"</code></em></code></p>
+                           <p>The certificate will also need to be copied onto your thing and be referenced by the code that sends messages to Icebreaker.</p>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e656">Create an Icebreaker Policy</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>Now you have created a certificate you need to tell Icebreaker the operations the certificate holder can perform. This is
+                                 done using an Icebreaker policy. Use the <code class="code">create-policy</code> command to create an Icebreaker policy. The --policy-document argument contains JSON that specifies the permissions assigned
+                                 to the policy:
+                              </p><pre class="programlisting"><code class="nohighlight">
+{
+    "Version": "2012-10-17", 
+    "Statement": [{
+        "Effect": "Allow",
+        "Action":["iot:*"],
+        "Resource": ["*"]
+    }]
+}
+</code></pre><p>This JSON policy document allows all IoT operations on all resources. Save this text to a file and specify it in the following
+                                 command line.
+                              </p>
+                              <p><code class="code">aws iot --endpoint-url  https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta&#8203; create-policy --policy-name PubSubToAnyTopic
+                                    --policy-document <em class="replaceable"><code>file://&lt;path-to-your-policy-document&gt;</code></em></code>
+                                                 
+                              </p>
+                              <p>The policy must be associated to a certificate to be useful, you do this by attaching the policy to the service. Attach the
+                                 policy to your certificate by using the following command:
+                              </p>
+                              <p><code class="code">aws iot --endpoint-url  https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta&#8203; attach-principal-policy --principal "<em class="replaceable"><code>&lt;certificate ARN&gt;</code></em>" --policy-name "<em class="replaceable"><code>PubSubToAnyTopic</code></em>"</code></p>
+                           </div>
+                        </div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="mqtt-pub-sub">Verify MQTT Subscribe and Publish</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>MQTT clients require a root CA certificate to authenticate Icebreaker. Download the root CA certificate file from: <a class="ulink" href="https://www.symantec.com/content/en/us/enterprise/verisign/roots/VeriSign-Class%203-Public-Primary-Certification-Authority-G5.pem" target="_blank">root certificate</a></p>
+                           <p>To test sending and receiving MQTT messages you need a MQTT client. If you do not have one installed, install <a class="ulink" href="http://mosquitto.org/download/" target="_blank">Mosquitto</a>, a MQTT broker and client. To subscribe to an MQTT topic, use the mosquitto_sub command. Provide the root CA certificate,
+                              the Icebreaker issued certificate, and the corresponding private key:
+                           </p>
+                           <p><code class="code">mosquitto_sub --cafile <em class="replaceable"><code>path-to-cert\rootCA.pem</code></em> --cert 
+                                             <em class="replaceable"><code>path-to-cert\cert.pem</code></em>c --key <em class="replaceable"><code>path-to-cert\privateKey.pem</code></em> -h g.us-east-1.pb.iot.amazonaws.com -p 8883 -q 1 -d -t foo/bar -i clientid1</code></p>
+                           <p>where:</p>
+                           <p>--cert : the Icebreaker certificate</p>
+                           <p>--key : your private key</p>
+                           <p>-h :the Icebreaker service host</p>
+                           <p>-p : the port to use on the service host</p>
+                           <p>-q : the MQTT Quality of Service (QoS) level</p>
+                           <p>-d : enable debug messages</p>
+                           <p>-t : the topic</p>
+                           <p>-I : the client ID</p>
+                           <div class="aws-note">
+                              <p class="aws-note">Note</p>
+                              <p>Ensure egress to port 8883 is allowed on your network. The command will remain running and display information when messages
+                                 are received.
+                              </p>
+                           </div>
+                           <p>Open a second command prompt/shell and use the mosquitto_pub command to publish a message:</p>
+                           <p><code class="code">mosquitto_pub --cafile certs\rootCA.pem --cert certs\cert.pem --key certs\privateKey.pem -h g.us-east-1.pb.iot.amazonaws.com
+                                 -p 8883 -q 1 -d -t foo/bar -i clientid2 -m "Hello, World"</code></p>
+                           <p>where:</p>
+                           <p>--cert : the Icebreaker certificate</p>
+                           <p>--key : your private key</p>
+                           <p>-h :the Icebreaker service host</p>
+                           <p>-p : the port to use on the service host</p>
+                           <p>-q : the MQTT Quality of Service (QoS) level</p>
+                           <p>-d : enable debug messages</p>
+                           <p>-t : the topic</p>
+                           <p>-i : the client ID</p>
+                           <p>-m : the message text to send</p>
+                           <div class="aws-note">
+                              <p class="aws-note">Note</p>
+                              <p>Ensure egress to port 8883 is allowed on your network.</p>
+                           </div>
+                           <p>This command sends a message, waits for acknowledgement and terminates.</p>
+                        </div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="config-and-test-rules">Configure and Test Rules</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>Now that you can send MQTT messages, you can specify what Icebreaker should do with the messages it receives. Rules allow
+                              you to specify how Icebreaker handles messages. You can configure Icebreaker rules to continuously process messages published
+                              on topics. You can configure the rules to take 'actions' such as inserting into a DynamoDB table or calling a Lambda function.
+                              You can configure multiple rules on a single topic.
+                           </p>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e808">Create an IAM Role for Icebreaker</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>Create an IAM role that Icebreaker can assume to perform actions when rules are triggered</p>
+                              <p>Set the following &#8216;assume role policy document&#8217; (i.e. &#8220;Trust Relationship&#8221;) to a file: </p><pre class="programlisting"><code class="nohighlight">{
+"Version": "2012-10-17",  
+"Statement": [{
+      "Sid": "",     
+      "Effect": "Allow",      
+      "Principal": { 
+            "Service": "iot.amazonaws.com"
+       },
+      "Action": "sts:AssumeRole"
+  }]
+}</code></pre><p>Use the <code class="code">create-role</code> to create the IAM role.
+                              </p>
+                              <p><code class="code">aws iam create-role --role-name icebreaker;-actions-role --assume-role-policy-document <em class="replaceable"><code>file://&lt;path-to-file&gt;/trust-policy-file</code></em></code></p>
+                              <p>Save the role ARN from the command output, you will need it when creating a rule.</p>
+                              <div class="section">
+                                 <div class="titlepage">
+                                    <div>
+                                       <div>
+                                          <h4 class="title" id="d0e837">Grant Permissions to the Role</h4>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <p>Grant the role permissions to write to DynamoDB and to invoke Lambda functions. Save the following to a file:</p><pre class="programlisting"><code class="nohighlight">{
+"Version": "2012-10-17",    
+"Statement": [{
+"Effect": "Allow",
+"Action": [ "dynamodb:*", "lambda:InvokeFunction"], 
+"Resource": ["*"]
+}]
+}</code></pre><p>Call <code class="code">create-policy</code> and specify the file path from above:
+                                 </p>
+                                 <p><code class="code">aws iam create-policy --policy-name Icebreaker-actions-policy --policy-document <em class="replaceable"><code>file://&lt;IAM-policy-document-file-path&gt;</code></em></code></p>
+                                 <p>Attach the policy you just created to the role using the attach-policy-role command:</p>
+                                 <p><code class="code">aws iam attach-role-policy --role-name "Icebreaker-actions-role" --policy-arn "<em class="replaceable"><code>&lt;policy-ARN&gt;</code></em>"
+                                                       </code></p>
+                              </div>
+                              <div class="section">
+                                 <div class="titlepage">
+                                    <div>
+                                       <div>
+                                          <h4 class="title" id="d0e871">Create a Rule to Insert a Message into a DynamoDB Table</h4>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <p>Create a DynamoDB table using the <a class="ulink" href="https://console.aws.amazon.com/dynamodb/home" target="_blank">DynamoDB console</a></p>
+                                 <div class="aws-note">
+                                    <p class="aws-note">Note</p>
+                                    <p>Icebreaker requires the DynamoDB table to have a Hash Key of type string named &#8220;topic&#8221;, and a Range Key of type number named
+                                       &#8220;timestamp&#8221;. Use the defaults for all other values.
+                                    </p>
+                                 </div>
+                                 <div class="aws-note">
+                                    <p class="aws-note">Note</p>
+                                    <p>Currently, the DynamoDB table must be in the AWS region US-EAST-1.</p>
+                                 </div>
+                                 <p>Create a rule to trigger on a topic and insert an item into the sample DynamoDB table. Rules are specified in JSON using an
+                                    SQL-like syntax. The following JSON shows how to specify rule that will write all messages sent to the foo/bar topic to the
+                                    sampleTable DynamoDB table:
+                                 </p><pre class="programlisting"><code class="nohighlight">{
+  "sql": "SELECT * FROM 'foo/bar'",
+  "ruleDisabled": false,
+  "actions": [{
+      "dynamoDB": {
+        "roleArn": "arn:aws:iam::your-aws-account-id:role/icebreaker-actions-role",
+        "tableName": "sampleTable"
+      }
+    }]
+}</code></pre><p>Save this text to a file (for example DynamoDbRule) and specify it in the create-topic-rule command:</p>
+                                 <p><code class="code">aws iot --endpoint-url https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta create-topic-rule --rule-name <em class="replaceable"><code>saveToDynamoDB</code></em> --topic-rule-payload
+                                       <em class="replaceable"><code>file://&lt;path-to-file&gt;/DynamoDbRule</code></em>.</code></p>
+                                 <p>Publish a message on the foo/bar topic using mosquito_pub to invoke the rule:</p>
+                                 <p><code class="code">mosquitto_pub --cafile <em class="replaceable"><code>certs\rootCA.pem</code></em> --cert 
+                                       <em class="replaceable"><code>certs\cert.pem</code></em> --key <em class="replaceable"><code>certs\privateKey.pem</code></em> -h g.us-east-1.pb.iot.amazonaws.com -p 8883 -q 1 -d -t <em class="replaceable"><code>foo/bar</code></em> -i <em class="replaceable"><code>clientid2</code></em> -m "{\"msg\" : \"Hello, World\"}"</code></p>
+                                 <div class="aws-note">
+                                    <p class="aws-note">Note</p>
+                                    <p>Ensure egress to port 8883 is allowed on your network.</p>
+                                 </div>
+                                 <p>Verify the data is written to the DynamoDB table by going to the DynamoDB console and double-clicking on sampleTable. The
+                                    contents of the table is displayed.
+                                 </p>
+                              </div>
+                              <div class="section">
+                                 <div class="titlepage">
+                                    <div>
+                                       <div>
+                                          <h4 class="title" id="d0e938">Create a Rule to Invoke a Lambda Function</h4>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <p>Create a Lambda function using the <a class="ulink" href="https://console.aws.amazon.com/lambda/home" target="_blank">Lambda console
+                                       </a>. From the Lambda console, click the <span class="guilabel">Create a Lambda Function</span> button. Select the <span class="guilabel">hello-world</span>  blueprint.  Name the function &#8220;myHelloWorld&#8221;.  Scroll down to the <span class="guilabel">Lambda function handler and role</span> section. Under <span class="guilabel">Handler</span> leave the default value (index.handler) and select <span class="guilabel">Basic Execution Role</span> in the <span class="guilabel">Role</span> dropdown box. In the Role page click <span class="guilabel">Allow</span> button. Back in the new function page, click the <span class="guilabel">Next</span> button and then the <span class="guilabel">Create function</span> button. On the page displayed, note the function ARN on the right-hand side of the screen, you will need to specify it when
+                                    creating a rule.
+                                 </p>
+                                 <p>Create a rule to trigger on a topic call the myHelloWorld Lambda function. Rules are specified in JSON using an SQL-like syntax.
+                                    The following JSON shows how to specify rule that will call the Lambda function when any message is sent to the foo/bar topic:
+                                 </p><pre class="programlisting"><code class="nohighlight">{
+                               "sql": "SELECT * FROM 'foo/bar'",
+                               "ruleDisabled": false,
+                               "actions": [{
+                                   "lambda": {
+                                        "roleArn": "arn:aws:iam::your-aws-account-id:role/icebreaker-actions-role",
+                                        "functionName": "arn:aws:lambda:us-east-1:your-aws-account-id:function:myHelloWorld"
+                                    }
+                                }]
+                            }</code></pre><div class="aws-note">
+                                    <p class="aws-note">Note</p>
+                                    <p>The function name ARN can be found in the Lambda Console on the page displayed immediately after you create the function.</p>
+                                 </div>
+                                 <p> Save this text to a file (for example LambdaRule) and specify it in the create-topic-rule command:</p>
+                                 <p><code class="code">aws iot --endpoint-url https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta create-topic-rule --rule-name <em class="replaceable"><code>invokeLambda</code></em> --topic-rule-payload <em class="replaceable"><code>file://&lt;path-to-file&gt;/LambdaRule</code></em>.</code></p>
+                                 <p>Invoke the rule by publishing an MQTT message on the <code class="code">foo/bar</code> topic using <code class="code">mosquitto_pub</code> command:
+                                 </p>
+                                 <p><code class="code">mosquitto_pub --cafile <em class="replaceable"><code>certs\rootCA.pem</code></em> --cert 
+                                                           <em class="replaceable"><code>certs\cert.pem</code></em> --key <em class="replaceable"><code>certs\privateKey.pem</code></em> -h g.us-east-1.pb.iot.amazonaws.com -p 8883 -q 1 -d -t <em class="replaceable"><code>foo/bar</code></em> -i <em class="replaceable"><code>clientid2</code></em> -m "{\"key1\" : \"Hello, World\"}"</code></p>
+                                 <div class="aws-note">
+                                    <p class="aws-note">Note</p>
+                                    <p>Ensure egress to port 8883 is allowed on your network.</p>
+                                 </div>
+                                 <p>Go to the Lambda console and observe the CloudWatch Logs generated by the Lambda function to verify that it was invoked and
+                                    the message was received.
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="section">
+                           <div class="titlepage">
+                              <div>
+                                 <div>
+                                    <h2 class="title" style="clear: both" id="shadows-and-registry">Using Thing Registry and Thing Shadows</h2>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>The Thing Registry allows you keep a simple record of all things connected to Icebreaker. Thing Shadows allow applications
+                              to easily interact with the things connected to Icebreaker. The general data flow of using Thing Registry and Thing Shadows
+                              is as follows:
+                           </p>
+                           <div class="itemizedlist">
+                              <ul class="itemizedlist" type="disc">
+                                 <li class="listitem">
+                                    <p>A thing, such as an internet connected light bulb, is registered in the Thing Registry.</p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p>The light bulb publishes it's current state to Icebreaker. For example "power = on" and "color = green". Icebreaker stores
+                                       the state in Thing Shadows. 
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p>An application, such as a mobile app controlling the light bulb, uses a RESTful API to query Icebreaker for the last reported
+                                       state of the light bulb, without the complexity of communicating directly to the light bulb.
+                                    </p>
+                                 </li>
+                                 <li class="listitem">
+                                    <p>An application uses a RESTful API to request a change in thing state. For example, a mobile app requests the light bulb change
+                                       it's color to green. The application does not have to deal with the complexity of communicating directly with the thing or
+                                       being resilient to issues such as intermittent connectivity. Icebreaker handles synchronizing the desired state with the thing
+                                       the next time the it is connected.
+                                    </p>
+                                 </li>
+                              </ul>
+                           </div>
+                           <p>For quick tour of Thing Shadows, we will use the Mosquitto client to simulate the light bulb in our example, and use the AWS
+                              CLI commands to simulate the mobile application.
+                           </p>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e1067">Create a Thing</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>On a command prompt, run the following command:</p>
+                              <p><code class="code">aws iot --endpoint-url https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta create-thing --thing-name lightbulb1</code></p>
+                              <p>Use the following command to confirm that the thing is created in the Thing Registry:</p>
+                              <p><code class="code">aws iot --endpoint-url https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta list-things</code></p>
+                           </div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e1087">Simulate a Thing</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>A thing synchronizes with its shadow in Icebreaker using MQTT pub/sub (or using a RESTful API). To report its state over MQTT,
+                                 the thing publishes on topic $aws/things/&lt;thing-name&gt;&gt;.  If there is an error such as a version conflict when merging the
+                                 reported state with the shadow, Icebreaker publishes a message on topic $aws/things/{thingName}/shadow/update/rejected. The
+                                 thing should subscribe on this topic, if it needs to be notified of any such error. To receive updates from the shadow, the
+                                 thing should subscribe to topic $aws/things/{thingName}/shadow/update.
+                              </p>
+                              <p>To simulate the thing using the Mosquitto client, open a new command prompt/shell and subscribe to the rejected topic with
+                                 this command:
+                              </p>
+                              <p><code class="code"> mosquitto_sub &#8211;cafile <em class="replaceable"><code>&lt;rootCA-cert&gt;</code></em> --cert <em class="replaceable"><code>&lt;thing-cert&gt;</code></em> --key <em class="replaceable"><code>&lt;thing-private-key&gt;</code></em> -h g.us-east-1.pb.iot.amazonaws.com -p 8883 -q 1 -d -t $aws/things/lightbulb1/shadow/update/rejected</code></p>
+                              <p>Open another command prompt/shell and subscribe to the update/accepted topic using the following command, to simulate receiving
+                                 updates from Icebreaker:
+                              </p>
+                              <p><code class="code">mosquitto_sub &#8211;cafile <em class="replaceable"><code>&lt;rootCA-cert&gt;</code></em> --cert <em class="replaceable"><code>&lt;thing-cert&gt;</code></em> --key <em class="replaceable"><code>&lt;thing-private-key&gt;</code></em> -h g.us-east-1.pb.iot.amazonaws.com -p 8883 -q 1 -d -t <em class="replaceable"><code> $aws/things/lightbulb1/shadow/update/accepted</code></em></code></p>
+                              <p>Open another command prompt/shell and publish a message on the state topic using the following command, to simulate reporting
+                                 a state to Icebreaker from the thing. In this command, the example &#8216;light-bulb&#8217; thing is reporting that its current color
+                                 is red:
+                              </p>
+                              <p><code class="code"> mosquitto_pub &#8211;cafile <em class="replaceable"><code>&lt;rootCA-cert&gt;</code></em> --cert <em class="replaceable"><code>&lt;thing-cert&gt;</code></em> --key <em class="replaceable"><code>&lt;thing-private-key&gt;</code></em> -h g.us-east-1.pb.iot.amazonaws.com -p 8883 -q 1 -d -t  $aws/things/lightbulb1/shadow/update -m <em class="replaceable"><code>"{ \"state\": {\"reported\": { \"color\": \"RED\" } } }"</code></em></code></p>
+                           </div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e1148">Simulate an App Controlling a Thing</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>An application such as a mobile app or a web application can authenticate using AWS credentials and use the Icebreaker RESTful
+                                 API to get the reported state of a thing or set a desired state. While applications typically use the AWS APIs or SDKs, we
+                                 are using the AWS CLI to simulate the behavior of an application.
+                              </p>
+                              <p>To get the last reported state of a thing, use the following command:</p>
+                              <p><code class="code">aws iot-data --endpoint-url https://g.us-east-1.pb.iot.amazonaws.com get-thing-state --thing-name <em class="replaceable"><code>lightbulb1</code></em> <em class="replaceable"><code>output.txt</code></em> &amp;&amp; cat <em class="replaceable"><code>output.txt</code></em></code></p>
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>use &#8216;&amp;&amp; type output.txt&#8217; on Windows</p>
+                              </div>
+                              <p>To request an update, for example to set a desired state on a thing, use the following command: </p>
+                              <p><code class="code">aws iot-data --endpoint-url https://g.us-east-1.pb.iot.amazonaws.com update-thing-state --thing-name <em class="replaceable"><code>lightbulb1</code></em> --payload <em class="replaceable"><code>"{ \"state\": {\"desired\": { \"color\": \"GREEN\" } } }" </code></em> <em class="replaceable"><code>output.txt</code></em> &amp;&amp; cat <em class="replaceable"><code>output.txt</code></em></code></p>
+                              <p>This example sets the light bulb&#8217;s color to green.</p>
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>use &#8216;&amp;&amp; type output.txt&#8217; on Windows</p>
+                              </div>
+                              <p>Go back to the command prompt where you have the Mosquitto client subscribed to the sync topic. Verify that the client received
+                                 the desired state in a message from Icebreaker.
+                              </p>
+                           </div>
+                           <div class="section">
+                              <div class="titlepage">
+                                 <div>
+                                    <div>
+                                       <h3 class="title" id="d0e1203">Delete Thing</h3>
+                                    </div>
+                                 </div>
+                              </div>
+                              <p>Delete the thing shadow using the following command:</p>
+                              <p><code class="code"> mosquitto_pub &#8211;cafile <em class="replaceable"><code>&lt;rootCA-cert&gt;</code></em> --cert <em class="replaceable"><code>&lt;thing-cert&gt;</code></em> --key <em class="replaceable"><code>&lt;thing-private-key&gt;</code></em> -h g.us-east-1.pb.iot.amazonaws.com -p 8883 -q 1 -d -m <em class="replaceable"><code>"{ \"state\": null }"</code></em></code></p>
+                              <p> Delete the thing from the Thing Registry using the following command:</p>
+                              <p><code class="code">aws iot --endpoint-url https://t71u6yob51.execute-api.us-east-1.amazonaws.com/beta delete-thing --thing-name <em class="replaceable"><code>lightbulb1</code></em></code>       
+                                         
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div><img src="images/expanderarrow.png" style="display:none;height:0;width:0"><div id="main-col-footer">
+                     <div id="doc-conventions"><a target="_top" href="/general/latest/gr/docconventions.html">Document Conventions</a></div>
+                     <div id="next"><a class="awstoc" accesskey="p" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-previous', 'aws-docs-click', location.protocol + '//' + location.hostname + '/Icebreaker.components.html');" href="Icebreaker.components.html">&laquo; Previous </a><a class="awstoc" accesskey="n" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-next', 'aws-docs-click', location.protocol + '//' + location.hostname + '/icebreaker-authentication.html');" href="icebreaker-authentication.html">Next &raquo;</a></div>
+                  </div>
+               </div>
+            </div>
+            <div id="right-expanded">
+               <div id="right-content-wrapper">
+                  <div id="right-col-header"><a id="pdf_link" href="icebreaker-dg.pdf" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-pdf-link', 'aws-docs-click', 'icebreaker-dg.pdf);"> PDF </a></div>
+                  <div id="pagetoc">
+                     <p>On this page:</p>
+                     <ul class="pagetoc">
+                        <li class="pagetoc" name="Using the Icebreaker Console"><a class="pagetoc" href="#using-icebreaker-console">Using the Icebreaker Console</a></li>
+                        <li class="pagetoc" name="Installing AWS CLI"><a class="pagetoc" href="#installing-aws-cli">Installing AWS CLI</a></li>
+                        <li class="pagetoc" name="Create a thing in the Thing Registry"><a class="pagetoc" href="#create-thing">Create a thing in the Thing Registry</a></li>
+                        <li class="pagetoc" name="Configuring Authentication and Authorization"><a class="pagetoc" href="#configuring-authentication-and-authorization">Configuring Authentication and Authorization</a></li>
+                        <li class="pagetoc" name="Verify MQTT Subscribe and Publish"><a class="pagetoc" href="#mqtt-pub-sub">Verify MQTT Subscribe and Publish</a></li>
+                        <li class="pagetoc" name="Configure and Test Rules"><a class="pagetoc" href="#config-and-test-rules">Configure and Test Rules</a></li>
+                        <li class="pagetoc" name="Using Thing Registry and Thing Shadows"><a class="pagetoc" href="#shadows-and-registry">Using Thing Registry and Thing Shadows</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="footer">
+         <div id="footer-left"><a target="_top" href="http://aws.amazon.com/terms">Terms of Use</a> | &copy; 2015, Amazon Web Services, Inc. or its affiliates. All rights reserved.
+         </div>
+         <div id="footer-right">
+            <div id="feedback">
+               <div id="forums"><a id="forum_link" target="_blank" href="http://forums.aws.amazon.com/forum.jspa?forumID=3" onclick="location.hostname.substring(0,5)!=='docs.' || __utmTrackEvent('aws-docs-forums-link', 'aws-docs-click', 'http://forums.aws.amazon.com/forum.jspa?forumID=3');">Have a question? Try the Forums.</a></div>
+               <div id="feedback-message">Did this page help you?</div>
+               <div id="feedback-yesno-buttons"><a class="awstoc btn btn-default" target="_blank" href="feedbackyes.html?topic_id=icebreaker-getting-started">Yes</a><a class="awstoc btn btn-default" target="_blank" href="feedbackno.html?topic_id=icebreaker-getting-started">No</a></div>
+               <div id="feedback-feedback-button"><a class="awstoc btn btn-default" target="_blank" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=ICE&amp;hidden_guide_name=Developer Guide&amp;hidden_api_version=&amp;hidden_file_name=icebreaker-getting-started">Feedback</a></div>
+            </div>
+         </div>
+      </div>
+      <noscript>
+         <div>
+            <div>
+               <div>
+                  <div id="error_messages"><img src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png" style="float: left;" alt="Warning"><div id="js_error_message"><strong>Javascript is disabled or is unavailable in your browser.</strong><br> To use the AWS Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions. 
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </noscript>
+      <!-- SiteCatalyst code version: H.25.2.
+            Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+            More info available at http://www.omniture.com --><script language="JavaScript" type="text/javascript" src="https://media.amazonwebservices.com/js/sitecatalyst/s_code.min.js"></script><script language="JavaScript" type="text/javascript">
+         <!--
+
+            // Documentation Service Name
+            s.prop66='Icebreaker';
+            s.eVar66='D=c66';
+  
+            // Documentation Guide Name                                                                 
+            s.prop65='Developer Guide';
+            s.eVar65='D=c65';
+
+            var s_code=s.t();if(s_code)document.write(s_code)//--></script><script language="JavaScript" type="text/javascript">
+         <!--
+                if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+                //--></script><noscript><img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt=""></noscript>
+      <!--/DO NOT REMOVE/-->
+      <!-- End SiteCatalyst code version: H.25.2. -->
+   </body>
+</html>

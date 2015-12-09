@@ -1,0 +1,62 @@
+Team,
+I confirmed that we can now get incident info from Nokia - with very low latency!
+
+Jan,
+Next step is to integrate it on the map; unfortunately, their existing js library does not support custom endpoints so we will have to make the call to the service directly and render the incident.
+
+Here is how to do it:
+
+
+
+Get the raw payload by making a request to
+http://getmessag-getmessa-qjtd3sorj0mu-1306056233.us-west-2.elb.amazonaws.com/traffic/6.0/incidents.json?app_id=dHclbe4kurhteO3thGPl&app_code=4A04BJZiGAavKm867wcH8A
+
+and pass the bounding box parameter bbox=42.3,-71.1;42.4,-71.2  (feel free to hard code this or derive from visible map area)
+
+Sample request:
+
+http://getmessag-getmessa-qjtd3sorj0mu-1306056233.us-west-2.elb.amazonaws.com/traffic/6.0/incidents.json?app_id=dHclbe4kurhteO3thGPl&app_code=4A04BJZiGAavKm867wcH8A&bbox=42.3,-71.1;42.4,-71.2
+
+Sample response:
+{
+  "TRAFFICITEMS": {
+    "TRAFFICITEM": [
+      {
+        "TRAFFICITEMID": 0,
+        "ORIGINALTRAFFICITEMID": 100000,
+        "ENDTIME": "10\/08\/2015 05:30:17",
+        "CRITICALITY": {
+
+        },
+        "VERIFIED": false,
+        "RDSTMCLOCATIONS": {
+          "RDSTMC": [
+            {
+              "ORIGIN": {
+                "EBUCOUNTRYCODE": "1",
+                "TABLEID": 20
+              }
+            }
+          ]
+        },
+        "LOCATION": {
+          "GEOLOC": {
+            "ORIGIN": {
+              "LATITUDE": 42.3574846378,
+              "LONGITUDE": -71.1798286001
+            }
+          }
+        },
+        "TRAFFICITEMDESCRIPTION": [
+
+        ]
+      }
+    ]
+  },
+  "TIMESTAMP": "10\/07\/2015 19:30:19 GMT",
+  "VERSION": 5
+}
+
+Get the location.geoloc.origin.latitude and longitude for each trafficitem and add a marker on our map (such as view-source:https://upload.wikimedia.org/wikipedia/commons/5/5c/AWS_Simple_Icons_AWS_Cloud.svg) for each on the Nokia map see https://developer.here.com/api-explorer/maps-js/markers/map-with-svg-graphic-markers​
+
+I will setup a meeting tomorrow morning to address questions you may have.

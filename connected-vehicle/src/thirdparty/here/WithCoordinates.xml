@@ -1,0 +1,473 @@
+<d2LogicalModel xmlns="http://datex2.eu/schema/2/2_0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                modelBaseVersion="2">
+    <exchange>
+        <supplierIdentification>
+            <country>fi</country>
+            <nationalIdentifier>Amazon</nationalIdentifier>
+        </supplierIdentification>
+    </exchange>
+    <payloadPublication lang="fi" xsi:type="SituationPublication">
+        <publicationTime>2015-08-14T07:34:53.487Z</publicationTime>
+        <publicationCreator>
+            <country>fi</country>
+            <nationalIdentifier>Amazon</nationalIdentifier>
+        </publicationCreator>
+        <situation id="FtaHereSafetyRelatedMessage_src0_501" version="1.0">
+            <overallSeverity>unknown</overallSeverity>
+            <headerInformation>
+                <confidentiality>noRestriction</confidentiality>
+                <informationStatus>real</informationStatus>
+                <urgency>urgent</urgency>
+            </headerInformation>
+            <situationRecord version="1" id="TEMPORARILY_SLIPPERY_ROAD_10::100_501"
+                             xsi:type="NonWeatherRelatedRoadConditions">
+                <situationRecordCreationTime>2015-08-14T07:34:26.784Z</situationRecordCreationTime>
+                <situationRecordObservationTime>2015-08-14T07:34:14.834Z</situationRecordObservationTime>
+                <situationRecordVersionTime>2015-08-14T07:34:26.784Z</situationRecordVersionTime>
+                <situationRecordFirstSupplierVersionTime>2015-08-14T07:34:14.622Z
+                </situationRecordFirstSupplierVersionTime>
+                <probabilityOfOccurrence>certain</probabilityOfOccurrence>
+                <severity>medium</severity>
+                <source>
+                    <sourceIdentification>AMAZON</sourceIdentification>
+                    <sourceName>
+                        <values>
+                            <value lang="en">AMAZON</value>
+                        </values>
+                    </sourceName>
+                    <sourceType>roadAuthorities</sourceType>
+                </source>
+                <validity>
+                    <validityStatus>definedByValidityTimeSpec</validityStatus>
+                    <validityTimeSpecification>
+                        <overallStartTime>2015-08-14T07:34:14.834Z</overallStartTime>
+                        <overallEndTime>2015-08-14T07:49:14.834Z</overallEndTime>
+                    </validityTimeSpecification>
+                </validity>
+                <generalPublicComment>
+                    <comment>
+                        <values>
+                            <value lang="en">"Temporary slippery road" means any unforeseen condition of the road
+                                surface which makes it slippery for a certain amount of time, causing low adherence of
+                                the vehicle to the road.
+                            </value>
+                        </values>
+                    </comment>
+                    <commentType>description</commentType>
+                </generalPublicComment>
+                <groupOfLocations xsi:type="Point">
+                    <supplementaryPositionalDescription>
+                        <locationDescriptor>onTheRoadway</locationDescriptor>
+                        <affectedCarriagewayAndLanes>
+                            <carriageway>mainCarriageway</carriageway>
+                        </affectedCarriagewayAndLanes>
+                    </supplementaryPositionalDescription>
+                    <pointByCoordinates>
+                        <pointCoordinates>
+                            <latitude>60.97455</latitude>
+                            <longitude>25.55444</longitude>
+                        </pointCoordinates>
+                    </pointByCoordinates>
+                </groupOfLocations>
+                <situationRecordExtension>
+                    <situationRecordExtended>
+                        <safetyRelatedMessage>true</safetyRelatedMessage>
+                    </situationRecordExtended>
+                </situationRecordExtension>
+                <nonWeatherRelatedRoadConditionType>slipperyRoad</nonWeatherRelatedRoadConditionType>
+            </situationRecord>
+            <situationRecord version="1" id="OBSTACLE_ON_THE_ROAD_src0_501" xsi:type="GeneralObstruction">
+                <situationRecordCreationTime>2015-08-14T07:34:26.784Z</situationRecordCreationTime>
+                <situationRecordObservationTime>2015-08-14T07:34:14.834Z</situationRecordObservationTime>
+                <situationRecordVersionTime>2015-08-14T07:34:26.784Z</situationRecordVersionTime>
+                <situationRecordFirstSupplierVersionTime>2015-08-14T07:34:14.622Z
+                </situationRecordFirstSupplierVersionTime>
+                <probabilityOfOccurrence>certain</probabilityOfOccurrence>
+                <severity>medium</severity>
+                <source>
+                    <sourceIdentification>AMAZON</sourceIdentification>
+                    <sourceName>
+                        <values>
+                            <value lang="en">AMAZON</value>
+                        </values>
+                    </sourceName>
+                    <sourceType>roadAuthorities</sourceType>
+                </source>
+                <validity>
+                    <validityStatus>definedByValidityTimeSpec</validityStatus>
+                    <validityTimeSpecification>
+                        <overallStartTime>2015-08-14T07:34:14.834Z</overallStartTime>
+                        <overallEndTime>2015-08-14T07:49:14.834Z</overallEndTime>
+                    </validityTimeSpecification>
+                </validity>
+                <generalPublicComment>
+                    <comment>
+                        <values>
+                            <value lang="en">"Animal, people, obstacles, debris on the road" means any situation where
+                                animals, debris, obstacles or people are positioned on the road where one would not
+                                expect to find them so that an emergency manoeuvre might be required to avoid them.
+                            </value>
+                        </values>
+                    </comment>
+                    <commentType>description</commentType>
+                </generalPublicComment>
+                <groupOfLocations xsi:type="Point">
+                    <supplementaryPositionalDescription>
+                        <locationDescriptor>onTheRoadway</locationDescriptor>
+                        <affectedCarriagewayAndLanes>
+                            <carriageway>mainCarriageway</carriageway>
+                        </affectedCarriagewayAndLanes>
+                    </supplementaryPositionalDescription>
+                    <pointByCoordinates>
+                        <pointCoordinates>
+                            <latitude>60.97455</latitude>
+                            <longitude>25.55444</longitude>
+                        </pointCoordinates>
+                    </pointByCoordinates>
+                </groupOfLocations>
+                <situationRecordExtension>
+                    <situationRecordExtended>
+                        <safetyRelatedMessage>true</safetyRelatedMessage>
+                    </situationRecordExtended>
+                </situationRecordExtension>
+                <obstructionType>objectOnTheRoad</obstructionType>
+            </situationRecord>
+            <situationRecord version="1" id="ACCIDENT_ON_THE_ROAD_src0_501" xsi:type="Accident">
+                <situationRecordCreationTime>2015-08-14T07:34:26.784Z</situationRecordCreationTime>
+                <situationRecordObservationTime>2015-08-14T07:34:14.834Z</situationRecordObservationTime>
+                <situationRecordVersionTime>2015-08-14T07:34:26.784Z</situationRecordVersionTime>
+                <situationRecordFirstSupplierVersionTime>2015-08-14T07:34:14.622Z
+                </situationRecordFirstSupplierVersionTime>
+                <probabilityOfOccurrence>certain</probabilityOfOccurrence>
+                <severity>medium</severity>
+                <source>
+                    <sourceIdentification>AMAZON</sourceIdentification>
+                    <sourceName>
+                        <values>
+                            <value lang="en">AMAZON</value>
+                        </values>
+                    </sourceName>
+                    <sourceType>roadAuthorities</sourceType>
+                </source>
+                <validity>
+                    <validityStatus>definedByValidityTimeSpec</validityStatus>
+                    <validityTimeSpecification>
+                        <overallStartTime>2015-08-14T07:34:14.834Z</overallStartTime>
+                        <overallEndTime>2015-08-14T07:49:14.834Z</overallEndTime>
+                    </validityTimeSpecification>
+                </validity>
+                <generalPublicComment>
+                    <comment>
+                        <values>
+                            <value lang="en">"Unprotected accident area" means the area where an accident has occurred
+                                and which has not yet been secured by the competent authority.
+                            </value>
+                        </values>
+                    </comment>
+                    <commentType>description</commentType>
+                </generalPublicComment>
+                <groupOfLocations xsi:type="Point">
+                    <supplementaryPositionalDescription>
+                        <locationDescriptor>onTheRoadway</locationDescriptor>
+                        <affectedCarriagewayAndLanes>
+                            <carriageway>mainCarriageway</carriageway>
+                        </affectedCarriagewayAndLanes>
+                    </supplementaryPositionalDescription>
+                    <pointByCoordinates>
+                        <pointCoordinates>
+                            <latitude>60.97455</latitude>
+                            <longitude>25.55444</longitude>
+                        </pointCoordinates>
+                    </pointByCoordinates>
+                </groupOfLocations>
+                <situationRecordExtension>
+                    <situationRecordExtended>
+                        <safetyRelatedMessage>true</safetyRelatedMessage>
+                    </situationRecordExtended>
+                </situationRecordExtension>
+                <accidentType>accident</accidentType>
+            </situationRecord>
+            <situationRecord version="1" id="SHORT_TERM_ROADWORK_ON_THE_ROAD_src0_501" xsi:type="MaintenanceWorks">
+                <situationRecordCreationTime>2015-08-14T07:34:26.784Z</situationRecordCreationTime>
+                <situationRecordObservationTime>2015-08-14T07:34:14.834Z</situationRecordObservationTime>
+                <situationRecordVersionTime>2015-08-14T07:34:26.784Z</situationRecordVersionTime>
+                <situationRecordFirstSupplierVersionTime>2015-08-14T07:34:14.622Z
+                </situationRecordFirstSupplierVersionTime>
+                <probabilityOfOccurrence>certain</probabilityOfOccurrence>
+                <severity>medium</severity>
+                <source>
+                    <sourceIdentification>AMAZON</sourceIdentification>
+                    <sourceName>
+                        <values>
+                            <value lang="en">AMAZON</value>
+                        </values>
+                    </sourceName>
+                    <sourceType>roadAuthorities</sourceType>
+                </source>
+                <validity>
+                    <validityStatus>definedByValidityTimeSpec</validityStatus>
+                    <validityTimeSpecification>
+                        <overallStartTime>2015-08-14T07:34:14.834Z</overallStartTime>
+                        <overallEndTime>2015-08-14T07:49:14.834Z</overallEndTime>
+                    </validityTimeSpecification>
+                </validity>
+                <generalPublicComment>
+                    <comment>
+                        <values>
+                            <value lang="en">"Short-term road works" means any temporary road works that are carried out
+                                on the road or on the side of the road and which are indicated only by minimum signing
+                                because of the short-term nature of these works.
+                            </value>
+                        </values>
+                    </comment>
+                    <commentType>description</commentType>
+                </generalPublicComment>
+                <groupOfLocations xsi:type="Point">
+                    <supplementaryPositionalDescription>
+                        <locationDescriptor>onTheRoadway</locationDescriptor>
+                        <affectedCarriagewayAndLanes>
+                            <carriageway>mainCarriageway</carriageway>
+                        </affectedCarriagewayAndLanes>
+                    </supplementaryPositionalDescription>
+                    <pointByCoordinates>
+                        <pointCoordinates>
+                            <latitude>60.97455</latitude>
+                            <longitude>25.55444</longitude>
+                        </pointCoordinates>
+                    </pointByCoordinates>
+                </groupOfLocations>
+                <situationRecordExtension>
+                    <situationRecordExtended>
+                        <safetyRelatedMessage>true</safetyRelatedMessage>
+                    </situationRecordExtended>
+                </situationRecordExtension>
+                <roadworksDuration>shortTerm</roadworksDuration>
+                <urgentRoadworks>true</urgentRoadworks>
+                <roadMaintenanceType>roadworks</roadMaintenanceType>
+            </situationRecord>
+            <situationRecord version="1" id="REDUCED_VISIBILITY_src0_501" xsi:type="PoorEnvironmentConditions">
+                <situationRecordCreationTime>2015-08-14T07:34:26.784Z</situationRecordCreationTime>
+                <situationRecordObservationTime>2015-08-14T07:34:14.834Z</situationRecordObservationTime>
+                <situationRecordVersionTime>2015-08-14T07:34:26.784Z</situationRecordVersionTime>
+                <situationRecordFirstSupplierVersionTime>2015-08-14T07:34:14.622Z
+                </situationRecordFirstSupplierVersionTime>
+                <probabilityOfOccurrence>certain</probabilityOfOccurrence>
+                <severity>medium</severity>
+                <source>
+                    <sourceIdentification>AMAZON</sourceIdentification>
+                    <sourceName>
+                        <values>
+                            <value lang="en">AMAZON</value>
+                        </values>
+                    </sourceName>
+                    <sourceType>roadAuthorities</sourceType>
+                </source>
+                <validity>
+                    <validityStatus>definedByValidityTimeSpec</validityStatus>
+                    <validityTimeSpecification>
+                        <overallStartTime>2015-08-14T07:34:14.834Z</overallStartTime>
+                        <overallEndTime>2015-08-14T07:49:14.834Z</overallEndTime>
+                    </validityTimeSpecification>
+                </validity>
+                <generalPublicComment>
+                    <comment>
+                        <values>
+                            <value lang="en">"Reduced visibility" means visibility affected by any condition that
+                                reduces the sight range of drivers and which might affect safe driving.
+                            </value>
+                        </values>
+                    </comment>
+                    <commentType>description</commentType>
+                </generalPublicComment>
+                <groupOfLocations xsi:type="Point">
+                    <supplementaryPositionalDescription>
+                        <locationDescriptor>onTheRoadway</locationDescriptor>
+                        <affectedCarriagewayAndLanes>
+                            <carriageway>mainCarriageway</carriageway>
+                        </affectedCarriagewayAndLanes>
+                    </supplementaryPositionalDescription>
+                    <pointByCoordinates>
+                        <pointCoordinates>
+                            <latitude>60.97455</latitude>
+                            <longitude>25.55444</longitude>
+                        </pointCoordinates>
+                    </pointByCoordinates>
+                </groupOfLocations>
+                <situationRecordExtension>
+                    <situationRecordExtended>
+                        <safetyRelatedMessage>true</safetyRelatedMessage>
+                    </situationRecordExtended>
+                </situationRecordExtension>
+                <poorEnvironmentType>visibilityReduced</poorEnvironmentType>
+            </situationRecord>
+            <situationRecord version="1" id="WRONG_WAY_DRIVER_ON_THE_ROAD_src0_501" xsi:type="VehicleObstruction">
+                <situationRecordCreationTime>2015-08-14T07:34:26.784Z</situationRecordCreationTime>
+                <situationRecordObservationTime>2015-08-14T07:34:14.834Z</situationRecordObservationTime>
+                <situationRecordVersionTime>2015-08-14T07:34:26.784Z</situationRecordVersionTime>
+                <situationRecordFirstSupplierVersionTime>2015-08-14T07:34:14.622Z
+                </situationRecordFirstSupplierVersionTime>
+                <probabilityOfOccurrence>certain</probabilityOfOccurrence>
+                <severity>medium</severity>
+                <source>
+                    <sourceIdentification>AMAZON</sourceIdentification>
+                    <sourceName>
+                        <values>
+                            <value lang="en">AMAZON</value>
+                        </values>
+                    </sourceName>
+                    <sourceType>roadAuthorities</sourceType>
+                </source>
+                <validity>
+                    <validityStatus>definedByValidityTimeSpec</validityStatus>
+                    <validityTimeSpecification>
+                        <overallStartTime>2015-08-14T07:34:14.834Z</overallStartTime>
+                        <overallEndTime>2015-08-14T07:49:14.834Z</overallEndTime>
+                    </validityTimeSpecification>
+                </validity>
+                <generalPublicComment>
+                    <comment>
+                        <values>
+                            <value lang="en">"Wrong-way driver" means a vehicle travelling on the wrong side of a
+                                divided carriageway against the oncoming traffic
+                            </value>
+                        </values>
+                    </comment>
+                    <commentType>description</commentType>
+                </generalPublicComment>
+                <groupOfLocations xsi:type="Point">
+                    <supplementaryPositionalDescription>
+                        <locationDescriptor>onTheRoadway</locationDescriptor>
+                        <affectedCarriagewayAndLanes>
+                            <carriageway>mainCarriageway</carriageway>
+                        </affectedCarriagewayAndLanes>
+                    </supplementaryPositionalDescription>
+                    <pointByCoordinates>
+                        <pointCoordinates>
+                            <latitude>60.97455</latitude>
+                            <longitude>25.55444</longitude>
+                        </pointCoordinates>
+                    </pointByCoordinates>
+                </groupOfLocations>
+                <situationRecordExtension>
+                    <situationRecordExtended>
+                        <safetyRelatedMessage>true</safetyRelatedMessage>
+                    </situationRecordExtended>
+                </situationRecordExtension>
+                <vehicleObstructionType>vehicleOnWrongCarriageway</vehicleObstructionType>
+            </situationRecord>
+            <situationRecord version="1" id="UNCONTROLLED_ROADBLOCK_src0_501"
+                             xsi:type="RoadOrCarriagewayOrLaneManagement">
+                <situationRecordCreationTime>2015-08-14T07:34:26.784Z</situationRecordCreationTime>
+                <situationRecordObservationTime>2015-08-14T07:34:14.834Z</situationRecordObservationTime>
+                <situationRecordVersionTime>2015-08-14T07:34:26.784Z</situationRecordVersionTime>
+                <situationRecordFirstSupplierVersionTime>2015-08-14T07:34:14.622Z
+                </situationRecordFirstSupplierVersionTime>
+                <probabilityOfOccurrence>certain</probabilityOfOccurrence>
+                <severity>medium</severity>
+                <source>
+                    <sourceIdentification>AMAZON</sourceIdentification>
+                    <sourceName>
+                        <values>
+                            <value lang="en">AMAZON</value>
+                        </values>
+                    </sourceName>
+                    <sourceType>roadAuthorities</sourceType>
+                </source>
+                <validity>
+                    <validityStatus>definedByValidityTimeSpec</validityStatus>
+                    <validityTimeSpecification>
+                        <overallStartTime>2015-08-14T07:34:14.834Z</overallStartTime>
+                        <overallEndTime>2015-08-14T07:49:14.834Z</overallEndTime>
+                    </validityTimeSpecification>
+                </validity>
+                <generalPublicComment>
+                    <comment>
+                        <values>
+                            <value lang="en">"Unmanaged blockage of a road" means any blockage of a road, partial or
+                                total,which has not been adequately secured and signposted.
+                            </value>
+                        </values>
+                    </comment>
+                    <commentType>description</commentType>
+                </generalPublicComment>
+                <groupOfLocations xsi:type="Point">
+                    <supplementaryPositionalDescription>
+                        <locationDescriptor>onTheRoadway</locationDescriptor>
+                        <affectedCarriagewayAndLanes>
+                            <carriageway>mainCarriageway</carriageway>
+                        </affectedCarriagewayAndLanes>
+                    </supplementaryPositionalDescription>
+                    <pointByCoordinates>
+                        <pointCoordinates>
+                            <latitude>60.97455</latitude>
+                            <longitude>25.55444</longitude>
+                        </pointCoordinates>
+                    </pointByCoordinates>
+                </groupOfLocations>
+                <situationRecordExtension>
+                    <situationRecordExtended>
+                        <safetyRelatedMessage>true</safetyRelatedMessage>
+                    </situationRecordExtended>
+                </situationRecordExtension>
+                <complianceOption>advisory</complianceOption>
+                <roadOrCarriagewayOrLaneManagementType>carriagewayClosures</roadOrCarriagewayOrLaneManagementType>
+            </situationRecord>
+            <situationRecord version="1" id="EXCEPTIONAL_WEATHER_CONDITIONS_src0_501"
+                             xsi:type="EnvironmentalObstruction">
+                <situationRecordCreationTime>2015-08-14T07:34:26.784Z</situationRecordCreationTime>
+                <situationRecordObservationTime>2015-08-14T07:34:14.834Z</situationRecordObservationTime>
+                <situationRecordVersionTime>2015-08-14T07:34:26.784Z</situationRecordVersionTime>
+                <situationRecordFirstSupplierVersionTime>2015-08-14T07:34:14.622Z
+                </situationRecordFirstSupplierVersionTime>
+                <probabilityOfOccurrence>certain</probabilityOfOccurrence>
+                <severity>medium</severity>
+                <source>
+                    <sourceIdentification>AMAZON</sourceIdentification>
+                    <sourceName>
+                        <values>
+                            <value lang="en">AMAZON</value>
+                        </values>
+                    </sourceName>
+                    <sourceType>roadAuthorities</sourceType>
+                </source>
+                <validity>
+                    <validityStatus>definedByValidityTimeSpec</validityStatus>
+                    <validityTimeSpecification>
+                        <overallStartTime>2015-08-14T07:34:14.834Z</overallStartTime>
+                        <overallEndTime>2015-08-14T07:49:14.834Z</overallEndTime>
+                    </validityTimeSpecification>
+                </validity>
+                <generalPublicComment>
+                    <comment>
+                        <values>
+                            <value lang="en">"Exceptional weather conditions" means unusual, severe or unseasonal
+                                weather conditions which might affect safe driving.
+                            </value>
+                        </values>
+                    </comment>
+                    <commentType>description</commentType>
+                </generalPublicComment>
+                <groupOfLocations xsi:type="Point">
+                    <supplementaryPositionalDescription>
+                        <locationDescriptor>onTheRoadway</locationDescriptor>
+                        <affectedCarriagewayAndLanes>
+                            <carriageway>mainCarriageway</carriageway>
+                        </affectedCarriagewayAndLanes>
+                    </supplementaryPositionalDescription>
+                    <pointByCoordinates>
+                        <pointCoordinates>
+                            <latitude>60.97455</latitude>
+                            <longitude>25.55444</longitude>
+                        </pointCoordinates>
+                    </pointByCoordinates>
+                </groupOfLocations>
+                <situationRecordExtension>
+                    <situationRecordExtended>
+                        <safetyRelatedMessage>true</safetyRelatedMessage>
+                    </situationRecordExtended>
+                </situationRecordExtension>
+                <environmentalObstructionType>other</environmentalObstructionType>
+            </situationRecord>
+        </situation>
+    </payloadPublication>
+</d2LogicalModel>

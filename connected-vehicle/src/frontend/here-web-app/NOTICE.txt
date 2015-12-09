@@ -1,0 +1,17 @@
+# Open Source Attribution Notice
+
+This product contains the following software: 
+
+* "underscore": "1.6.0", licensed under the MIT License. The license can be downloaded from http://opensource.org/licenses/MIT. The source code for this software is available from http://underscorejs.org/.
+* "q": "1.0.1", licensed under the MIT License. The license can be downloaded from http://opensource.org/licenses/MIT. The source code for this software is available from https://github.com/kriskowal/q.
+* "node-uuid": "1.4.1", licensed under the MIT License. The license can be downloaded from http://opensource.org/licenses/MIT. The source code for this software is available from https://github.com/broofa/node-uuid.
+* "MD5": "1.2.1", licensed under the BSD 3-Clause License. The license can be downloaded from http://opensource.org/licenses/BSD-3-Clause. The source code for this software is available from https://github.com/pvorb/node-md5.
+* "mqtt": "0.3.13", licensed under the MIT License. The license can be downloaded from http://opensource.org/licenses/MIT. The source code for this software is available from https://github.com/mqttjs/MQTT.js.
+* "async": "0.7.0", licensed under the MIT License. The license can be downloaded from http://opensource.org/licenses/MIT. The source code for this software is available from https://github.com/caolan/async.
+* "express": "3.3.x", licensed under the MIT License. The license can be downloaded from http://opensource.org/licenses/MIT. The source code for this software is available from https://github.com/strongloop/express/.
+* "ws": "0.4.x" licensed under the MIT License. The license can be downloaded from http://opensource.org/licenses/MIT. The source code for this software is available from https://github.com/websockets/ws.
+* "jquery": "~2.1.0" licensed under the MIT License. The license can be downloaded from http://opensource.org/licenses/MIT. The source code for this software is available from https://jquery.org/.,
+* "bootstrap": "~3.1.1", licensed under the MIT License. The license can be downloaded from http://opensource.org/licenses/MIT. The source code for this software is available from https://github.com/twbs/bootstrap.
+* "leaflet": "~0.7.3", licensed under the BSD License. The license can be downloaded from http://opensource.org/licenses/BSD-2-Clause. The source code for this software is available from http://leafletjs.com/.
+* "angular": "~1.2.16", licensed under the MIT License. The license can be downloaded from http://opensource.org/licenses/MIT. The source code for this software is available from https://angularjs.org/.
+* "angular-bootstrap": "~0.11.0" licensed under the MIT License. The license can be downloaded from http://opensource.org/licenses/MIT. The source code for this software is available from http://angular-ui.github.io/bootstrap/.

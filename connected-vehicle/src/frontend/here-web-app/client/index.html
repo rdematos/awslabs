@@ -1,0 +1,80 @@
+<!--
+ *  Copyright 2015 2lemetry, Inc.
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:ng="http://angularjs.org" ng-app="com.2lemetry.heroku-demo">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width" initial-scale="1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- here.com components -->
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <script src="https://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+
+    <title>AWS Connected Car Demo </title>
+    <link rel="stylesheet" href="/client/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/client/bower_components/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="/client/app.css"/>
+  </head>
+  <body ng-controller="HerokuDemoController" class="heroku-demo">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Traffic Information Center</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="http://2lemetry.com">2lemetry</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div style="margin: 10px; width: 1240px; height: 980px" id="here-map"></div>
+
+    <div class="container heroku-demo">
+      <div class="row-fluid">
+        <div class="col-lg-12 well heroku-demo-table">
+          <div heroku-demo-table></div>
+        </div>
+        <div class="col-lg-12 well">
+          <div style="width: 640px; height: 480px" id="here-map"></div>
+        </div>
+        <div class="col-lg-12 well">
+          <div heroku-demo-map></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="/client/bower_components/underscore/underscore.js"></script>
+    <script type="text/javascript" src="/client/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/client/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/client/bower_components/leaflet/dist/leaflet.js"></script>
+    <script type="text/javascript" src="/client/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/client/angular_components/services/websocket.js"></script>
+    <script type="text/javascript" src="/client/angular_components/directives/table/directive.js"></script>
+    <script type="text/javascript" src="/client/angular_components/directives/map/directive.js"></script>
+    <script type="text/javascript" src="/client/app.js"></script>
+<footer class='footer'>
+  <div class="container">
+Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
+  </div>
+<footer>
+</body>
+</html>
