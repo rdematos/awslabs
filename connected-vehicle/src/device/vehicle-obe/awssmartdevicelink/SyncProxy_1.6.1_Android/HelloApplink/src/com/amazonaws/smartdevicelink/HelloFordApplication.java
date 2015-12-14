@@ -1,8 +1,6 @@
 package com.amazonaws.smartdevicelink;
 
-import android.app.Application;
 import android.content.Context;
-import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import com.amazonaws.com.amazonaws.model.Car;
@@ -54,6 +52,9 @@ public class HelloFordApplication extends MultiDexApplication {
     }
 
     public Car getCar() {
+        if(car == null){
+            car = new Car();
+        }
         return car;
     }
 }
