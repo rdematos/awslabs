@@ -5,8 +5,15 @@ package com.amazonaws.smartdevicelink;
 
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.util.JsonWriter;
 import android.util.Log;
 
@@ -15,6 +22,7 @@ import com.amazonaws.com.amazonaws.model.GPS;
 import com.github.davidmoten.geo.GeoHash;
 import com.smartdevicelink.exception.SdlException;
 import com.smartdevicelink.exception.SdlExceptionCause;
+import com.smartdevicelink.proxy.RPCRequest;
 import com.smartdevicelink.proxy.SdlProxyALM;
 import com.smartdevicelink.proxy.TTSChunkFactory;
 import com.smartdevicelink.proxy.callbacks.OnServiceEnded;
@@ -34,8 +42,10 @@ import com.smartdevicelink.proxy.rpc.DeleteSubMenuResponse;
 import com.smartdevicelink.proxy.rpc.DiagnosticMessageResponse;
 import com.smartdevicelink.proxy.rpc.DialNumberResponse;
 import com.smartdevicelink.proxy.rpc.EndAudioPassThruResponse;
+import com.smartdevicelink.proxy.rpc.GPSData;
 import com.smartdevicelink.proxy.rpc.GenericResponse;
 import com.smartdevicelink.proxy.rpc.GetDTCsResponse;
+import com.smartdevicelink.proxy.rpc.GetVehicleData;
 import com.smartdevicelink.proxy.rpc.GetVehicleDataResponse;
 import com.smartdevicelink.proxy.rpc.ListFilesResponse;
 import com.smartdevicelink.proxy.rpc.OnAudioPassThru;
@@ -82,7 +92,6 @@ import com.smartdevicelink.proxy.rpc.UpdateTurnListResponse;
 import com.smartdevicelink.proxy.rpc.enums.ButtonName;
 import com.smartdevicelink.proxy.rpc.enums.DriverDistractionState;
 import com.smartdevicelink.proxy.rpc.enums.HMILevel;
-import com.smartdevicelink.proxy.rpc.enums.Language;
 import com.smartdevicelink.proxy.rpc.enums.SdlDisconnectedReason;
 import com.smartdevicelink.proxy.rpc.enums.SoftButtonType;
 import com.smartdevicelink.proxy.rpc.enums.SystemAction;
@@ -94,9 +103,10 @@ import com.smartdevicelink.util.DebugTool;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 import java.io.StringWriter;
+import java.util.Calendar;
 import java.util.Vector;
 
-public class AppLinkService extends Service implements IProxyListenerALM {
+public class AppLinkService extends Service implements IProxyListenerALM, LocationListener {
 
 	String TAG = "AppLinkService";
 	//variable used to increment correlation ID for every request sent to SYNC
@@ -117,6 +127,11 @@ public class AppLinkService extends Service implements IProxyListenerALM {
 
 	//private String emulatorIP = "192.168.6.230"; //lead
 	private String emulatorIP = "192.168.123.130"; //follow
+
+	private int gpsRequestCorrelationId = -1;
+	private LocationManager locationManager;
+
+	Handler mainThreadHandler;
 
 	public void setEmulatorIP(String emulatorIP) {
 		this.emulatorIP = emulatorIP;
@@ -148,7 +163,9 @@ public class AppLinkService extends Service implements IProxyListenerALM {
 	public void onCreate() {
 		super.onCreate();
 		instance = this;
+		mainThreadHandler = new Handler();
 		helloFordApplication = (HelloFordApplication) getApplication();
+
 	}
 	
 	public int onStartCommand(Intent intent, int flags, int startId) {
@@ -171,8 +188,8 @@ public class AppLinkService extends Service implements IProxyListenerALM {
 		if (proxy == null) {
 			try {
 				BaseTransportConfig transport = new TCPTransportConfig(12345, emulatorIP, true);
-				proxy = new SdlProxyALM(this,"AWS",false,Language.EN_US, Language.EN_US,"1234567",transport);
-				//proxy = new SdlProxyALM(this, "AWS", false,"3387301225");
+				//proxy = new SdlProxyALM(this,"AWS",false,Language.EN_US, Language.EN_US,"1234567",transport);
+				proxy = new SdlProxyALM(this, "aws", false,"3387301225");
 			} catch (SdlException e) {
 				e.printStackTrace();
 				//error creating proxy, returned proxy = null
@@ -211,6 +228,15 @@ public class AppLinkService extends Service implements IProxyListenerALM {
 
 	}
 
+	public void sendRpc(RPCRequest msg){
+		if(proxy!=null){
+			try{
+				proxy.sendRPCRequest(msg);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+	}
 	public void onProxyClosed(String info, Exception e) {
 		clearlockscreen();
 		
@@ -225,6 +251,7 @@ public class AppLinkService extends Service implements IProxyListenerALM {
 	}
 
    public void reset(){
+	   boolean firstcheck = true;
 	   if (proxy != null) {
 		   try {
 			   proxy.resetProxy();
@@ -247,41 +274,15 @@ public class AppLinkService extends Service implements IProxyListenerALM {
 
 		if(notification.getHmiLevel() != HMILevel.HMI_NONE)
 			if (firstcheck){
+				Log.d(TAG,"First HMI None status received");
+				subscribeVehicleData();
 
-                String notificationtopic = "notification";
-                helloFordApplication.getMainActivity().subscribeTopic(notificationtopic);
-
-
-                SubscribeVehicleData msg = new SubscribeVehicleData();
-				msg.setCorrelationID(autoIncCorrId++);
-				//Location functional group
-				msg.setSpeed(true);
-				msg.setGps(true);
-				//VehicleInfo functional group
-				msg.setFuelLevel(false);
-				msg.setInstantFuelConsumption(false);
-				msg.setExternalTemperature(false);
-				msg.setTirePressure(false);
-				msg.setOdometer(false);
-
-				//DrivingCharacteristics functional group
-				msg.setBeltStatus(false);
-				msg.setDriverBraking(true);
-				msg.setPrndl(false);
-				msg.setRpm(false);
-
-				msg.setAirbagStatus(true);
-                msg.setBodyInformation(true);
-                msg.setEmergencyEvent(true);
-
-				try {
-					proxy.sendRPCRequest(msg);
-				} catch (SdlException e) {
-					e.printStackTrace();
-				}
-
-
-
+				//We want to send a get vehicle data to see if we have access to GPS
+				GetVehicleData getVehicleData = new GetVehicleData();
+				getVehicleData.setGps(true);
+				gpsRequestCorrelationId = autoIncCorrId++;
+				getVehicleData.setCorrelationID(gpsRequestCorrelationId);
+				sendRpc(getVehicleData);
 
 				firstcheck = false;
 			}
@@ -345,7 +346,9 @@ public class AppLinkService extends Service implements IProxyListenerALM {
 					   Log.i("hello", "HMI_NONE");
 					   driverdistrationNotif = false;
 					   clearlockscreen();
-					   break;
+
+
+					 break;
 				 default:
 					   return;
 		  }
@@ -383,6 +386,88 @@ private void clearlockscreen() {
 		LockScreenActivity.getInstance().exit();
 	}
 	lockscreenUP = false;
+}
+
+	/**
+	 * I'm sorry this is so awful. But if we try to subscribe to all the data at once, if even one of them is disalowed/not available, the whole request will crash
+	 */
+	private void subscribeVehicleData(){
+		SubscribeVehicleData msg;// = new SubscribeVehicleData();
+		//msg.setCorrelationID(autoIncCorrId++);
+
+		//Location functional group
+		msg = new SubscribeVehicleData();
+		msg.setSpeed(true);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg);
+
+		msg = new SubscribeVehicleData();
+		msg.setGps(true);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg);
+
+		//VehicleInfo functional group
+		/*msg = new SubscribeVehicleData();
+		msg.setFuelLevel(false);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg);
+
+		msg = new SubscribeVehicleData();
+		msg.setInstantFuelConsumption(false);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg);
+
+		msg = new SubscribeVehicleData();
+		msg.setExternalTemperature(false);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg);
+
+		msg = new SubscribeVehicleData();
+		msg.setTirePressure(false);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg);
+
+		msg = new SubscribeVehicleData();
+		msg.setOdometer(false);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg);
+
+		//DrivingCharacteristics functional group
+		msg = new SubscribeVehicleData();
+		msg.setBeltStatus(false);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg); */
+
+		msg = new SubscribeVehicleData();
+		msg.setDriverBraking(true);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg);
+
+
+		/*msg = new SubscribeVehicleData();
+		msg.setPrndl(false);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg);
+
+		msg = new SubscribeVehicleData();
+		msg.setRpm(false);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg);*/
+
+		msg = new SubscribeVehicleData();
+		msg.setAirbagStatus(true);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg);
+
+		msg = new SubscribeVehicleData();
+		msg.setBodyInformation(true);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg);
+
+		msg = new SubscribeVehicleData();
+		msg.setEmergencyEvent(true);
+		msg.setCorrelationID(autoIncCorrId++);
+		sendRpc(msg);
 }
 
 public boolean getLockScreenStatus() {return lockscreenUP;}
@@ -605,7 +690,7 @@ public IBinder onBind(Intent intent) {
 
 	@Override
 	public void onSubscribeVehicleDataResponse(SubscribeVehicleDataResponse subscribeVehicleDataResponse) {
-
+	Log.i(TAG,subscribeVehicleDataResponse.getCorrelationID() + " Received response to subscribe vehicle data : " + subscribeVehicleDataResponse.getResultCode());
 	}
 
 	@Override
@@ -613,19 +698,78 @@ public IBinder onBind(Intent intent) {
 
 	}
 
+	private void runOnMainThread(Runnable runnable){
+		if(mainThreadHandler !=null){
+			mainThreadHandler.post(runnable);
+		}
+	}
 	@Override
 	public void onGetVehicleDataResponse(GetVehicleDataResponse getVehicleDataResponse) {
+		if(getVehicleDataResponse.getCorrelationID() == this.gpsRequestCorrelationId) {
+			if(!getVehicleDataResponse.getSuccess()){
+				switch(getVehicleDataResponse.getResultCode()){
+					case INVALID_DATA:
+					case DISALLOWED:
+						runOnMainThread(new Runnable() {
+							@Override
+							public void run() {
+								//We don't have access to the car's GPS. So we will attempt to use our own
+								locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
+								locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+										1000, //TODO not hardcode these values
+										1, AppLinkService.this);
+							}
+						});
+						break;
+						default:
+							Log.e(TAG, "Uknown error: " +  getVehicleDataResponse.getResultCode());
+				}
+
+
+			}else{
+				//We got GPS
+				SubscribeVehicleData sub = new SubscribeVehicleData();
+				sub.setGps(true);
+				sub.setCorrelationID(autoIncCorrId++);
+				sendRpc(sub);
+
+			}
+
+		}
 	}
 
 	@Override
 	public void onOnVehicleData(OnVehicleData onVehicleData) {
+		Log.d(TAG, "onVehicleData: " + onVehicleData);
+		Car car = helloFordApplication.getCar();
+
 		if (onVehicleData.getSpeed() != null) {
 			Log.i("getSpeed", "S getSpeed: " + onVehicleData.getSpeed());
 		}
 		if (onVehicleData.getGps() != null) {
 			Log.i("getGps", "S getGps: Lat: " + onVehicleData.getGps().getLatitudeDegrees().toString() + " Lon: " +
 					onVehicleData.getGps().getLongitudeDegrees().toString() + " Heading: " + onVehicleData.getGps().getCompassDirection().toString());
+		}else if(locationManager!=null){
+			Log.w(TAG, "GPS data was not included in onVehicleData, using phone's GPS");
+			Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+			GPSData gpsData = new GPSData();
+			gpsData.setLatitudeDegrees(location.getLatitude());
+			gpsData.setLongitudeDegrees(location.getLongitude());
+
+			long time = location.getTime();
+			Calendar cal = Calendar.getInstance();
+			cal.setTimeInMillis(time);
+			gpsData.setUtcSeconds(cal.get(Calendar.SECOND));
+			gpsData.setUtcMinutes(cal.get(Calendar.MINUTE));
+			gpsData.setUtcHours(cal.get(Calendar.HOUR));
+			gpsData.setUtcDay(cal.get(Calendar.DAY_OF_MONTH));
+			gpsData.setUtcMonth(cal.get(Calendar.MONTH));
+			gpsData.setUtcMonth(cal.get(Calendar.YEAR));
+
+			gpsData.setHeading(((Float)location.getBearing()).doubleValue());
+
+			onVehicleData.setGps(gpsData);
 		}
 		if (onVehicleData.getDriverBraking() != null) {
 			Log.i("getDriverBraking", "B getDriverBraking: " + onVehicleData.getDriverBraking());
@@ -637,9 +781,11 @@ public IBinder onBind(Intent intent) {
 
 		if (onVehicleData.getPrndl() != null) {
 			Log.i("getPrndl", "S getPrndl: " + onVehicleData.getPrndl().name());
+			car.setPrndl(onVehicleData.getPrndl().name());
+
 		}
 
-		Car car = helloFordApplication.getCar();
+
 		GPS gps = car.getGps();
 
 		final Double newLat = onVehicleData.getGps().getLatitudeDegrees();
@@ -662,7 +808,6 @@ public IBinder onBind(Intent intent) {
 			}
 		}
 
-		car.setPrndl(onVehicleData.getPrndl().name());
 		gps.setSpeed(onVehicleData.getSpeed());
 		gps.setLatitudeDegrees(newLat);
 		gps.setLongitudeDegrees(newLong);
@@ -788,5 +933,34 @@ public IBinder onBind(Intent intent) {
 			Log.i(TAG, "sync exception" + e.getMessage() + e.getSdlExceptionCause());
 			e.printStackTrace();
 		}
+	}
+
+
+	/*
+	 * Location Listener methods
+	 *
+	 */
+
+
+	@Override
+	public void onLocationChanged(Location location) {
+
+	}
+
+	@Override
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+
+	}
+
+	@Override
+	public void onProviderEnabled(String provider) {
+
+	}
+
+	@Override
+	public void onProviderDisabled(String provider) {
+		//Request the user to enable GPS
+		Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+		startActivity(intent);
 	}
 }
