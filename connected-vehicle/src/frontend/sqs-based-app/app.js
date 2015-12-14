@@ -218,16 +218,19 @@ function addCarPosition(message) {
     lng = jsonMsg.state.reported.gps.longitudeDegrees,
     crash = jsonMsg.state.reported.prndl != null && jsonMsg.state.reported.prndl == 'PARK';
   if (cars[vid] == undefined) {
-    //console.log('create car '+vid+' lat: '+lat+' lng:'+lng);
+    // console.log('create car '+vid+' lat: '+lat+' lng:'+lng);
     //cars[vid] = map.addObject(new H.map.Marker({lat: lat, lng: lng}, {icon: crash? crashsvg : carsvg}));
     carColors[vid] = getRandomColor();
     cars[vid] = new H.map.Marker({lat: lat, lng: lng}, {icon: crash? createCrashSVGIcon(carColors[vid]) : createCarSVGIcon(carColors[vid])});
     carsMarkers.addObjects([cars[vid]]);
   } else {
-    //console.log('update car '+vid);
+    // console.log('update car '+vid);
     cars[vid].setPosition({lat: lat, lng: lng});
     if (crash) {
+      // console.log('setting icon to Crash SVG');
       cars[vid].setIcon(createCrashSVGIcon(carColors[vid]))
+    } else {
+      cars[vid].setIcon(createCarSVGIcon(carColors[vid]))
     }
   }
   if(!(new H.map.Rect(map.getViewBounds())).getBounds().containsLatLng(lat, lng)) {
