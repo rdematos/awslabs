@@ -747,6 +747,7 @@ public IBinder onBind(Intent intent) {
 				switch(getVehicleDataResponse.getResultCode()){
 					case INVALID_DATA:
 					case DISALLOWED:
+					case VEHICLE_DATA_NOT_AVAILABLE:
 						runOnMainThread(new Runnable() {
 							@Override
 							public void run() {
@@ -754,8 +755,9 @@ public IBinder onBind(Intent intent) {
 								locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
 								locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-										1000, //TODO not hardcode these values
+										500, //TODO not hardcode these values
 										1, AppLinkService.this);
+								Log.d(TAG, "Location manager inited");
 							}
 						});
 						break;
@@ -794,13 +796,16 @@ public IBinder onBind(Intent intent) {
 		}else if(locationManager!=null){
 			Log.w(TAG, "GPS data was not included in onVehicleData, using phone's GPS");
 			Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-			GPSData gpsData = new GPSData();
-			gpsData.setLatitudeDegrees(location.getLatitude());
-			gpsData.setLongitudeDegrees(location.getLongitude());
+			GPS localGps = new GPS();
 
-			gpsData.setHeading(((Float)location.getBearing()).doubleValue());
+			//GPSData gpsData = new GPSData();
+			localGps.setLatitudeDegrees(location.getLatitude());
+			localGps.setLongitudeDegrees(location.getLongitude());
 
-			onVehicleData.setGps(gpsData);
+			localGps.setHeading(((Float) location.getBearing()).intValue()); //TODO correct JSON to accept the float/double
+
+			//onVehicleData.setGps(localGps);
+			car.setGps(localGps);
 		}
 
 		GPS gps = car.getGps(false);
@@ -1002,7 +1007,7 @@ public IBinder onBind(Intent intent) {
 
 	@Override
 	public void onProviderEnabled(String provider) {
-
+	Log.d(TAG, "Location provider enabled - " + provider);
 	}
 
 	@Override
