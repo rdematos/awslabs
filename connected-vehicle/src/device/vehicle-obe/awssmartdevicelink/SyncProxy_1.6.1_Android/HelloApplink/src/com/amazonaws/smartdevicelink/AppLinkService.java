@@ -103,7 +103,6 @@ import com.smartdevicelink.util.DebugTool;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 import java.io.StringWriter;
-import java.util.Calendar;
 import java.util.Vector;
 
 public class AppLinkService extends Service implements IProxyListenerALM, LocationListener {
@@ -795,22 +794,13 @@ public IBinder onBind(Intent intent) {
 			gpsData.setLatitudeDegrees(location.getLatitude());
 			gpsData.setLongitudeDegrees(location.getLongitude());
 
-			long time = location.getTime();
-			Calendar cal = Calendar.getInstance();
-			cal.setTimeInMillis(time);
-			gpsData.setUtcSeconds(cal.get(Calendar.SECOND));
-			gpsData.setUtcMinutes(cal.get(Calendar.MINUTE));
-			gpsData.setUtcHours(cal.get(Calendar.HOUR));
-			gpsData.setUtcDay(cal.get(Calendar.DAY_OF_MONTH));
-			gpsData.setUtcMonth(cal.get(Calendar.MONTH));
-			gpsData.setUtcMonth(cal.get(Calendar.YEAR));
-
 			gpsData.setHeading(((Float)location.getBearing()).doubleValue());
 
 			onVehicleData.setGps(gpsData);
 		}
 		if (onVehicleData.getDriverBraking() != null) {
 			Log.i("getDriverBraking", "B getDriverBraking: " + onVehicleData.getDriverBraking());
+			car.setBraking(onVehicleData.getDriverBraking().name());
 		}
 
 		if (onVehicleData.getEmergencyEvent() != null) {
@@ -824,7 +814,7 @@ public IBinder onBind(Intent intent) {
 		}
 
 
-		GPS gps = car.getGps();
+		GPS gps = car.getGps(true);
 
 		final Double newLat = onVehicleData.getGps().getLatitudeDegrees();
 		final Double newLong = onVehicleData.getGps().getLongitudeDegrees();
