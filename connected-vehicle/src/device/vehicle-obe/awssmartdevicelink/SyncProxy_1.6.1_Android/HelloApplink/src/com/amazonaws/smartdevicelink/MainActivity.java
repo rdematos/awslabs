@@ -7,8 +7,11 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.method.ScrollingMovementMethod;
@@ -318,7 +321,10 @@ public class MainActivity extends Activity implements MqttCallback {
         final String receivedPayload = new String(mqttMessage.getPayload());
         Log.e(TAG, "Message received on topic: " + topic + ",  " + receivedPayload);
 
-       Car car = new Car();
+        WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        WifiInfo wInfo = wifiManager.getConnectionInfo();
+        String macAddress = wInfo.getMacAddress();
+        Car car = new Car(macAddress);
         try {
             JsonReader reader = new JsonReader(new StringReader(receivedPayload));
             reader.beginObject();
