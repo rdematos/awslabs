@@ -481,12 +481,12 @@ private void clearlockscreen() {
 		sendRpc(msg);
 
 
-		/*msg = new SubscribeVehicleData();
-		msg.setPrndl(false);
+		msg = new SubscribeVehicleData();
+		msg.setPrndl(true);
 		msg.setCorrelationID(autoIncCorrId++);
 		sendRpc(msg);
 
-		msg = new SubscribeVehicleData();
+		/*msg = new SubscribeVehicleData();
 		msg.setRpm(false);
 		msg.setCorrelationID(autoIncCorrId++);
 		sendRpc(msg);*/
