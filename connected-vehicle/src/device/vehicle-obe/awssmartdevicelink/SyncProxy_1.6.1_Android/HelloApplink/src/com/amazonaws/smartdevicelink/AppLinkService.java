@@ -110,6 +110,7 @@ public class AppLinkService extends Service implements IProxyListenerALM, Locati
 
 	private static final String TAG = "AppLinkService";
 
+	public static final String FORCE_RESET = "force_reset";
 
 	public static final String SDL_PREFS = "RC_PREFS";
 	public static final String SDL_PREF_KEY_CONNECTION_TYPE = "CONNECTION_TYPE";
@@ -183,6 +184,18 @@ public class AppLinkService extends Service implements IProxyListenerALM, Locati
 	}
 	
 	public int onStartCommand(Intent intent, int flags, int startId) {
+		boolean reset = false;
+		if(intent!=null){
+			reset = intent.getBooleanExtra(FORCE_RESET, false);
+			if(reset && proxy !=null){
+				try {
+					proxy.dispose();
+					proxy = null;
+				} catch (SdlException e) {
+					e.printStackTrace();
+				}
+			}
+		}
   /*      if (intent != null) {
         	mBtAdapter = BluetoothAdapter.getDefaultAdapter();
     		if (mBtAdapter != null){
@@ -202,7 +215,9 @@ public class AppLinkService extends Service implements IProxyListenerALM, Locati
 		if (proxy == null) {
 			try {
 				SharedPreferences settings = getSharedPreferences( AppLinkService.SDL_PREFS, MODE_PRIVATE);
+
 				String type = settings.getString(SDL_PREF_KEY_CONNECTION_TYPE, CNT_TYPE_BLUETOOTH);
+				Log.d(TAG, "Connecting to SDL through " + type);
 				if(CNT_TYPE_WIFI.equalsIgnoreCase(type)){
 					String ip = settings.getString(SDL_PREF_KEY_IP_ADDRESS, emulatorIP);
 					int port = settings.getInt(SDL_PREF_KEY_PORT, 12345);
