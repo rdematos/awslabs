@@ -856,26 +856,29 @@ public IBinder onBind(Intent intent) {
 
 		}
 
+		if(gps != null){
+			StringWriter sw = new StringWriter();
+			JsonWriter writer = new JsonWriter(sw);
+			try {
+				writer.beginObject(); // 1 START
+				writer.name("state");
+				writer.beginObject(); // 2 START
+				writer.name("reported");
+				car.writeJson(writer);
+				writer.endObject();
+				writer.endObject();
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+			String publishPayload = sw.toString();
+			Log.e(TAG, "Car JSON: " + publishPayload);
 
-		StringWriter sw = new StringWriter();
-		JsonWriter writer = new JsonWriter(sw);
-		try {
-			writer.beginObject();
-			writer.name("state");
-			writer.beginObject();
-			writer.name("reported");
-			car.writeJson(writer);
-			writer.endObject();
-			writer.endObject();
+			HelloFordApplication helloFordApplication = (HelloFordApplication) getApplication();
+			helloFordApplication.getMainActivity().publishCarJson(helloFordApplication.getTopicPublish(), publishPayload);
+		}else{
+			Log.w(TAG, "Unable to write out state yet, GPS is still null");
 		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		String publishPayload = sw.toString();
-		Log.e(TAG, "Car JSON: " + publishPayload);
-
-		HelloFordApplication helloFordApplication = (HelloFordApplication) getApplication();
-		helloFordApplication.getMainActivity().publishCarJson(helloFordApplication.getTopicPublish(), publishPayload);
 	}
 
 	private String geohashToTopic(String geohash) {
