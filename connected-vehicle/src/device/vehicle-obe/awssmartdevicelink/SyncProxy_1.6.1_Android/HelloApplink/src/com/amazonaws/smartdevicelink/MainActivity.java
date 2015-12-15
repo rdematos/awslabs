@@ -4,18 +4,23 @@
 package com.amazonaws.smartdevicelink;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.method.ScrollingMovementMethod;
 import android.util.JsonReader;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.amazonaws.com.amazonaws.model.Car;
@@ -174,7 +179,10 @@ public class MainActivity extends Activity implements MqttCallback {
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle item selection
 	    switch (item.getItemId()) {
-	        case R.id.exit:
+            case R.id.connection_settings:
+                createConnectionDialog();
+                return true;
+            case R.id.exit:
 	        	super.finish();
 	            return true;
 	        case R.id.reset:
@@ -377,5 +385,110 @@ public class MainActivity extends Activity implements MqttCallback {
                 subscribeButton.performClick();
             }
         });
+    }
+
+
+    /*
+	 * Dialog settings
+	 */
+
+
+    private void createConnectionDialog(){
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.connection_dialog);
+        dialog.setTitle("Setting Connection Type");
+        final Spinner spin = (Spinner)dialog.findViewById(R.id.connectionSpinner);
+        final EditText edit = (EditText)dialog.findViewById(R.id.cnt_ip_et);
+        final EditText editPort = (EditText)dialog.findViewById(R.id.cnt_port_et);
+        final SharedPreferences settings = getSharedPreferences( AppLinkService.SDL_PREFS, MODE_PRIVATE);
+
+        spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,int position, long id) {
+                String mod = (String) parent.getItemAtPosition(position);
+                if(AppLinkService.CNT_TYPE_WIFI.equalsIgnoreCase(mod)){
+                    edit.setFocusable(true);
+                    edit.setFocusableInTouchMode(true);
+                    edit.setClickable(true);
+
+                    editPort.setFocusable(true);
+                    editPort.setFocusableInTouchMode(true);
+                    editPort.setClickable(true);
+                    String ip = settings.getString(AppLinkService.SDL_PREF_KEY_IP_ADDRESS, "");
+                    int port = settings.getInt(AppLinkService.SDL_PREF_KEY_PORT, 12345);
+                    edit.setText(ip);
+                    editPort.setText(port +"");
+                }else{
+                    edit.setFocusable(false);
+                    edit.setFocusableInTouchMode(false);
+                    edit.setClickable(false);
+
+                    editPort.setFocusable(false);
+                    editPort.setFocusableInTouchMode(false);
+                    editPort.setClickable(false);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                edit.setFocusable(false);
+                edit.setFocusableInTouchMode(false);
+                edit.setClickable(false);
+
+                editPort.setFocusable(false);
+                editPort.setFocusableInTouchMode(false);
+                editPort.setClickable(false);
+
+            }
+
+        });
+        Button okBtn = (Button)dialog.findViewById(R.id.cnt_okBtn);
+        okBtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                SharedPreferences.Editor editor = settings.edit();
+                String cntType = (String)spin.getSelectedItem();
+                if(cntType!=null){
+                    editor.putString(AppLinkService.SDL_PREF_KEY_CONNECTION_TYPE, cntType);
+                    if(cntType.equalsIgnoreCase("wifi")){
+                        Editable ip = edit.getText();
+                        if(ip!=null){
+                            editor.putString(AppLinkService.SDL_PREF_KEY_IP_ADDRESS, ip.toString());
+                        }
+                        Editable port = editPort.getText();
+                        if(port!=null){
+                            editor.putInt(AppLinkService.SDL_PREF_KEY_PORT, Integer.parseInt(port.toString()));
+                        }
+                    }
+
+                }
+                editor.commit();
+                //Maybe add prefrence listner to shut down service or something
+                Intent serviceIntent = new Intent(v.getContext(), AppLinkService.class);
+                stopService(serviceIntent);
+
+                startService(serviceIntent);
+
+                dialog.dismiss();
+
+            }
+
+        });
+        Button cancelBtn = (Button)dialog.findViewById(R.id.cnt_cancelBtn);
+        cancelBtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+
+            }
+
+        });
+
+        dialog.show();
     }
 }

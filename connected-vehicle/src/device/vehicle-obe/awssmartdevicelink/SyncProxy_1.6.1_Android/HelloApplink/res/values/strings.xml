@@ -101,4 +101,10 @@
     <string name="go">Go</string>
 
 
+    <string-array name="connection_types">
+        <item>Bluetooth</item>
+        <item>WiFi</item>
+        <item>USB</item>
+    </string-array>
+
 </resources>

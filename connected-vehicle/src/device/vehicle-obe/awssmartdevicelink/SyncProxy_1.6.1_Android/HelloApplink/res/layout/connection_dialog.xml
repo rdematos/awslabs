@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp" >
+
+
+    <TextView
+        android:id="@+id/connectionTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/connectionSpinner"
+        android:layout_alignBottom="@+id/connectionSpinner"
+        android:gravity="center"
+        android:text="Connection Type" />
+
+    <Spinner
+        android:id="@+id/connectionSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/connectionTv" 
+        android:entries="@array/connection_types"/>
+
+    <TextView
+        android:id="@+id/ipTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/connectionSpinner"
+        android:layout_alignTop="@+id/cnt_ip_et"
+        android:layout_alignBottom="@+id/cnt_ip_et"
+        android:gravity="center"
+        android:text="IP Address: " />
+
+    <EditText
+        android:id="@+id/cnt_ip_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:ems="10" 
+        android:layout_below="@+id/connectionSpinner"
+        android:layout_toRightOf="@+id/ipTv" >
+
+        <requestFocus />
+    </EditText>
+    
+    <TextView
+        android:id="@+id/cnt_portTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cnt_ip_et"
+        android:layout_alignTop="@+id/cnt_port_et"
+        android:layout_alignBottom="@+id/cnt_port_et"
+        android:gravity="center"
+        android:text="Port: " />
+
+    <EditText
+        android:id="@+id/cnt_port_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" 
+        android:layout_below="@+id/cnt_ip_et"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@+id/cnt_portTv" >
+        <requestFocus />
+    </EditText>
+    
+    <Button
+        android:id="@+id/cnt_okBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="OK" />
+    
+    <Button
+        android:id="@+id/cnt_cancelBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Cancel" />
+
+</RelativeLayout>

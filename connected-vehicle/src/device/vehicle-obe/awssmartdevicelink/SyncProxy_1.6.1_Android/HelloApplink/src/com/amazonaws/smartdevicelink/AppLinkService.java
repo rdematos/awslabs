@@ -7,6 +7,7 @@ import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -96,7 +97,6 @@ import com.smartdevicelink.proxy.rpc.enums.SdlDisconnectedReason;
 import com.smartdevicelink.proxy.rpc.enums.SoftButtonType;
 import com.smartdevicelink.proxy.rpc.enums.SystemAction;
 import com.smartdevicelink.proxy.rpc.enums.TextAlignment;
-import com.smartdevicelink.transport.BaseTransportConfig;
 import com.smartdevicelink.transport.TCPTransportConfig;
 import com.smartdevicelink.util.DebugTool;
 
@@ -108,7 +108,21 @@ import java.util.Vector;
 
 public class AppLinkService extends Service implements IProxyListenerALM, LocationListener {
 
-	String TAG = "AppLinkService";
+	private static final String TAG = "AppLinkService";
+
+
+	public static final String SDL_PREFS = "RC_PREFS";
+	public static final String SDL_PREF_KEY_CONNECTION_TYPE = "CONNECTION_TYPE";
+	public static final String SDL_PREF_KEY_IP_ADDRESS = "IP_ADDRESS";
+	public static final String SDL_PREF_KEY_PORT = "PORT";
+
+	public static final String CNT_TYPE_BLUETOOTH = "Bluetooth";
+	public static final String CNT_TYPE_WIFI = "WiFi";
+	public static final String CNT_TYPE_USB = "USB";
+
+	public static final String APP_NAME =  "AWS";
+	public static final String APP_ID = "3387301225";
+
 	//variable used to increment correlation ID for every request sent to SYNC
 	public int autoIncCorrId = 0;
 	//variable to contain the current state of the service
@@ -187,9 +201,18 @@ public class AppLinkService extends Service implements IProxyListenerALM, Locati
 	public void startProxy() {
 		if (proxy == null) {
 			try {
-				BaseTransportConfig transport = new TCPTransportConfig(12345, emulatorIP, true);
+				SharedPreferences settings = getSharedPreferences( AppLinkService.SDL_PREFS, MODE_PRIVATE);
+				String type = settings.getString(SDL_PREF_KEY_CONNECTION_TYPE, CNT_TYPE_BLUETOOTH);
+				if(CNT_TYPE_WIFI.equalsIgnoreCase(type)){
+					String ip = settings.getString(SDL_PREF_KEY_IP_ADDRESS, emulatorIP);
+					int port = settings.getInt(SDL_PREF_KEY_PORT, 12345);
+					proxy = new SdlProxyALM(this, APP_NAME, true, APP_ID, new TCPTransportConfig(port,ip,true));
+				}else{
+					proxy = new SdlProxyALM(this, APP_NAME, true, APP_ID);
+				}
+				//BaseTransportConfig transport = new TCPTransportConfig(12345, emulatorIP, true);
 				//proxy = new SdlProxyALM(this,"AWS",false,Language.EN_US, Language.EN_US,"1234567",transport);
-				proxy = new SdlProxyALM(this, "aws", false,"3387301225");
+				//proxy = new SdlProxyALM(this, "aws", false,"3387301225");
 			} catch (SdlException e) {
 				e.printStackTrace();
 				//error creating proxy, returned proxy = null
