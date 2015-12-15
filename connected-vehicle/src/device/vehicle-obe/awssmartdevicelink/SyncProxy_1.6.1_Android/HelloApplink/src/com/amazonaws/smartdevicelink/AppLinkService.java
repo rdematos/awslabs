@@ -781,12 +781,16 @@ public IBinder onBind(Intent intent) {
 		Log.d(TAG, "onVehicleData: " + onVehicleData);
 		Car car = helloFordApplication.getCar();
 
-		if (onVehicleData.getSpeed() != null) {
-			Log.i("getSpeed", "S getSpeed: " + onVehicleData.getSpeed());
-		}
 		if (onVehicleData.getGps() != null) {
-			Log.i("getGps", "S getGps: Lat: " + onVehicleData.getGps().getLatitudeDegrees().toString() + " Lon: " +
-					onVehicleData.getGps().getLongitudeDegrees().toString() + " Heading: " + onVehicleData.getGps().getCompassDirection().toString());
+			GPSData gpsData = onVehicleData.getGps();
+			Log.i("getGps", "S getGps: Lat: " + gpsData.getLatitudeDegrees().toString() + " Lon: " +
+					gpsData.getLongitudeDegrees().toString() + " Heading: " + gpsData.getCompassDirection().toString());
+			GPS tempGps = car.getGps(true);
+
+			//gps.setSpeed(onVehicleData.getSpeed());
+			tempGps.setLatitudeDegrees(gpsData.getLatitudeDegrees());
+			tempGps.setLongitudeDegrees(gpsData.getLongitudeDegrees());
+
 		}else if(locationManager!=null){
 			Log.w(TAG, "GPS data was not included in onVehicleData, using phone's GPS");
 			Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -798,6 +802,44 @@ public IBinder onBind(Intent intent) {
 
 			onVehicleData.setGps(gpsData);
 		}
+
+		GPS gps = car.getGps(false);
+		//If we a gps object we need to create a geohash
+		if(gps!=null){
+
+			final Double newLat = gps.getLatitudeDegrees();
+			final Double newLong = gps.getLongitudeDegrees();
+
+			if (car.getCurrentGeohash() == null || !GeoHash.hashContains(car.getCurrentGeohash(), newLat, newLong)) {
+				String newHash = GeoHash.encodeHash(newLat, newLong, 6);
+				String newTopic = geohashToTopic(newHash);
+
+				try {
+					if (car.getCurrentTopicSubscribe() != null) {
+						helloFordApplication.getMqttConnection().ubsubscribeTopic(car.getCurrentTopicSubscribe());
+					}
+					helloFordApplication.getMainActivity().subscribeTopic(newTopic);
+					car.setCurrentTopicSubscribe(newTopic);
+					car.setCurrentGeohash(newHash);
+				}
+				catch (MqttException e) {
+					e.printStackTrace();
+				}
+			}
+		}else{
+			Log.w(TAG, "No gps object. Unable to create geohash");
+		}
+
+		if (onVehicleData.getSpeed() != null) {
+			Log.i("getSpeed", "S getSpeed: " + onVehicleData.getSpeed());
+
+			if(gps!=null){
+				gps.setSpeed(onVehicleData.getSpeed());
+			}else{
+				Log.w(TAG, "Gps obejct was null, unable to set speed");
+			}
+		}
+
 		if (onVehicleData.getDriverBraking() != null) {
 			Log.i("getDriverBraking", "B getDriverBraking: " + onVehicleData.getDriverBraking());
 			car.setBraking(onVehicleData.getDriverBraking().name());
@@ -805,6 +847,7 @@ public IBinder onBind(Intent intent) {
 
 		if (onVehicleData.getEmergencyEvent() != null) {
 			Log.i("getEmergencyEvent", "B getEmergencyEvent: " + onVehicleData.getEmergencyEvent().getEmergencyEventType().toString());
+			//TODO add to car object
 		}
 
 		if (onVehicleData.getPrndl() != null) {
@@ -813,32 +856,6 @@ public IBinder onBind(Intent intent) {
 
 		}
 
-
-		GPS gps = car.getGps(true);
-
-		final Double newLat = onVehicleData.getGps().getLatitudeDegrees();
-		final Double newLong = onVehicleData.getGps().getLongitudeDegrees();
-
-		if (car.getCurrentGeohash() == null || !GeoHash.hashContains(car.getCurrentGeohash(), newLat, newLong)) {
-			String newHash = GeoHash.encodeHash(newLat, newLong, 6);
-			String newTopic = geohashToTopic(newHash);
-
-			try {
-				if (car.getCurrentTopicSubscribe() != null) {
-					helloFordApplication.getMqttConnection().ubsubscribeTopic(car.getCurrentTopicSubscribe());
-				}
-				helloFordApplication.getMainActivity().subscribeTopic(newTopic);
-				car.setCurrentTopicSubscribe(newTopic);
-				car.setCurrentGeohash(newHash);
-			}
-			catch (MqttException e) {
-				e.printStackTrace();
-			}
-		}
-
-		gps.setSpeed(onVehicleData.getSpeed());
-		gps.setLatitudeDegrees(newLat);
-		gps.setLongitudeDegrees(newLong);
 
 		StringWriter sw = new StringWriter();
 		JsonWriter writer = new JsonWriter(sw);

@@ -2,6 +2,7 @@ package com.amazonaws.com.amazonaws.model;
 
 import android.util.JsonReader;
 import android.util.JsonWriter;
+import android.util.Log;
 
 import java.io.IOException;
 
@@ -9,6 +10,7 @@ import java.io.IOException;
  * Created by sanjoyg on 9/27/15.
  */
 public class Car {
+    private static final String TAG = "Car";
 
     private String vin = "52-452-52-100";
     private String prndl = "DRIVE";
@@ -24,6 +26,10 @@ public class Car {
     }
 
     public void writeJson(JsonWriter writer) throws IOException {
+       if(gps == null){
+           Log.e(TAG, "No stored GPS, bailing out");
+           return;
+       }
         writer.beginObject(); //1 START
         if(vin !=null){
             writer.name("vin").value(vin);
