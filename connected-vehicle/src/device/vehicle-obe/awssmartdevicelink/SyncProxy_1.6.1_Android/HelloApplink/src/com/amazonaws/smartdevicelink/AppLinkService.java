@@ -121,7 +121,7 @@ public class AppLinkService extends Service implements IProxyListenerALM, Locati
 	public static final String CNT_TYPE_USB = "USB";
 
 	public static final String APP_NAME =  "AWS";
-	public static final String APP_ID = "3387301225";
+	public static final String APP_ID = "2923376397";
 
 	//variable used to increment correlation ID for every request sent to SYNC
 	public int autoIncCorrId = 0;
