@@ -19,6 +19,9 @@ public class Car {
     private String currentTopicSubscribe;
     private String currentGeohash;
 
+    public Car(String vin){
+        this.vin = vin;
+    }
 
     public void writeJson(JsonWriter writer) throws IOException {
         writer.beginObject(); //1 START
