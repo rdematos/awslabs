@@ -59,6 +59,8 @@ public class AirbagStatus {
             }
             else if (name.equals("driverSideAirbagDeployed")) {
                 driverSideAirbagDeployed = reader.nextString();
+            }else{
+                reader.skipValue();
             }
         }
         reader.endObject();

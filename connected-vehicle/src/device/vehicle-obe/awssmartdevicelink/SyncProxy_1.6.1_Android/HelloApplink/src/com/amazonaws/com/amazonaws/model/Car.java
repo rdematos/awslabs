@@ -4,8 +4,6 @@ import android.util.JsonReader;
 import android.util.JsonWriter;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.PriorityQueue;
 
 /**
  * Created by sanjoyg on 9/27/15.
@@ -14,32 +12,41 @@ public class Car {
 
     private String vin = "52-452-52-100";
     private String prndl = "DRIVE";
-    private GPS gps = new GPS();
-    private AirbagStatus airbagStatus = new AirbagStatus();
+    private GPS gps = null;
+    private AirbagStatus airbagStatus =null;
     private double externalTemperature = 23.0F;  // Presumably in Centigrade.
-
+    private String brakingStatus = null;
     private String currentTopicSubscribe;
     private String currentGeohash;
 
 
     public void writeJson(JsonWriter writer) throws IOException {
-        writer.beginObject();
-        writer.name("vin").value(vin);
-        writer.name("prndl").value(prndl);
-        writer.name("gps");
-        gps.writeJson(writer);
-        writer.name("airbagStatus"); airbagStatus.writeJson(writer);
+        writer.beginObject(); //1 START
+        if(vin !=null){
+            writer.name("vin").value(vin);
+        }
+
+        if(prndl != null){
+           writer.name("prndl").value(prndl);
+        }
+
+        if(brakingStatus != null){
+            writer.name("driverBraking").value(brakingStatus);
+        }
+
+        if(gps != null) {
+            writer.name("gps");
+            gps.writeJson(writer);
+        }
+
+        if(airbagStatus !=null) {
+            writer.name("airbagStatus");
+            airbagStatus.writeJson(writer);
+        }
+
         writer.name("externalTemperature").value((double) externalTemperature);
-        writer.name("timestamp").value(gps.getTimeString());
-        writer.name("pin");
-        writer.beginObject();
-        writer.name("location");
-        writer.beginObject();
-        writer.name("lat").value(gps.getLatitudeDegrees());
-        writer.name("lon").value(gps.getLongitudeDegrees());
-        writer.endObject();
-        writer.endObject();
-        writer.endObject();
+
+        writer.endObject(); // 1 END
     }
 
     public void readJson(JsonReader reader) throws IOException {
@@ -51,6 +58,9 @@ public class Car {
             }
             else if (name.equals("prndl")) {
                 prndl = reader.nextString();
+            }
+            else if (name.equals("driverBraking")) {
+                brakingStatus = reader.nextString();
             }
             else if (name.equals("gps")) {
                 gps.readJson(reader);
@@ -84,7 +94,10 @@ public class Car {
         this.externalTemperature = externalTemperature;
     }
 
-    public GPS getGps() {
+    public GPS getGps(boolean autoCreate) {
+        if(gps == null && autoCreate){
+            gps = new GPS();
+        }
         return gps;
     }
 
@@ -123,4 +136,7 @@ public class Car {
     public void setCurrentTopicSubscribe(String currentTopicSubscribe) {
         this.currentTopicSubscribe = currentTopicSubscribe;
     }
+
+    public void setBraking(String brakingStatus){this.brakingStatus = brakingStatus;}
+    public String getBraking(){return brakingStatus;}
 }

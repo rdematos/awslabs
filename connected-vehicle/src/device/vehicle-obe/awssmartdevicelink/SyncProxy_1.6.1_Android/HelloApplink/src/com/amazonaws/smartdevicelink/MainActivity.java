@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -400,8 +401,17 @@ public class MainActivity extends Activity implements MqttCallback {
         final Spinner spin = (Spinner)dialog.findViewById(R.id.connectionSpinner);
         final EditText edit = (EditText)dialog.findViewById(R.id.cnt_ip_et);
         final EditText editPort = (EditText)dialog.findViewById(R.id.cnt_port_et);
-        final SharedPreferences settings = getSharedPreferences( AppLinkService.SDL_PREFS, MODE_PRIVATE);
+        final SharedPreferences settings = getSharedPreferences(AppLinkService.SDL_PREFS, MODE_PRIVATE);
 
+        String type = settings.getString(AppLinkService.SDL_PREF_KEY_CONNECTION_TYPE, AppLinkService.CNT_TYPE_BLUETOOTH);
+        ArrayAdapter myAdap = (ArrayAdapter) spin.getAdapter(); //cast to an ArrayAdapter
+
+        int spinnerPosition = myAdap.getPosition(type);
+
+        //set the default according to value
+        spin.setSelection(spinnerPosition);
+
+        //spin.setSelection();
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
 
             @Override
@@ -468,10 +478,8 @@ public class MainActivity extends Activity implements MqttCallback {
                 }
                 editor.commit();
                 //Maybe add prefrence listner to shut down service or something
-                Intent serviceIntent = new Intent(v.getContext(), AppLinkService.class);
-                stopService(serviceIntent);
 
-                startService(serviceIntent);
+                restartService();
 
                 dialog.dismiss();
 
@@ -490,5 +498,13 @@ public class MainActivity extends Activity implements MqttCallback {
         });
 
         dialog.show();
+    }
+
+    private void restartService(){
+        Intent serviceIntent = new Intent(this, AppLinkService.class);
+        serviceIntent.putExtra(AppLinkService.FORCE_RESET, true);
+        startService(serviceIntent);
+
+
     }
 }

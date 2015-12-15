@@ -103,13 +103,13 @@ import com.smartdevicelink.util.DebugTool;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 import java.io.StringWriter;
-import java.util.Calendar;
 import java.util.Vector;
 
 public class AppLinkService extends Service implements IProxyListenerALM, LocationListener {
 
 	private static final String TAG = "AppLinkService";
 
+	public static final String FORCE_RESET = "force_reset";
 
 	public static final String SDL_PREFS = "RC_PREFS";
 	public static final String SDL_PREF_KEY_CONNECTION_TYPE = "CONNECTION_TYPE";
@@ -183,6 +183,18 @@ public class AppLinkService extends Service implements IProxyListenerALM, Locati
 	}
 	
 	public int onStartCommand(Intent intent, int flags, int startId) {
+		boolean reset = false;
+		if(intent!=null){
+			reset = intent.getBooleanExtra(FORCE_RESET, false);
+			if(reset && proxy !=null){
+				try {
+					proxy.dispose();
+					proxy = null;
+				} catch (SdlException e) {
+					e.printStackTrace();
+				}
+			}
+		}
   /*      if (intent != null) {
         	mBtAdapter = BluetoothAdapter.getDefaultAdapter();
     		if (mBtAdapter != null){
@@ -202,7 +214,9 @@ public class AppLinkService extends Service implements IProxyListenerALM, Locati
 		if (proxy == null) {
 			try {
 				SharedPreferences settings = getSharedPreferences( AppLinkService.SDL_PREFS, MODE_PRIVATE);
+
 				String type = settings.getString(SDL_PREF_KEY_CONNECTION_TYPE, CNT_TYPE_BLUETOOTH);
+				Log.d(TAG, "Connecting to SDL through " + type);
 				if(CNT_TYPE_WIFI.equalsIgnoreCase(type)){
 					String ip = settings.getString(SDL_PREF_KEY_IP_ADDRESS, emulatorIP);
 					int port = settings.getInt(SDL_PREF_KEY_PORT, 12345);
@@ -467,12 +481,12 @@ private void clearlockscreen() {
 		sendRpc(msg);
 
 
-		/*msg = new SubscribeVehicleData();
-		msg.setPrndl(false);
+		msg = new SubscribeVehicleData();
+		msg.setPrndl(true);
 		msg.setCorrelationID(autoIncCorrId++);
 		sendRpc(msg);
 
-		msg = new SubscribeVehicleData();
+		/*msg = new SubscribeVehicleData();
 		msg.setRpm(false);
 		msg.setCorrelationID(autoIncCorrId++);
 		sendRpc(msg);*/
@@ -780,22 +794,13 @@ public IBinder onBind(Intent intent) {
 			gpsData.setLatitudeDegrees(location.getLatitude());
 			gpsData.setLongitudeDegrees(location.getLongitude());
 
-			long time = location.getTime();
-			Calendar cal = Calendar.getInstance();
-			cal.setTimeInMillis(time);
-			gpsData.setUtcSeconds(cal.get(Calendar.SECOND));
-			gpsData.setUtcMinutes(cal.get(Calendar.MINUTE));
-			gpsData.setUtcHours(cal.get(Calendar.HOUR));
-			gpsData.setUtcDay(cal.get(Calendar.DAY_OF_MONTH));
-			gpsData.setUtcMonth(cal.get(Calendar.MONTH));
-			gpsData.setUtcMonth(cal.get(Calendar.YEAR));
-
 			gpsData.setHeading(((Float)location.getBearing()).doubleValue());
 
 			onVehicleData.setGps(gpsData);
 		}
 		if (onVehicleData.getDriverBraking() != null) {
 			Log.i("getDriverBraking", "B getDriverBraking: " + onVehicleData.getDriverBraking());
+			car.setBraking(onVehicleData.getDriverBraking().name());
 		}
 
 		if (onVehicleData.getEmergencyEvent() != null) {
@@ -809,7 +814,7 @@ public IBinder onBind(Intent intent) {
 		}
 
 
-		GPS gps = car.getGps();
+		GPS gps = car.getGps(true);
 
 		final Double newLat = onVehicleData.getGps().getLatitudeDegrees();
 		final Double newLong = onVehicleData.getGps().getLongitudeDegrees();
