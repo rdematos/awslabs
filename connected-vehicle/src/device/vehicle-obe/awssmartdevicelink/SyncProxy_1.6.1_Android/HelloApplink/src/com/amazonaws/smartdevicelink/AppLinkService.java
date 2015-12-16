@@ -220,9 +220,9 @@ public class AppLinkService extends Service implements IProxyListenerALM, Locati
 				if(CNT_TYPE_WIFI.equalsIgnoreCase(type)){
 					String ip = settings.getString(SDL_PREF_KEY_IP_ADDRESS, emulatorIP);
 					int port = settings.getInt(SDL_PREF_KEY_PORT, 12345);
-					proxy = new SdlProxyALM(this, APP_NAME, true, APP_ID, new TCPTransportConfig(port,ip,true));
+					proxy = new SdlProxyALM(this, APP_NAME, false, APP_ID, new TCPTransportConfig(port,ip,true));
 				}else{
-					proxy = new SdlProxyALM(this, APP_NAME, true, APP_ID);
+					proxy = new SdlProxyALM(this, APP_NAME, false, APP_ID);
 				}
 				//BaseTransportConfig transport = new TCPTransportConfig(12345, emulatorIP, true);
 				//proxy = new SdlProxyALM(this,"AWS",false,Language.EN_US, Language.EN_US,"1234567",transport);
