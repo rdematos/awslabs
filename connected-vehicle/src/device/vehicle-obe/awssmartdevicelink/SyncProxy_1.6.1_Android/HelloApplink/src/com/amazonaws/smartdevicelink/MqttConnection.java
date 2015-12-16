@@ -3,6 +3,8 @@ package com.amazonaws.smartdevicelink;
 import android.content.Context;
 import android.util.Log;
 
+import com.amazonaws.com.amazonaws.model.ClientId;
+
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
@@ -16,15 +18,13 @@ import java.security.SecureRandom;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 
-import com.amazonaws.com.amazonaws.model.Car;
-
 /**
  * Created by sanjoyg on 9/25/15.
  */
 public class MqttConnection {
 
     private static final String TAG = "MqttConnection";
-    private String clientId = "52-452-52-100";
+    private String clientId = ClientId.getUID();
     private String server = "data.iot.us-east-1.amazonaws.com";
     private int port = 8883;
     private boolean cleanSession = true;

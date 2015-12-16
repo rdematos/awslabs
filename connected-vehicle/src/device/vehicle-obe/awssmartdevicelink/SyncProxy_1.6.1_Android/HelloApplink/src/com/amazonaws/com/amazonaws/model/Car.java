@@ -6,7 +6,6 @@ import android.util.JsonWriter;
 import android.util.Log;
 
 import java.io.IOException;
-import java.util.UUID;
 
 /**
  * Created by sanjoyg on 9/27/15.
@@ -36,7 +35,7 @@ public class Car {
         //This vin will hopefully come from the cloud. Even using the mac address on for the wifi adapter was the wrong approach
         // as it keeps track of a physical device, but while it seemed ok for a demo, Android 6.0+ only returns a default mac address that
         // will be the same on every device running that or newer OS.
-        this.vin  =  UUID.randomUUID().toString();
+        this.vin  =  ClientId.getUID();
 
 
         Log.i(TAG, "New car created with vin: " + this.vin);
