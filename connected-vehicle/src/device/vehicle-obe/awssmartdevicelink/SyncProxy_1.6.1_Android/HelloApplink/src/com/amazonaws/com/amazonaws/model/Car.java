@@ -88,6 +88,9 @@ public class Car {
                 brakingStatus = reader.nextString();
             }
             else if (name.equals("gps")) {
+                if(gps == null){
+                    gps = new GPS();
+                }
                 gps.readJson(reader);
             }
             else if (name.equals("airbagStatus")) {
@@ -98,6 +101,7 @@ public class Car {
             }
             else {
                 reader.skipValue();
+                Log.e(TAG, "Uknown value in JSON - " + name);
             }
         }
         reader.endObject();
