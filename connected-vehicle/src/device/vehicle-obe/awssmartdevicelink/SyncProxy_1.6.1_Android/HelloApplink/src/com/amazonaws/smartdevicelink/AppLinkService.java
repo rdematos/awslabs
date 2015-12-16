@@ -767,6 +767,19 @@ public IBinder onBind(Intent intent) {
 
 
 			}else{
+				Car car = helloFordApplication.getCar();
+
+				GPSData gpsData = getVehicleDataResponse.getGps();
+				Log.i("getGps", "S getGps: Lat: " + gpsData.getLatitudeDegrees().toString() + " Lon: " +
+						gpsData.getLongitudeDegrees().toString() + " Heading: " + gpsData.getCompassDirection().toString());
+				GPS tempGps = car.getGps(true);
+
+				//gps.setSpeed(onVehicleData.getSpeed());
+				tempGps.setLatitudeDegrees(gpsData.getLatitudeDegrees());
+				tempGps.setLongitudeDegrees(gpsData.getLongitudeDegrees());
+				car.setGps(tempGps);
+
+
 				//We got GPS
 				SubscribeVehicleData sub = new SubscribeVehicleData();
 				sub.setGps(true);
@@ -792,6 +805,7 @@ public IBinder onBind(Intent intent) {
 			//gps.setSpeed(onVehicleData.getSpeed());
 			tempGps.setLatitudeDegrees(gpsData.getLatitudeDegrees());
 			tempGps.setLongitudeDegrees(gpsData.getLongitudeDegrees());
+			car.setGps(tempGps);
 
 		}else if(locationManager!=null){
 			Log.w(TAG, "GPS data was not included in onVehicleData, using phone's GPS");
