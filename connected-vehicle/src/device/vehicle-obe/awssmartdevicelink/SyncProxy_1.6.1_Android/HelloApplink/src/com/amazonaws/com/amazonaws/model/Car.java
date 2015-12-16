@@ -1,10 +1,12 @@
 package com.amazonaws.com.amazonaws.model;
 
+import android.content.Context;
 import android.util.JsonReader;
 import android.util.JsonWriter;
 import android.util.Log;
 
 import java.io.IOException;
+import java.util.UUID;
 
 /**
  * Created by sanjoyg on 9/27/15.
@@ -21,8 +23,23 @@ public class Car {
     private String currentTopicSubscribe;
     private String currentGeohash;
 
-    public Car(String vin){
-        this.vin = vin;
+    public Car(Context context){
+        if(context == null){
+            Log.i(TAG, "Conext was null, setting VIN to default");
+            return;
+        }
+       /* WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        WifiInfo wInfo = wifiManager.getConnectionInfo();
+        String macAddress = wInfo.getMacAddress();
+        this.vin = macAddress;
+        */
+        //This vin will hopefully come from the cloud. Even using the mac address on for the wifi adapter was the wrong approach
+        // as it keeps track of a physical device, but while it seemed ok for a demo, Android 6.0+ only returns a default mac address that
+        // will be the same on every device running that or newer OS.
+        this.vin  =  UUID.randomUUID().toString();
+
+
+        Log.i(TAG, "New car created with vin: " + this.vin);
     }
 
     public void writeJson(JsonWriter writer) throws IOException {

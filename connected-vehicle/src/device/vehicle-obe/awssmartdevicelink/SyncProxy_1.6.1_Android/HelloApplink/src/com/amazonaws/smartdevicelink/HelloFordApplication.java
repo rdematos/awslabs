@@ -1,8 +1,6 @@
 package com.amazonaws.smartdevicelink;
 
 import android.content.Context;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.support.multidex.MultiDexApplication;
 
 import com.amazonaws.com.amazonaws.model.Car;
@@ -20,10 +18,7 @@ public class HelloFordApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-        WifiInfo wInfo = wifiManager.getConnectionInfo();
-        String macAddress = wInfo.getMacAddress();
-        car = new Car(macAddress);
+        car = new Car(this);
         mqttConnection = new MqttConnection();
     }
 
@@ -58,10 +53,7 @@ public class HelloFordApplication extends MultiDexApplication {
 
     public Car getCar() {
         if(car == null){
-            WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-            WifiInfo wInfo = wifiManager.getConnectionInfo();
-            String macAddress = wInfo.getMacAddress();
-            car = new Car(macAddress);
+            car = new Car(this);
         }
         return car;
     }
