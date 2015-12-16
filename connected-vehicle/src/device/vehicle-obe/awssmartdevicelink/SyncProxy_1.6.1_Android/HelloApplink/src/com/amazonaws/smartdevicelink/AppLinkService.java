@@ -174,6 +174,12 @@ public class AppLinkService extends Service implements IProxyListenerALM, Locati
 		this.currentUIActivity = currentActivity;
 	}
 
+	@Override
+	public IBinder onBind(Intent intent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void onCreate() {
 		super.onCreate();
 		instance = this;
@@ -571,6 +577,10 @@ public void onCreateInteractionChoiceSetResponse(
 }
 
 public void onAlertResponse(AlertResponse response) {
+	if(response.getCorrelationID().intValue() == pendingAlert){
+		Log.d(TAG, "Alert request responded with result - " + response.getResultCode());
+		pendingAlert = -1;
+	}
 	// TODO Auto-generated method stub
 }
 
@@ -637,11 +647,6 @@ public void onOnTBTClientState(OnTBTClientState notification) {
 	// TODO Auto-generated method stub
 }
 
-@Override
-public IBinder onBind(Intent intent) {
-	// TODO Auto-generated method stub
-	return null;
-}
 	@Override
 	public void onShowConstantTbtResponse(ShowConstantTbtResponse showConstantTbtResponse) {
 
@@ -959,8 +964,13 @@ public IBinder onBind(Intent intent) {
 
 	}
 
+	int pendingAlert = -1;
 	public void sendAlert(String receivedPayload) {
 		int corrId = autoIncCorrId++;
+		if(pendingAlert == -1){
+			pendingAlert = corrId;
+			Log.i(TAG, "Attempting to send alert to head unit with id " + pendingAlert);
+		}
 		String sTextToSpeak = "Hazard Detected";
 
 		Vector<SoftButton> currentSoftButtons;
@@ -993,6 +1003,7 @@ public IBinder onBind(Intent intent) {
 		Vector<TTSChunk> ttsChunks = TTSChunkFactory.createSimpleTTSChunks(sTextToSpeak);
 		msg.setTtsChunks(ttsChunks);
 		msg.setSoftButtons(currentSoftButtons);
+
 
 		try {
 			proxy.sendRPCRequest(msg);
