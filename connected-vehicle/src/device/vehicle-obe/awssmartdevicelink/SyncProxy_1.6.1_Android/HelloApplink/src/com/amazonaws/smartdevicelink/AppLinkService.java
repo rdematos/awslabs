@@ -48,6 +48,7 @@ import com.smartdevicelink.proxy.rpc.GenericResponse;
 import com.smartdevicelink.proxy.rpc.GetDTCsResponse;
 import com.smartdevicelink.proxy.rpc.GetVehicleData;
 import com.smartdevicelink.proxy.rpc.GetVehicleDataResponse;
+import com.smartdevicelink.proxy.rpc.Image;
 import com.smartdevicelink.proxy.rpc.ListFilesResponse;
 import com.smartdevicelink.proxy.rpc.OnAudioPassThru;
 import com.smartdevicelink.proxy.rpc.OnButtonEvent;
@@ -67,11 +68,13 @@ import com.smartdevicelink.proxy.rpc.OnTouchEvent;
 import com.smartdevicelink.proxy.rpc.OnVehicleData;
 import com.smartdevicelink.proxy.rpc.PerformAudioPassThruResponse;
 import com.smartdevicelink.proxy.rpc.PerformInteractionResponse;
+import com.smartdevicelink.proxy.rpc.PutFile;
 import com.smartdevicelink.proxy.rpc.PutFileResponse;
 import com.smartdevicelink.proxy.rpc.ReadDIDResponse;
 import com.smartdevicelink.proxy.rpc.ResetGlobalPropertiesResponse;
 import com.smartdevicelink.proxy.rpc.ScrollableMessageResponse;
 import com.smartdevicelink.proxy.rpc.SendLocationResponse;
+import com.smartdevicelink.proxy.rpc.SetAppIcon;
 import com.smartdevicelink.proxy.rpc.SetAppIconResponse;
 import com.smartdevicelink.proxy.rpc.SetDisplayLayoutResponse;
 import com.smartdevicelink.proxy.rpc.SetGlobalPropertiesResponse;
@@ -92,7 +95,9 @@ import com.smartdevicelink.proxy.rpc.UnsubscribeVehicleDataResponse;
 import com.smartdevicelink.proxy.rpc.UpdateTurnListResponse;
 import com.smartdevicelink.proxy.rpc.enums.ButtonName;
 import com.smartdevicelink.proxy.rpc.enums.DriverDistractionState;
+import com.smartdevicelink.proxy.rpc.enums.FileType;
 import com.smartdevicelink.proxy.rpc.enums.HMILevel;
+import com.smartdevicelink.proxy.rpc.enums.ImageType;
 import com.smartdevicelink.proxy.rpc.enums.SdlDisconnectedReason;
 import com.smartdevicelink.proxy.rpc.enums.SoftButtonType;
 import com.smartdevicelink.proxy.rpc.enums.SystemAction;
@@ -102,6 +107,9 @@ import com.smartdevicelink.util.DebugTool;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringWriter;
 import java.util.Vector;
 
@@ -122,6 +130,8 @@ public class AppLinkService extends Service implements IProxyListenerALM, Locati
 
 	public static final String APP_NAME =  "AWS";
 	public static final String APP_ID = "2923376397";
+	private static final String ICON_SYNC_FILENAME = "icon.png";
+	private static final String ICON_FILENAME_SUFFIX = ".png";
 
 	//variable used to increment correlation ID for every request sent to SYNC
 	public int autoIncCorrId = 0;
@@ -360,7 +370,10 @@ public class AppLinkService extends Service implements IProxyListenerALM, Locati
 						   //setup app on SYNC
 						   //send welcome message if applicable
 						 	try {
-								proxy.show("Connected to", "AWS", TextAlignment.CENTERED, autoIncCorrId++);
+								Image image = new Image();
+								image.setImageType(ImageType.DYNAMIC);
+								image.setValue(ICON_SYNC_FILENAME);
+								proxy.show("Connected to", "AWS", null, null,image,null,null,TextAlignment.CENTERED, autoIncCorrId++ );
 							} catch (SdlException e) {
 								DebugTool.logError("Failed to send Show", e);
 							}				
@@ -389,6 +402,9 @@ public class AppLinkService extends Service implements IProxyListenerALM, Locati
 					   Log.i("hello", "HMI_NONE");
 					   driverdistrationNotif = false;
 					   clearlockscreen();
+					 if(notification.getFirstRun()){
+						 sendIcon();
+					 }
 
 
 					 break;
@@ -424,7 +440,46 @@ public class AppLinkService extends Service implements IProxyListenerALM, Locati
 	lockscreenUP = true;		
 }
 
-private void clearlockscreen() {
+	int iconPutFileCor;
+	private void sendIcon() {
+		PutFile putFile = new PutFile();
+		putFile.setFileType(FileType.GRAPHIC_PNG);
+		putFile.setSdlFileName(ICON_SYNC_FILENAME);
+		iconPutFileCor = autoIncCorrId++;
+		putFile.setCorrelationID(iconPutFileCor);
+		putFile.setBulkData(contentsOfResource(R.drawable.ic_launcher));
+
+		sendRpc(putFile);
+	}
+
+	private byte[] contentsOfResource(int resource) {
+		InputStream is = null;
+		try {
+			is = getResources().openRawResource(resource);
+			ByteArrayOutputStream os = new ByteArrayOutputStream(is.available());
+			final int buffersize = 4096;
+			final byte[] buffer = new byte[buffersize];
+			int available = 0;
+			while ((available = is.read(buffer)) >= 0) {
+				os.write(buffer, 0, available);
+			}
+			return os.toByteArray();
+		} catch (IOException e) {
+			Log.w("SDL Service", "Can't read icon file", e);
+			return null;
+		} finally {
+			if (is != null) {
+				try {
+					is.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+
+	private void clearlockscreen() {
 	if(LockScreenActivity.getInstance() != null) {  
 		LockScreenActivity.getInstance().exit();
 	}
@@ -930,7 +985,16 @@ public void onOnTBTClientState(OnTBTClientState notification) {
 	}
 
 	@Override
-	public void onPutFileResponse(PutFileResponse putFileResponse) {
+	public void onPutFileResponse(PutFileResponse response) {
+		if(response.getCorrelationID() == iconPutFileCor){
+			//Icon was sent, let's set it.
+			Log.d(TAG, "Icon putfile success ");
+			SetAppIcon iconSet = new SetAppIcon();
+			iconSet.setSdlFileName(ICON_SYNC_FILENAME);
+			iconSet.setCorrelationID(autoIncCorrId++);
+			sendRpc(iconSet);
+
+		}
 
 	}
 
