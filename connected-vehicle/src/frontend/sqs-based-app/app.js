@@ -16,8 +16,8 @@
  */
 
 var platform = new H.service.Platform({
- 'app_id': '17OyTnMIhdAINmTTe7vF',
- 'app_code': 'Q-FMSAemR3cAyV6_VWENuw'
+ 'app_id': 'jhccgHUY7PxoiNOWJff9',
+ 'app_code': 'aXD4T0qNzh5O9hBRguuMIQ'
 });
 
 
