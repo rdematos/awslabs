@@ -319,7 +319,11 @@ public class MainActivity extends Activity implements MqttCallback {
         Log.e(TAG, "Message received on topic: " + topic + ",  " + receivedPayload);
 
         Car car = new Car(null); //Null because we don't want to set a vin yet
+        Log.i(TAG, "Generic Car object was created");
         try {
+
+            // {"state":{"reported":{"vin":"02:00:00:00:00:00","prndl":"REVERSE","gps":{"speed":0,"latitudeDegrees":42.4725335678,"longitudeDegrees":-83.1235775395,"heading":173},"externalTemperature":23}}}
+
             JsonReader reader = new JsonReader(new StringReader(receivedPayload));
             reader.beginObject();
             String state = reader.nextName();
@@ -328,10 +332,15 @@ public class MainActivity extends Activity implements MqttCallback {
                 String reported = reader.nextName();
                 if (reported.equals("reported")) {
                     car.readJson(reader);
+                }else{
+                    Log.e(TAG, "JSON object didn't start with reported");
                 }
                 reader.endObject();
+            }else{
+                Log.e(TAG, "JSON object didn't start with state");
             }
             reader.endObject();
+            Log.i(TAG, "Event was created with new Car object vin = " + car.getVin());
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -349,6 +358,8 @@ public class MainActivity extends Activity implements MqttCallback {
            linkService.sendAlert(receivedPayload);
            Log.d(TAG, "inside vin check: " + car.getVin() + "  " + helloFordApplication.getCar().getVin());
 
+       }else{
+           Log.i(TAG, "We received a message with the same VIN, discarding.");
        }
     }
 

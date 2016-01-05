@@ -817,6 +817,9 @@ public void onOnTBTClientState(OnTBTClientState notification) {
 								locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
 										500, //TODO not hardcode these values
 										1, AppLinkService.this);
+								locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+										500, //TODO not hardcode these values
+										1, AppLinkService.this);
 								Log.d(TAG, "Location manager inited");
 							}
 						});
@@ -870,6 +873,16 @@ public void onOnTBTClientState(OnTBTClientState notification) {
 		}else if(locationManager!=null){
 			Log.w(TAG, "GPS data was not included in onVehicleData, using phone's GPS");
 			Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+			if(location == null){
+
+				Log.e(TAG, "No GPS lock");
+				location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+				if(location == null) {
+					Log.e(TAG, "No Network GPS lock");
+
+					return;
+				}
+			}
 			GPS localGps = new GPS();
 
 			//GPSData gpsData = new GPSData();
