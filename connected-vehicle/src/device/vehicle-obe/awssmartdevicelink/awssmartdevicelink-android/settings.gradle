@@ -1,0 +1,1 @@
+include ':AWSSmartDeviceLink', ':SmartDeviceLinkLibrary-4.0.0-Android'
