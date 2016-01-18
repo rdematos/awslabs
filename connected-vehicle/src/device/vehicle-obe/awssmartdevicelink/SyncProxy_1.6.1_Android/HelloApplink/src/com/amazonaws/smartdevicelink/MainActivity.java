@@ -83,6 +83,12 @@ public class MainActivity extends Activity implements MqttCallback {
         instance = this;
         helloFordApplication = (HelloFordApplication) getApplication();
         helloFordApplication.setMainActivity(this);
+        try {
+            helloFordApplication.getMqttConnection().connectToMqttServer(helloFordApplication);
+        }
+        catch (MqttException e) {
+            e.printStackTrace();
+        }
         startSyncProxyService();
 	}
 
