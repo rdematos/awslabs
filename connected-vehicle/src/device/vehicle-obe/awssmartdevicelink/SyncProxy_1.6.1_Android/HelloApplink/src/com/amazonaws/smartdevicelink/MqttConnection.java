@@ -11,13 +11,6 @@ import org.eclipse.paho.client.mqttv3.IMqttToken;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
-import java.io.InputStream;
-import java.security.KeyStore;
-import java.security.SecureRandom;
-
-import javax.net.ssl.KeyManagerFactory;
-import javax.net.ssl.SSLContext;
-
 /**
  * Created by sanjoyg on 9/25/15.
  */
@@ -131,6 +124,8 @@ public class MqttConnection {
          *
          */
 
+
+
         String uri = null;
         if (useSsl) {
             uri = "ssl://";
@@ -143,20 +138,22 @@ public class MqttConnection {
         client = new MqttAndroidClient(context, uri, clientId);
         if (useSsl) try {
             if (keystoreFile != null && !keystoreFile.equalsIgnoreCase("")) {
-                InputStream keystore = context.getAssets().open(keystoreFile);
-                KeyStore keystoreKeys = KeyStore.getInstance("BKS");        // Bouncy Castle
-                keystoreKeys.load(keystore, passphrase.toCharArray());
 
-                KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-                keyManagerFactory.init(keystoreKeys, passphrase.toCharArray());
 
-                SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
-                sslContext.init(keyManagerFactory.getKeyManagers(), null, new SecureRandom());
-                conOpt.setSocketFactory(sslContext.getSocketFactory());
+                try {
+                    conOpt.setSocketFactory(SslUtil.getSocketFactory(
+                            context.getResources().openRawResource(R.raw.ca_crt),
+                            context.getResources().openRawResource(R.raw.aws_iot_crt),
+                            context.getResources().openRawResource(R.raw.aws_iot_key)));
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+
+                }
             }
         } catch (Exception e) {
             Log.e(TAG, "MqttException Occured: SSL Key file not found", e);
         }
+
 
         conOpt.setCleanSession(cleanSession);
         conOpt.setConnectionTimeout(timeout);

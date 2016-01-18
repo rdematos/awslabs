@@ -7,6 +7,7 @@ dependencies {
     compile('org.eclipse.paho:org.eclipse.paho.android.service:1.0.2') {
         exclude module: 'support-v4'
     }
+    compile 'org.bouncycastle:bcprov-ext-jdk15on:1.46'
     compile files('libs/joda-time-2.8.2.jar')
     compile files('libs/geo-0.7.2-SNAPSHOT.jar')
     compile 'com.google.guava:guava:16.0.1'
