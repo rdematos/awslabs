@@ -1,0 +1,517 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0EF7D85B56EEA79D4B50C7E /* libPods-mqtt road sign.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94DC9B7138B1BEDA4B5A36FD /* libPods-mqtt road sign.a */; };
+		D08116971C1F26CE000847E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D08116961C1F26CE000847E8 /* main.m */; };
+		D081169A1C1F26CE000847E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D08116991C1F26CE000847E8 /* AppDelegate.m */; };
+		D081169D1C1F26CE000847E8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D081169C1C1F26CE000847E8 /* ViewController.m */; };
+		D08116A01C1F26CE000847E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D081169E1C1F26CE000847E8 /* Main.storyboard */; };
+		D08116A21C1F26CE000847E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D08116A11C1F26CE000847E8 /* Assets.xcassets */; };
+		D08116A51C1F26CE000847E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D08116A31C1F26CE000847E8 /* LaunchScreen.storyboard */; };
+		D08116B01C1F26CE000847E8 /* mqtt_road_signTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D08116AF1C1F26CE000847E8 /* mqtt_road_signTests.m */; };
+		D08116BC1C206C01000847E8 /* IoTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D08116BB1C206C01000847E8 /* IoTManager.m */; };
+		D08116C01C206D83000847E8 /* IoTConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D08116BF1C206D83000847E8 /* IoTConstants.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D08116AC1C1F26CE000847E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D081168A1C1F26CE000847E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D08116911C1F26CE000847E8;
+			remoteInfo = "mqtt road sign";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		94DC9B7138B1BEDA4B5A36FD /* libPods-mqtt road sign.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mqtt road sign.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B292A674C9230A6488082632 /* Pods-mqtt road sign.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mqtt road sign.release.xcconfig"; path = "Pods/Target Support Files/Pods-mqtt road sign/Pods-mqtt road sign.release.xcconfig"; sourceTree = "<group>"; };
+		CFBEA00335A96382E9E10C62 /* Pods-mqtt road sign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mqtt road sign.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mqtt road sign/Pods-mqtt road sign.debug.xcconfig"; sourceTree = "<group>"; };
+		D08116921C1F26CE000847E8 /* mqtt road sign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mqtt road sign.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D08116961C1F26CE000847E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D08116981C1F26CE000847E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D08116991C1F26CE000847E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D081169B1C1F26CE000847E8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D081169C1C1F26CE000847E8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D081169F1C1F26CE000847E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D08116A11C1F26CE000847E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D08116A41C1F26CE000847E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D08116A61C1F26CE000847E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D08116AB1C1F26CE000847E8 /* mqtt road signTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mqtt road signTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D08116AF1C1F26CE000847E8 /* mqtt_road_signTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mqtt_road_signTests.m; sourceTree = "<group>"; };
+		D08116B11C1F26CE000847E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D08116BA1C206C01000847E8 /* IoTManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoTManager.h; sourceTree = "<group>"; };
+		D08116BB1C206C01000847E8 /* IoTManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IoTManager.m; sourceTree = "<group>"; };
+		D08116BE1C206D83000847E8 /* IoTConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoTConstants.h; sourceTree = "<group>"; };
+		D08116BF1C206D83000847E8 /* IoTConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IoTConstants.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D081168F1C1F26CE000847E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0EF7D85B56EEA79D4B50C7E /* libPods-mqtt road sign.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D08116A81C1F26CE000847E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18E8B9E662ACC449E03F0C54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94DC9B7138B1BEDA4B5A36FD /* libPods-mqtt road sign.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B70828BACF45F79D8946B5DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CFBEA00335A96382E9E10C62 /* Pods-mqtt road sign.debug.xcconfig */,
+				B292A674C9230A6488082632 /* Pods-mqtt road sign.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D08116891C1F26CE000847E8 = {
+			isa = PBXGroup;
+			children = (
+				D08116941C1F26CE000847E8 /* mqtt road sign */,
+				D08116AE1C1F26CE000847E8 /* mqtt road signTests */,
+				D08116931C1F26CE000847E8 /* Products */,
+				B70828BACF45F79D8946B5DD /* Pods */,
+				18E8B9E662ACC449E03F0C54 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D08116931C1F26CE000847E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D08116921C1F26CE000847E8 /* mqtt road sign.app */,
+				D08116AB1C1F26CE000847E8 /* mqtt road signTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D08116941C1F26CE000847E8 /* mqtt road sign */ = {
+			isa = PBXGroup;
+			children = (
+				D08116BB1C206C01000847E8 /* IoTManager.m */,
+				D08116BA1C206C01000847E8 /* IoTManager.h */,
+				D08116BE1C206D83000847E8 /* IoTConstants.h */,
+				D08116BF1C206D83000847E8 /* IoTConstants.m */,
+				D08116981C1F26CE000847E8 /* AppDelegate.h */,
+				D08116991C1F26CE000847E8 /* AppDelegate.m */,
+				D081169B1C1F26CE000847E8 /* ViewController.h */,
+				D081169C1C1F26CE000847E8 /* ViewController.m */,
+				D081169E1C1F26CE000847E8 /* Main.storyboard */,
+				D08116A11C1F26CE000847E8 /* Assets.xcassets */,
+				D08116A31C1F26CE000847E8 /* LaunchScreen.storyboard */,
+				D08116A61C1F26CE000847E8 /* Info.plist */,
+				D08116951C1F26CE000847E8 /* Supporting Files */,
+			);
+			path = "mqtt road sign";
+			sourceTree = "<group>";
+		};
+		D08116951C1F26CE000847E8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D08116961C1F26CE000847E8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D08116AE1C1F26CE000847E8 /* mqtt road signTests */ = {
+			isa = PBXGroup;
+			children = (
+				D08116AF1C1F26CE000847E8 /* mqtt_road_signTests.m */,
+				D08116B11C1F26CE000847E8 /* Info.plist */,
+			);
+			path = "mqtt road signTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D08116911C1F26CE000847E8 /* mqtt road sign */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D08116B41C1F26CE000847E8 /* Build configuration list for PBXNativeTarget "mqtt road sign" */;
+			buildPhases = (
+				487DABC46E436F42EF74E8A1 /* Check Pods Manifest.lock */,
+				D081168E1C1F26CE000847E8 /* Sources */,
+				D081168F1C1F26CE000847E8 /* Frameworks */,
+				D08116901C1F26CE000847E8 /* Resources */,
+				2163C184B6D9B090D41D5CC4 /* Embed Pods Frameworks */,
+				76A9A2415E34D9B82C71BC8E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "mqtt road sign";
+			productName = "mqtt road sign";
+			productReference = D08116921C1F26CE000847E8 /* mqtt road sign.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D08116AA1C1F26CE000847E8 /* mqtt road signTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D08116B71C1F26CE000847E8 /* Build configuration list for PBXNativeTarget "mqtt road signTests" */;
+			buildPhases = (
+				D08116A71C1F26CE000847E8 /* Sources */,
+				D08116A81C1F26CE000847E8 /* Frameworks */,
+				D08116A91C1F26CE000847E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D08116AD1C1F26CE000847E8 /* PBXTargetDependency */,
+			);
+			name = "mqtt road signTests";
+			productName = "mqtt road signTests";
+			productReference = D08116AB1C1F26CE000847E8 /* mqtt road signTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D081168A1C1F26CE000847E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Livio;
+				TargetAttributes = {
+					D08116911C1F26CE000847E8 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 7WJ44C24Q7;
+					};
+					D08116AA1C1F26CE000847E8 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = D08116911C1F26CE000847E8;
+					};
+				};
+			};
+			buildConfigurationList = D081168D1C1F26CE000847E8 /* Build configuration list for PBXProject "mqtt road sign" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D08116891C1F26CE000847E8;
+			productRefGroup = D08116931C1F26CE000847E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D08116911C1F26CE000847E8 /* mqtt road sign */,
+				D08116AA1C1F26CE000847E8 /* mqtt road signTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D08116901C1F26CE000847E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D08116A51C1F26CE000847E8 /* LaunchScreen.storyboard in Resources */,
+				D08116A21C1F26CE000847E8 /* Assets.xcassets in Resources */,
+				D08116A01C1F26CE000847E8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D08116A91C1F26CE000847E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2163C184B6D9B090D41D5CC4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mqtt road sign/Pods-mqtt road sign-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		487DABC46E436F42EF74E8A1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		76A9A2415E34D9B82C71BC8E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mqtt road sign/Pods-mqtt road sign-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D081168E1C1F26CE000847E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D081169D1C1F26CE000847E8 /* ViewController.m in Sources */,
+				D081169A1C1F26CE000847E8 /* AppDelegate.m in Sources */,
+				D08116BC1C206C01000847E8 /* IoTManager.m in Sources */,
+				D08116C01C206D83000847E8 /* IoTConstants.m in Sources */,
+				D08116971C1F26CE000847E8 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D08116A71C1F26CE000847E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D08116B01C1F26CE000847E8 /* mqtt_road_signTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D08116AD1C1F26CE000847E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D08116911C1F26CE000847E8 /* mqtt road sign */;
+			targetProxy = D08116AC1C1F26CE000847E8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D081169E1C1F26CE000847E8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D081169F1C1F26CE000847E8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D08116A31C1F26CE000847E8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D08116A41C1F26CE000847E8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D08116B21C1F26CE000847E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		D08116B31C1F26CE000847E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D08116B51C1F26CE000847E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFBEA00335A96382E9E10C62 /* Pods-mqtt road sign.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "mqtt road sign/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.livio.mqtt-road-sign";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		D08116B61C1F26CE000847E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B292A674C9230A6488082632 /* Pods-mqtt road sign.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "mqtt road sign/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.livio.mqtt-road-sign";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		D08116B81C1F26CE000847E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "mqtt road signTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.livio.mqtt-road-signTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mqtt road sign.app/mqtt road sign";
+			};
+			name = Debug;
+		};
+		D08116B91C1F26CE000847E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "mqtt road signTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.livio.mqtt-road-signTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mqtt road sign.app/mqtt road sign";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D081168D1C1F26CE000847E8 /* Build configuration list for PBXProject "mqtt road sign" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D08116B21C1F26CE000847E8 /* Debug */,
+				D08116B31C1F26CE000847E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D08116B41C1F26CE000847E8 /* Build configuration list for PBXNativeTarget "mqtt road sign" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D08116B51C1F26CE000847E8 /* Debug */,
+				D08116B61C1F26CE000847E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D08116B71C1F26CE000847E8 /* Build configuration list for PBXNativeTarget "mqtt road signTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D08116B81C1F26CE000847E8 /* Debug */,
+				D08116B91C1F26CE000847E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D081168A1C1F26CE000847E8 /* Project object */;
+}

@@ -1,0 +1,13 @@
+PODS:
+  - AWSCore (2.3.2)
+  - AWSIoT (2.3.2):
+    - AWSCore (= 2.3.2)
+
+DEPENDENCIES:
+  - AWSIoT (~> 2.3.2)
+
+SPEC CHECKSUMS:
+  AWSCore: c2f69975fd2caf38a10736961de28a0105cdb00c
+  AWSIoT: 76db46e197aa12cb942175cb65e8368ba6ce47ba
+
+COCOAPODS: 0.39.0
