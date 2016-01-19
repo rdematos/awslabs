@@ -216,7 +216,7 @@ function addCarPosition(message) {
   var vid = jsonMsg.state.reported.vin,
     lat = jsonMsg.state.reported.gps.latitudeDegrees,
     lng = jsonMsg.state.reported.gps.longitudeDegrees,
-    crash = jsonMsg.state.reported.prndl != null && jsonMsg.state.reported.prndl == 'PARK';
+    crash = jsonMsg.state.reported.prndl != null && jsonMsg.state.reported.prndl == 'REVERSE' || jsonMsg.state.reported.driverBraking == 'YES' ;
   if (cars[vid] == undefined) {
     // console.log('create car '+vid+' lat: '+lat+' lng:'+lng);
     //cars[vid] = map.addObject(new H.map.Marker({lat: lat, lng: lng}, {icon: crash? crashsvg : carsvg}));
