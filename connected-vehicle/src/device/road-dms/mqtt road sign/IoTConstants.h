@@ -15,6 +15,7 @@ extern NSString *const AWSIoTCommonName;
 extern NSString *const AWSIoTCountryName;
 extern NSString *const AWSIoTOrganizationName;
 extern NSString *const AWSIoTOrganizationUnitName;
+extern NSString *const AWSIoTPolicyName;
 
 extern NSString *const AWSIoTEventNotification;
 

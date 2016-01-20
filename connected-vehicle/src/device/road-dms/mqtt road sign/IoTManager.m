@@ -72,7 +72,7 @@ typedef void (^AWSCallback)(AWSIoTMQTTStatus status);
             certificateId = response.certificateId;
             __block NSUUID *uuid = [NSUUID UUID];
             AWSIoTAttachPrincipalPolicyRequest *attachPrincipalPolicyRequest = [[AWSIoTAttachPrincipalPolicyRequest alloc] init];
-            attachPrincipalPolicyRequest.policyName = @"PubSubToAnyTopic";
+            attachPrincipalPolicyRequest.policyName = AWSIoTPolicyName;
             attachPrincipalPolicyRequest.principal = response.certificateArn;
             
             AWSTask *task = [self.iot attachPrincipalPolicy:attachPrincipalPolicyRequest];
