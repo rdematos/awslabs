@@ -14,7 +14,8 @@ aws lambda remove-permission --function-name geonotificationpublisher --statemen
 aws lambda add-permission --function-name geonotificationpublisher --region us-east-1 --principal iot.amazonaws.com --source-arn arn:aws:iot:us-east-1:673485280914:rule/vehicleprndl --source-account 673485280914 --statement-id statement003 --action "lambda:InvokeFunction"
 aws iot delete-topic-rule --rule-name vehicleprndl
 aws iot create-topic-rule --rule-name vehicleprndl --topic-rule-payload file://vehicle.prndl.json #should see hazard notifications in vehicle
-
+aws iot delete-topic-rule --rule-name vehicledriverbraking
+aws iot create-topic-rule --rule-name vehicledriverbraking --topic-rule-payload file://vehicle.driverBraking.json #should see hazard notifications in vehicle
 #re-broacast notifications to third party
 aws iot delete-topic-rule --rule-name trafficincidentnotification
 aws lambda remove-permission --function-name trafficincidentnotification --statement-id statement006
