@@ -37,7 +37,7 @@ Implementation assumes that the following vehicle data payload is retrieved from
 
 {"state":{"reported":{"vin":"3dd0b73a-4e70-4b0c-8bb6-e72048f705be","prndl":"DRIVE","gps":{"speed":80.0,"latitudeDegrees":42.3574911198,"longitudeDegrees":-71.16254944,"heading":173},"externalTemperature":23.0}}}
 
-Function adds timestamp and pin location to event to simplify the indexing of geopoints in ElasticSearch
+Function adds timestamp and pin location to event to support the indexing of geopoints in ElasticSearch
 
 {
     "state": {
@@ -61,6 +61,113 @@ Function adds timestamp and pin location to event to simplify the indexing of ge
         }
     }
 }
+
+ElasticSearch mapping is as follows:
+
+{
+    "mappings": {
+      "vehicledata": {
+        "properties": {
+          "state": {
+            "properties": {
+              "reported": {
+                "properties": {
+                  "airbagStatus": {
+                    "properties": {
+                      "driverAirbagDeployed": {
+                        "type": "string"
+                      },
+                      "driverCurtainAirbagDeployed": {
+                        "type": "string"
+                      },
+                      "driverKneeAirbagDeployed": {
+                        "type": "string"
+                      },
+                      "driverSideAirbagDeployed": {
+                        "type": "string"
+                      },
+                      "passengerAirbagDeployed": {
+                        "type": "string"
+                      },
+                      "passengerCurtainAirbagDeployed": {
+                        "type": "string"
+                      },
+                      "passengerKneeAirbagDeployed": {
+                        "type": "string"
+                      },
+                      "passengerSideAirbagDeployed": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "externalTemperature": {
+                    "type": "double"
+                  },
+                  "gps": {
+                    "properties": {
+                      "heading": {
+                        "type": "long"
+                      },
+                      "latitudeDegrees": {
+                        "type": "double"
+                      },
+                      "longitudeDegrees": {
+                        "type": "double"
+                      },
+                      "speed": {
+                        "type": "double"
+                      },
+                      "utcDay": {
+                        "type": "long"
+                      },
+                      "utcHours": {
+                        "type": "long"
+                      },
+                      "utcMinutes": {
+                        "type": "long"
+                      },
+                      "utcMonth": {
+                        "type": "long"
+                      },
+                      "utcSeconds": {
+                        "type": "long"
+                      },
+                      "utcYear": {
+                        "type": "long"
+                      }
+                    }
+                  },
+                  "pin": {
+                    "properties": {
+                      "location": {
+                        "type": "geo_point"
+                        }
+                      }
+                    }
+                  },
+                  "prndl": {
+                    "type": "string"
+                  },
+                  "timestamp": {
+                    "type": "date",
+                    "format": "yyyy/MM/dd HH:mm:ss||yyyy/MM/dd"
+                  },
+                  "timestamp_es": {
+                    "type": "date",
+                    "store": true
+                  },
+                  "vin": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+}
+
 
  */
 var creds = new AWS.EnvironmentCredentials('AWS');
